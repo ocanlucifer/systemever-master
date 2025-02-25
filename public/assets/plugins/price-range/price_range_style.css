@@ -1,0 +1,77 @@
+.price-range-block {
+    margin:60px;
+}
+
+.sliderText{
+    width:40%;
+    margin-bottom:30px;
+    border-bottom: 2px solid red;
+    padding: 10px 0 10px 0px;
+    font-weight:bold;
+}
+
+.ui-slider-horizontal {
+    height: .6em;
+}
+.ui-slider-horizontal {
+    margin-bottom: 15px;
+    width:40%;
+}
+.ui-widget-header {
+    background: #9a131b;
+}
+
+.price-range-search {
+    width:40.5%; 
+    background-color: #f9f9f9; 
+    border: 1px solid #6e6666;
+    min-width: 40%;
+    display: inline-block;
+    height: 32px;
+    border-radius: 5px;
+    float: left;
+    margin-bottom:20px;
+    font-size:16px;
+}
+.price-range-field{
+    /* width:20%;  */
+    min-width: 16%;
+    border:none;
+    background-color: transparent;
+    color: black; 
+    font-size:13px;
+    font-family: "Open Sans", sans-serif;
+    border-radius: 5px; 
+    height:26px; 
+    padding:5px;
+}
+.search-results-block{
+    position: relative;
+    display: block;
+    clear: both;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default{
+    background: #d71924;
+    border:1px solid #d71924;
+    border-radius:50%;
+    width: 22px;
+    height: 22px;
+}
+.ui-slider-horizontal .ui-slider-handle {
+    top: -0.5em;
+}
+
+.ui-widget-content{
+    background: #e8e8e8;
+}
+.ui-widget.ui-widget-content {
+    border: 1px solid #e8e8e8;
+}
+.range{
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    color: #202020;
+    
+}

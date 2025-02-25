@@ -1,0 +1,183 @@
+.sidebar{
+    position: fixed;
+    left: -20rem;
+    top:0;
+    bottom: 0;
+    width: 300px;
+    background-color: #EEEEEE;
+    z-index: 10;
+    transition: all 0.8s ease;
+    overflow-x: auto;
+    .box-menu-sidebar{
+        // margin-top: 9rem;
+        ul{
+            li{
+                color: #000;
+                font-family: "Poppins", sans-serif;
+                font-weight: 700;
+                font-size: 16px;
+                // padding: 0px 15px;
+                background-color: #EEEEEE;
+                &:first-child{
+                    a{
+                        background-color: transparent;
+                    }
+                }
+                .card{
+                    background-color: #EEEEEE;
+                    border: none;
+                    border-radius: 0;
+                    padding: 0;
+                    .card-body{
+                        background-color: #E0E0E0;
+                        padding: 10px 25px;
+                        padding-top:0;
+                        ul{
+                            li{
+                                font-family: "Poppins", sans-serif;
+                                font-weight: 400;
+                                font-size: 15px;
+                                margin-bottom: 10px;
+                                a{
+                                    background-color: #E0E0E0;
+                                    color: #000;
+                                    padding: 0;
+                                }
+                            }
+                            &.choose-language{
+                                li{
+                                    font-size: 13px;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                a{
+                    background-color: #E0E0E0;
+                    color: #000; 
+                    display: block;
+                    padding: 0 25px;
+                    margin-top: -1px;
+                    &.collapsed{
+                        background-color: transparent;
+                        margin-top: 0;
+                        span{
+                            background-color: transparent;
+                            transform: rotate(0deg);
+                        }
+                        .card-header{
+                            &.head-language{
+                                font-weight: 400;
+                            }
+                        }
+                    }
+                    
+                    .arrow {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 18px;
+                        height: 18px;
+                        @include border-rad(50%);
+                        background-color: #CFCFCF;
+                        transform: rotate(-180deg);
+                        float: right;
+                        text-align: center;
+                        i{
+                            color: #9c9a9a;
+                        }
+                    }
+                    .card-header{
+                        border-bottom: 1px solid #DDDDDD;
+                        padding: 15px 0;
+                        background-color: transparent;
+                        &.head-language{
+                            font-weight: 700;
+                        }
+                    }
+                }
+                &.language{
+                    font-weight: 400;
+                    font-size: 13px;
+                    .simbol-lang{
+                        font-size: 16px;
+                    }
+                }
+                &.call-us{
+                    font-family: "Open Sans", sans-serif;
+                    font-weight: 400;
+                    font-size: 13px;
+                    .card-header{
+                        background-color: transparent;
+                        padding: 15px 25px;
+                        span{
+                            float:none;
+                            display: contents;
+                            a{
+                                display: contents;
+                                color: #2D73C3;
+                            }
+                        }
+                    }
+                }
+                .close-sidebar{
+                    background-color: transparent;
+                    border: none;
+                    width: 18px;
+                    height: 30px;
+                    float: right;
+                    padding: 0;
+                    margin-right: 1.5em;
+                    margin-top: 11px;
+                    img{
+                        width: 16px;
+                        height: 16px;
+                        object-fit: contain;
+                    }
+                }
+                // &:nth-child(6){
+                //     border-bottom: 1px solid #DFDFDF;
+                // }
+                .dropdown-language{
+                    button{
+                        padding: 0;
+                        color: #925D55;
+                        .lang{
+                            color: #925D55;
+                            font-family: "Roboto", sans-serif;
+                            font-weight: 400;
+                            font-size: 15px;
+                        }
+                    }
+                    .dropdown-menu{
+                        border:none;
+                        .dropdown-item{
+                            padding: 5px 0px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.is-active{
+        left:0;
+        transform: translate(0%, 0);
+    }
+}
+.backdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 6;
+    width: 100vw;
+    bottom: 0;
+    background-color:rgba(0,0,0,0.5);
+    display: none;
+    &.is-active{
+        display: block;
+    }
+}
+.padding-bottom-3px{
+    padding-bottom: 3px !important;
+}

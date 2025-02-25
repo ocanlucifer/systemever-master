@@ -1,0 +1,24 @@
+.pagination li {
+  font-family: "Rubik", sans-serif;
+  padding: 0 5px;
+}
+.pagination li a {
+  border: 1px solid #AA5C40;
+  background-color: transparent;
+  color: #AA5C40;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 5px 15px;
+  text-align: center;
+  display: block;
+}
+.pagination li a.active, .pagination li a:hover {
+  background-color: #AA5C40;
+  color: #fff;
+  font-weight: 700;
+}
+.pagination li a.prev, .pagination li a.next {
+  border: none;
+}
+
+/*# sourceMappingURL=pagination.css.map */

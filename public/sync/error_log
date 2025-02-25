@@ -1,0 +1,131 @@
+[23-Dec-2021 04:27:05 UTC] PHP Parse error:  syntax error, unexpected '"function.php"' (T_CONSTANT_ENCAPSED_STRING) in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/database.php on line 3
+[23-Dec-2021 04:27:25 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/database.php on line 6
+[23-Dec-2021 04:27:26 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/database.php on line 6
+[23-Dec-2021 04:27:26 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/database.php on line 6
+[23-Dec-2021 11:28:15 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/function.php:29
+Stack trace:
+#0 /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/database.php(5): encrypt_string('231211232021')
+#1 {main}
+  thrown in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/function.php on line 29
+[23-Dec-2021 11:34:51 Asia/Jakarta] PHP Notice:  Undefined variable: path in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php on line 24
+[23-Dec-2021 11:34:51 Asia/Jakarta] PHP Fatal error:  Uncaught RuntimeException: Directory name must not be empty. in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php:14
+Stack trace:
+#0 /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php(14): RecursiveDirectoryIterator->__construct('')
+#1 /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php(24): getDirContents(NULL)
+#2 {main}
+  thrown in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php on line 14
+[23-Dec-2021 11:34:57 Asia/Jakarta] PHP Notice:  Undefined variable: path in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php on line 24
+[23-Dec-2021 11:34:57 Asia/Jakarta] PHP Fatal error:  Uncaught RuntimeException: Directory name must not be empty. in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php:14
+Stack trace:
+#0 /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php(14): RecursiveDirectoryIterator->__construct('')
+#1 /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php(24): getDirContents(NULL)
+#2 {main}
+  thrown in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php on line 14
+[23-Dec-2021 11:35:19 Asia/Jakarta] PHP Notice:  Undefined variable: path in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php on line 23
+[23-Dec-2021 11:35:19 Asia/Jakarta] PHP Fatal error:  Uncaught RuntimeException: Directory name must not be empty. in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php:13
+Stack trace:
+#0 /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php(13): RecursiveDirectoryIterator->__construct('')
+#1 /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php(23): getDirContents(NULL)
+#2 {main}
+  thrown in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php on line 13
+[23-Dec-2021 11:35:20 Asia/Jakarta] PHP Notice:  Undefined variable: path in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php on line 23
+[23-Dec-2021 11:35:20 Asia/Jakarta] PHP Fatal error:  Uncaught RuntimeException: Directory name must not be empty. in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php:13
+Stack trace:
+#0 /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php(13): RecursiveDirectoryIterator->__construct('')
+#1 /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php(23): getDirContents(NULL)
+#2 {main}
+  thrown in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php on line 13
+[23-Dec-2021 11:35:20 Asia/Jakarta] PHP Notice:  Undefined variable: path in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php on line 23
+[23-Dec-2021 11:35:20 Asia/Jakarta] PHP Fatal error:  Uncaught RuntimeException: Directory name must not be empty. in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php:13
+Stack trace:
+#0 /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php(13): RecursiveDirectoryIterator->__construct('')
+#1 /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php(23): getDirContents(NULL)
+#2 {main}
+  thrown in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php on line 13
+[23-Dec-2021 11:35:20 Asia/Jakarta] PHP Notice:  Undefined variable: path in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php on line 23
+[23-Dec-2021 11:35:20 Asia/Jakarta] PHP Fatal error:  Uncaught RuntimeException: Directory name must not be empty. in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php:13
+Stack trace:
+#0 /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php(13): RecursiveDirectoryIterator->__construct('')
+#1 /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php(23): getDirContents(NULL)
+#2 {main}
+  thrown in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php on line 13
+[23-Dec-2021 11:35:32 Asia/Jakarta] PHP Notice:  Undefined variable: path in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php on line 23
+[23-Dec-2021 11:35:32 Asia/Jakarta] PHP Fatal error:  Uncaught RuntimeException: Directory name must not be empty. in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php:13
+Stack trace:
+#0 /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php(13): RecursiveDirectoryIterator->__construct('')
+#1 /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php(23): getDirContents(NULL)
+#2 {main}
+  thrown in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php on line 13
+[23-Dec-2021 11:35:33 Asia/Jakarta] PHP Notice:  Undefined variable: path in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php on line 23
+[23-Dec-2021 11:35:33 Asia/Jakarta] PHP Fatal error:  Uncaught RuntimeException: Directory name must not be empty. in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php:13
+Stack trace:
+#0 /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php(13): RecursiveDirectoryIterator->__construct('')
+#1 /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php(23): getDirContents(NULL)
+#2 {main}
+  thrown in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php on line 13
+[23-Dec-2021 11:36:24 Asia/Jakarta] PHP Fatal error:  Uncaught UnexpectedValueException: RecursiveDirectoryIterator::__construct(/home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/../../../storage/app): failed to open dir: No such file or directory in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php:13
+Stack trace:
+#0 /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php(13): RecursiveDirectoryIterator->__construct('/home/pelangi4/...')
+#1 /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php(23): getDirContents('/home/pelangi4/...')
+#2 {main}
+  thrown in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php on line 13
+[23-Dec-2021 11:37:08 Asia/Jakarta] PHP Warning:  scandir(/home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/../../../storage/app): failed to open dir: No such file or directory in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php on line 13
+[23-Dec-2021 11:37:08 Asia/Jakarta] PHP Warning:  scandir(): (errno 2): No such file or directory in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php on line 13
+[23-Dec-2021 11:37:08 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php on line 15
+[23-Dec-2021 11:44:47 Asia/Jakarta] PHP Warning:  scandir(/home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/../../storage/app/upload): failed to open dir: No such file or directory in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php on line 13
+[23-Dec-2021 11:44:47 Asia/Jakarta] PHP Warning:  scandir(): (errno 2): No such file or directory in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php on line 13
+[23-Dec-2021 11:44:47 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php on line 15
+[23-Dec-2021 11:46:53 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to undefined function eixt() in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/pelangi4/DEV/wwi.pelangisentralkreasi.co.id/public/sync/file.php on line 8
+[23-Dec-2021 13:20:13 Asia/Jakarta] PHP Notice:  Undefined variable: WvC in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 16
+[23-Dec-2021 13:20:13 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'pelangi4_agrinesia'@'localhost' (using password: YES) in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 28
+[23-Dec-2021 13:20:13 Asia/Jakarta] PHP Warning:  mysqli::select_db(): Couldn't fetch mysqli in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 29
+[23-Dec-2021 13:20:13 Asia/Jakarta] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 30
+[23-Dec-2021 13:20:13 Asia/Jakarta] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 32
+[23-Dec-2021 13:20:13 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function fetch_row() on bool in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php:33
+Stack trace:
+#0 /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php(24): Export_Database('127.0.0.1', 'pelangi4_agrine...', 'McUN@l&1', 'pelangi4_agrine...', false, false)
+#1 {main}
+  thrown in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 33
+[23-Dec-2021 13:23:32 Asia/Jakarta] PHP Notice:  Undefined variable: WvC in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 16
+[23-Dec-2021 13:23:32 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'pelangi4_agrinesia'@'localhost' (using password: YES) in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 28
+[23-Dec-2021 13:23:32 Asia/Jakarta] PHP Warning:  mysqli::select_db(): Couldn't fetch mysqli in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 29
+[23-Dec-2021 13:23:32 Asia/Jakarta] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 30
+[23-Dec-2021 13:23:32 Asia/Jakarta] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 32
+[23-Dec-2021 13:23:32 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function fetch_row() on bool in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php:33
+Stack trace:
+#0 /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php(24): Export_Database('127.0.0.1', 'pelangi4_agrine...', 'McUN@l&1', 'pelangi4_agrine...', false, false)
+#1 {main}
+  thrown in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 33
+[23-Dec-2021 13:24:55 Asia/Jakarta] PHP Notice:  Undefined variable: WvC in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 16
+[23-Dec-2021 13:24:55 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'pelangi4_agrinesia'@'localhost' (using password: YES) in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 28
+[23-Dec-2021 13:24:55 Asia/Jakarta] PHP Warning:  mysqli::select_db(): Couldn't fetch mysqli in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 29
+[23-Dec-2021 13:24:55 Asia/Jakarta] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 30
+[23-Dec-2021 13:24:55 Asia/Jakarta] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 32
+[23-Dec-2021 13:24:55 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function fetch_row() on bool in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php:33
+Stack trace:
+#0 /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php(24): Export_Database('127.0.0.1', 'pelangi4_agrine...', 'McUN@l&1', 'pelangi4_agrine...', false, false)
+#1 {main}
+  thrown in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 33
+[23-Dec-2021 13:26:58 Asia/Jakarta] PHP Notice:  Undefined variable: WvC in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 16
+[23-Dec-2021 13:26:58 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'pelangi4_agrinesia'@'localhost' (using password: YES) in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 28
+[23-Dec-2021 13:26:58 Asia/Jakarta] PHP Warning:  mysqli::select_db(): Couldn't fetch mysqli in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 29
+[23-Dec-2021 13:26:58 Asia/Jakarta] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 30
+[23-Dec-2021 13:26:58 Asia/Jakarta] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 32
+[23-Dec-2021 13:26:58 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function fetch_row() on bool in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php:33
+Stack trace:
+#0 /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php(24): Export_Database('127.0.0.1', 'pelangi4_agrine...', 'McUN@l&1', 'pelangi4_agrine...', false, false)
+#1 {main}
+  thrown in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 33
+[23-Dec-2021 13:28:18 Asia/Jakarta] PHP Notice:  Undefined variable: WvC in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 16
+[23-Dec-2021 13:28:18 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'pelangi4_agrinesia'@'localhost' (using password: YES) in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 28
+[23-Dec-2021 13:28:18 Asia/Jakarta] PHP Warning:  mysqli::select_db(): Couldn't fetch mysqli in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 29
+[23-Dec-2021 13:28:18 Asia/Jakarta] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 30
+[23-Dec-2021 13:28:18 Asia/Jakarta] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 32
+[23-Dec-2021 13:28:18 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function fetch_row() on bool in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php:33
+Stack trace:
+#0 /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php(24): Export_Database('127.0.0.1', 'pelangi4_agrine...', 'McUN@l&1', 'pelangi4_agrine...', false, false)
+#1 {main}
+  thrown in /home/pelangi4/DEV/agrinesia.pelangisentralkreasi.co.id/public/sync/database.php on line 33

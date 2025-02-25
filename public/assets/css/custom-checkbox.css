@@ -1,0 +1,206 @@
+.term-condition-check .container {
+    margin: 0 auto;
+  }
+  
+  .round {
+    position: relative;
+  }
+  
+  .round label {
+    background-color: #fff;
+    /* border: 1px solid #ccc; */
+    border-radius: 50%;
+    cursor: pointer;
+    height: 28px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 28px;
+    border: 1px solid #2f2f2f;
+  }
+  
+  .round label:after {
+    border: 2px solid #fff;
+    border-top: none;
+    border-right: none;
+    content: "";
+    height: 6px;
+    left: 7px;
+    opacity: 0;
+    position: absolute;
+    top: 8px;
+    transform: rotate(-45deg);
+    width: 12px;
+  }
+  
+  .round input[type="checkbox"] {
+    visibility: hidden;
+  }
+  
+  .round input[type="checkbox"]:checked + label {
+    background-color: #ed1d25;
+    border-color: #ed1d25;
+  }
+  
+  .round input[type="checkbox"]:checked + label:after {
+    opacity: 1;
+  }
+  .term-condition-check .caption{
+      display: inline-block;
+      margin-top: 1px;
+      font-family:"Open Sans", sans-serif;
+      font-size: 17px;
+      color:#3c3c3c;
+  }
+
+  .custom-radio .custom-control-input:checked~.custom-control-label::after {
+      background-color: #ff0101;
+  }
+
+
+  /* chekcbox bg red */
+  /* The container */
+.container-check {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  /* font-size: 22px; */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container-check input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  height: 14px;
+  width: 14px;
+  border-radius: 3px;
+  border: solid 1px #979797;
+}
+.checkmark.check-cart{
+  height: 16px;
+  width: 16px;
+}
+/* On mouse-over, add a grey background color */
+.container-check:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container-check input:checked ~ .checkmark {
+  background-color: #009944;
+  border: solid 1px #009944;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container-check input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container-check .checkmark:after {
+  left: 4px;
+  top: 0px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+
+}
+
+.container-check .checkmark.check-cart:after {
+  left: 5px;
+  top: 1px;
+}
+/* radio button circle red */
+
+.checkmark-circle {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  border: solid 1px #979797;
+}
+
+/* On mouse-over, add a grey background color */
+.container-check:hover input ~ .checkmark-circle {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container-check input:checked ~ .checkmark-circle {
+  background-color: #FFFFFF;
+  border: solid 1px #009944;
+}
+.container-check input:checked:disabled ~ .checkmark-circle {
+  background-color: #FFFFFF;
+  border: solid 1px #c6c6c6;
+}
+.container-check input:disabled ~ .checkmark-circle {
+  background-color: #FFFFFF;
+  border: solid 1px #c6c6c6;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark-circle:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container-check input:checked ~ .checkmark-circle:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container-check .checkmark-circle:after {
+  left: 2px;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color:#009944;
+}
+
+.container-check input:checked:disabled ~ .checkmark-circle:after {
+  background-color: #9b9b9b;
+}
+
+@media(max-width:480px){
+  .checkmark-circle{
+    height: 18px;
+    width: 18px;
+  }
+  .container-check .checkmark-circle:after {
+    width: 12px;
+    height: 12px;
+  }
+}

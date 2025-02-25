@@ -1,0 +1,181 @@
+<footer>
+    <div class="footer-cta" style="background:#232323 !important;overflow-x:hidden">
+        <div class="container ">
+            <img src="{{ asset('assets/fl/city.svg') }}" alt="">
+            <div class="row h-100">
+                <div class="col-lg-6 col-12 h-lg-100 d-flex align-items-lg-center align-items-end pr-lg-0">
+                    <strong>
+                        {!! stringlang('Make Your Business #Easier<br>with System Ever Indonesia', 'Pastikan Bisnismu #JadiLebihMudah<br>bersama System Ever Indonesia') !!}
+                    </strong>
+                </div>
+                <div class="col-lg-6 col-12 h-lg-100 d-flex align-items-start align-items-lg-center  pl-lg-5 gap-4">
+                    <a href="{!! stringlang('/en/contact', '/contact') !!}" class="a"> {!! stringlang('Request Demo', 'Jadwalkan Demo') !!}</a>
+                    <a href="{{ $meta->{'notionurl'} }}" target="_blank" class="white a"> {!! stringlang('Learn More, It\'s Free!', 'Learn More, It\'s Free!') !!}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mx-lg-0 mx-1 pt-5">
+            <div class="col-lg-12 mb-lg-4">
+                <div class="row pb-4i border-bottom-footer">
+                    <div class="col-lg-8 col-12 px-0">
+                        <div class="logo-footer pl-0">
+                            <img class="logo" src="{{ asset('assets/fl/logo.png') }}" alt="Logo SystemEver" style="height:40px">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12 px-0 mt-4 mt-lg-0">
+                        <div class="sosmed-link">
+                            <ul class="list-unstyled d-flex justify-content-start">
+                                <li><a href="https://www.facebook.com/systemeverid/" target="_blank"><img src="{{ asset('assets/fl/fb.svg') }}" alt=""></a></li>
+                                <li><a href="https://www.instagram.com/systemeverid/" target="_blank"><img src="{{ asset('assets/fl/ig.svg') }}" alt=""></a></li>
+                                <li><a href="https://id.linkedin.com/company/ylwid" target="_blank"><img src="{{ asset('assets/fl/in.svg') }}" alt=""></a></li>
+                                <li><a href="https://www.youtube.com/channel/UCzadpIiDI1LPCp0RVvBeY8Q" target="_blank"><img src="{{ asset('assets/fl/yt.svg') }}" alt=""></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4i">
+                    <div class="col-lg-5 col-md-4 pb-4 d-flex d-lg-none pl-2">
+                        <ul class="list-unstyled menu-footer">
+                            <li><a href="{{ route('get.pages.abouts.indonesia_branch') }}">{{ stringlang('About', 'Tentang') }}</a></li>
+                            <li><a href="{{ route('get.pages.solutions.accounting_management_systems') }}">{{ stringlang('Solution', 'Solusi') }}</a></li>
+                            <li><a href="{{ route('get.pages.services.feature') }}">{{ stringlang('Service', 'Layanan') }}</a></li>
+                        </ul>
+                        <ul class="list-unstyled menu-footer">
+                            <li><a href="{{ route('get.pages.support.video') }}">{{ stringlang('Support', 'Dukungan') }}</a></li>
+                            <li><a href="{{ route('get.contact') }}">{{ stringlang('Pricing', 'Harga') }}</a></li>
+                            <li><a href="{{ route('get.pages.article.article') }}">{{ stringlang('Business Insights', 'Business Insight') }}</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-4 pl-2 pr-lg-5 pr-md-0 pr-5 d-flex justify-content-lg-start justify-content-md-start justify-content-start">
+                        <ul class="list-unstyled">
+                            <li class="media media-footer mb-4">
+                                <img class="mr-3" src="{{ asset('assets/fl/mail.svg') }}" alt="Generic placeholder image">
+                                <div class="media-body">
+                                    <b>Email</b><br />
+                                    <a href="mailto:info@systemever.com"> info@systemever.com </a>
+                                </div>
+                            </li>
+                            <li class="media media-footer mb-4">
+                                <img class="mr-3" src="{{ asset('assets/fl/wa1.svg') }}" alt="Generic placeholder image">
+                                <div class="media-body">
+                                    <b>Contact</b>
+                                    <br />
+                                    <a href="tel:+6281119971017">081 119 971 017</a>
+                                    <a href="tel:+6221522962129">021 - 5229 621 29</a>
+                                </div>
+                            </li>
+                            <li class="media media-footer mb-4">
+                                <img class="mr-3" src="{{ asset('assets/fl/pin.svg') }}" alt="">
+                                <div class="media-body">
+                                    <b>{{ stringlang('Address', 'Alamat') }}</b>
+                                    <br />
+                                    <a href="https://g.page/systemever?share" target="_blank">
+                                        Menara BP Jamsostek Tower Selatan lt.12 <br />
+                                        Jl. Jend. Gatot Subroto kav.38<br />
+                                        Jakarta Selatan, 12710
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-4 pb-3 d-lg-flex d-none">
+                        <ul class="list-unstyled menu-footer">
+                            <li style="margin-bottom:8px"><strong>{{ stringlang('About', 'Tentang') }}</strong></li>
+                            <li><a href="{{ route('get.pages.abouts.indonesia_branch') }}">{{ stringlang('About Us', 'Tentang Kami') }}</a></li>
+                            <li><a href="{{ route('get.pages.solutions.accounting_management_systems') }}">{{ stringlang('Solution', 'Solusi') }}</a></li>
+                            <li><a href="{{ route('get.pages.services.feature') }}">{{ stringlang('Service', 'Layanan') }}</a></li>
+                        </ul>
+                        <ul class="list-unstyled menu-footer">
+                            <li style="margin-bottom:8px"><strong>{{ stringlang('Info', 'Info') }}</strong></li>
+                            <li><a href="{{ route('get.pages.support.video') }}">{{ stringlang('Support', 'Dukungan') }}</a></li>
+                            <li><a href="{{ route('get.contact') }}">{{ stringlang('Pricing', 'Harga') }}</a></li>
+                            <li><a href="{{ route('get.pages.article.article') }}">{{ stringlang('Business Insights', 'Business Insight') }}</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 pl-0 pb-4">
+                        <ul class="list-unstyled menu-footer" style="width:100%">
+                            <li><strong>{{ stringlang('Get In Touch', 'Tetap Terhubung') }}</strong></li>
+                        </ul>
+                        <div class="newsletter">
+                            <input type="text" placeholder="{{ stringlang('Your Email', 'Email Anda') }}" id="newletter-email">
+                            <button id="newsletter-button">{{ stringlang('Subscribe', 'Berlangganan') }}</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="footer-copy">
+        <div class="container">
+            <div class="row d-lex">
+                <div class="col-12 col-lg-6">
+                    <div class="copyright">
+                        <div class="row">
+                            <div class="col-12">
+                                <div>Copyright © PT. System Ever Indonesia. All rights Reserved.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-12 col-lg-6 text-right">
+                    <div class="copyright">
+                        <a href="{{ route('get.legal', ['slug' => 'terms-and-conditions']) }}" target="_blank" class="text-dark">Terms & Conditions</a> |
+                        <a href="{{ route('get.legal', ['slug' => 'privacy-policy']) }}" target="_blank" class="text-dark">Privacy Policy</a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+@section("newsletterjs")
+<script>
+    $(document).ready(function(){
+        
+
+        
+
+        $("#newsletter-button").click(function(){
+            var form = {
+                "_token": "{{ csrf_token() }}",
+                "email": $("#newletter-email").val()
+            }
+            console.log(form)
+            $.ajax({
+            type:'POST',
+            url: "{{ route('get.helper.newsletter') }}",
+            data : form,
+            success:function(data){
+                if (data.code == 200) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: "Your email has been listed as newsletter member",
+                        icon: 'success',
+                        confirmButtonColor: '#28a745',
+                        confirmButtonText: 'OK'
+                    })
+
+                    $("#newletter-email").val("")
+                } else {
+                    
+                    Swal.fire({
+                        title: 'Error!',
+                        text: data.message,
+                        icon: 'warning',
+                        confirmButtonColor: '#28a745',
+                        confirmButtonText: 'OK'
+                    })
+                }
+            }
+        });
+        })
+    })
+</script>
+
+@endsection

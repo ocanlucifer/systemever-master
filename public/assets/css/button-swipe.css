@@ -1,0 +1,31 @@
+.swipe-left{
+    width: 59px;
+    height: 59px;
+    background-image: url('../img/arrow-left.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
+/* .swipe-left:hover{
+    background-image: url('../img/group-6@2xcopy.png');
+} */
+.swipe-right{
+    width: 59px;
+    height: 59px;
+    background-image: url('../img/arrow-right.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
+/* .swipe-right:hover{
+    background-image: url('../img/group-6@2x.png');
+} */
+
+.filter-sort-article .select2-container .select2-selection--single .select2-selection__arrow{
+    background-image: url('../img/arrow-bottom.svg');
+    background-repeat: no-repeat;
+    background-position-y: 1rem;
+
+}

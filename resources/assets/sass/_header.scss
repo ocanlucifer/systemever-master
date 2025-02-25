@@ -1,0 +1,471 @@
+header {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    // border-bottom: 1px solid #E2E2E2;
+}
+.section-demo {
+    background-color: #040404;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #fff;
+    height: 50px;
+    a {
+        color: #fff;
+    }
+    b {
+        font-weight: 700;
+    }
+    ul {
+        li {
+            padding: 6px 0px;
+
+            .dropdown-language {
+                font-size: 12px;
+                button {
+                    color: #fff;
+                }
+
+                .dropdown-menu {
+                    min-width: 4rem;
+                    padding: 0;
+                    top: unset !important;
+                    position: absolute;
+                    left: unset !important;
+                    transform: unset !important;
+                    .dropdown-item {
+                        width: 100%;
+                        padding: 0.5rem 0.9rem;
+                        @include border-rad(3px);
+                        font-family: "Poppins", sans-serif;
+                        font-weight: 500;
+                        color: #753e35;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.lang {
+    display: none;
+    font-size: 13px;
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+    align-items: center;
+    gap: 4px;
+    strong {
+        margin-top: 1px;
+    }
+    &.active {
+        display: inline-flex;
+    }
+}
+
+.section-menu {
+    margin: 20px auto 0px auto;
+    background-color: #fafafa;
+    border-radius: 10px;
+    max-width: 1306px;
+
+    @media (max-width: 480px) {
+        margin-top: 0;
+        border-radius: 0;
+        background: #fff;
+        box-shadow: 0px 2.41455px 5.43274px rgba(233, 233, 233, 0.5);
+    }
+    .logo {
+        img {
+            width: 179px;
+            height: 43px;
+            object-fit: contain;
+        }
+        @media (max-width: 480px) {
+            img {
+                width: 146px;
+                height: 25px;
+            }
+        }
+        @media (max-width: 375px) {
+            img {
+                width: 113px;
+                height: 25;
+            }
+        }
+    }
+    ul {
+        li {
+            font-family: "Poppins", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: #000;
+            padding: 25px 15px;
+            @media (max-width: 992px) {
+                padding: 25px 6px;
+            }
+            @media (max-width: 480px) {
+                padding: 15px 3px;
+            }
+            a {
+                color: #000;
+            }
+            &.dropdown-header {
+                position: relative;
+                a {
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    .down,
+                    .up {
+                        width: 13px;
+                        height: 13px;
+                    }
+                    .down {
+                        display: block;
+                    }
+                    .up {
+                        display: none;
+                    }
+
+                    &.active {
+                        color: #009944;
+                        font-weight: 600;
+                    }
+                }
+                .dropdown-menu-header {
+                    display: none;
+                    position: absolute;
+                    background-color: #f1f1f2;
+                    top: 4.5rem;
+                    left: 0rem;
+                    width: 622px;
+                    height: 300px;
+                    &.dropbaru {
+                        background: #ffffff;
+                        width: 1071px;
+                        height: 260px;
+                        left: -20rem !important;
+                        padding: 30px;
+                    }
+                    .isimenu {
+                        width: 288px;
+                        &.isibaru {
+                            width: 40%;
+                            background: #ffffff;
+                            display: flex;
+                            flex-direction: column;
+                            .itembaru {
+                                padding: 12px 16px;
+                                white-space: normal;
+                                color: black;
+                                font-size: 16px;
+                                &:hover {
+                                    color: #009944;
+                                }
+                                &.active{
+                                    color: #009944;
+                                }
+                            }
+                        }
+                    }
+                    .sampingbaru {
+                        display: flex;
+                        align-items: center;
+                        width: 60%;
+                        a {
+                            width: 100%;
+                            display: flex;
+                            gap: 30px;
+                            .fxc{
+                                display: flex;
+                                flex-direction: column;
+                                gap: 6px;
+                            }
+                            img {
+                                width: 180px;
+                            }
+                            strong {
+                                font-family: "Poppins";
+                                font-style: normal;
+                                font-weight: 600;
+                                font-size: 24px;
+                                line-height: 32px;
+                                letter-spacing: 0.1px;
+                                color: #009944;
+                                white-space: normal;
+                            }
+                            p {
+                                font-family: "Open Sans";
+                                font-style: normal;
+                                font-weight: 400;
+                                font-size: 16px;
+                                line-height: 24px;
+                                color: #919191;
+                                white-space: normal;
+                            }
+                            span {
+                                font-family: "Poppins";
+                                font-style: normal;
+                                font-weight: 500;
+                                font-size: 13px;
+                                line-height: 32px;
+                                letter-spacing: 0.1px;
+                                color: #009944;
+                                white-space: normal;
+                                display: flex;
+                                align-items: center;
+                                gap: 4px;
+                                margin-top: 4px;
+                                img {
+                                    width: 12px;
+                                    height: auto;
+                                }
+                            }
+                        }
+                    }
+
+                    .segitiga {
+                        position: absolute;
+                        top: -12px;
+                        left: 15rem;
+                        img {
+                            width: 28px;
+                            height: 28px;
+                            object-fit: contain;
+                        }
+                    }
+                    .menu-drop {
+                        min-width: 200px;
+                        li {
+                            font-family: "Open Sans", sans-serif;
+                            font-weight: 400;
+                            font-size: 16px;
+                            color: #000;
+                            line-height: 21px;
+                            padding: 0px 10px 0px 10px;
+                            margin-bottom: 30px;
+                            position: relative;
+                            a {
+                                color: #000;
+                            }
+
+                            .img-menu {
+                                position: absolute;
+                                right: -18.9rem;
+                                display: none;
+                                &.img-menu-1 {
+                                    top: -4.6rem;
+                                }
+                                &.img-menu-2 {
+                                    top: -7.5rem;
+                                }
+                                &.img-menu-3 {
+                                    right: -18.9rem;
+                                    top: -10.7rem;
+                                }
+                                img {
+                                    width: 278px;
+                                    height: 208px;
+                                    object-fit: contain;
+                                    @include border-rad(5px);
+                                }
+                                .arrow-down {
+                                    right: 10px;
+                                    bottom: 5px;
+                                    img {
+                                        width: 17px;
+                                        height: 17px;
+                                        object-fit: contain;
+                                    }
+                                }
+                            }
+                            &:hover {
+                                a {
+                                    color: #009944;
+                                }
+                            }
+                            &.active {
+                                a {
+                                    color: #009944;
+                                }
+                                .img-menu {
+                                    display: block;
+                                }
+                            }
+                            &:first-child {
+                                color: #626262;
+                                font-family: "Poppins", sans-serif;
+                                font-weight: 700;
+                                font-size: 18px;
+                                line-height: 27px;
+                                border-bottom: 1px solid #878787;
+                                padding: 0px 10px 15px 10px;
+                            }
+                        }
+                    }
+                }
+                .img-menu-drop {
+                    width: 278px;
+                    height: 208px;
+                    img {
+                        width: 278px;
+                        height: 208px;
+                        object-fit: contain;
+                        @include border-rad(5px);
+                    }
+                    .arrow-down {
+                        right: 10px;
+                        bottom: 5px;
+                        img {
+                            width: 17px;
+                            height: 17px;
+                            object-fit: contain;
+                        }
+                    }
+                }
+            }
+            &#solutions {
+                &.dropdown-header {
+                    .dropdown-menu-header {
+                        left: -4.65rem;
+                        .segitiga {
+                            top: -12px;
+                            left: 6rem;
+                        }
+                    }
+                }
+            }
+            &#support {
+                &.dropdown-header {
+                    .dropdown-menu-header {
+                        left: -15.4rem;
+                        .segitiga {
+                            top: -12px;
+                            left: 17rem;
+                        }
+                    }
+                }
+            }
+            &#service {
+                &.dropdown-header {
+                    .dropdown-menu-header {
+                        left: -10.2rem;
+                        .segitiga {
+                            top: -12px;
+                            left: 12rem;
+                        }
+                    }
+                }
+            }
+            &#about {
+                &.dropdown-header {
+                    .dropdown-menu-header {
+                        left: 0rem;
+                        .segitiga {
+                            top: -12px;
+                            left: 1.2rem;
+                        }
+                    }
+                }
+            }
+            &#article {
+                &.dropdown-header {
+                    .dropdown-menu-header {
+                        left: -26rem;
+                        .segitiga {
+                            top: -12px;
+                            left: 30rem;
+                        }
+                    }
+                }
+            }
+
+            &:hover {
+                a {
+                    // font-weight: bold;
+                    color: #009944;
+                    .down {
+                        display: none;
+                    }
+                    .up {
+                        display: block;
+                    }
+                }
+                &.dropdown-header {
+                    .dropdown-menu-header {
+                        display: flex;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.container-content-1 {
+    max-width: 1306px;
+    width:100%;
+    margin: auto;
+    padding: 0 30px;
+}
+
+@media (max-width: 992px) {
+    .container-content-1 {
+        width: 100%;
+    }
+}
+
+.hoverable{
+    max-height: 50px;
+    overflow: hidden;
+    transition: all .2s ease;
+}
+.hoverable:hover{
+    max-height: 100px;
+}
+.actionss {
+    gap: 12px;
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 42px;
+        padding: 0 24px;
+        border: 1px solid #f49303;
+        font-weight: 500;
+        font-size: 16px;
+        border-radius: 7px;
+        &.clear {
+            color: #f49303;
+        }
+        &.fill {
+            color: white;
+            background: #f49303;
+        }
+    }
+
+    @media (max-width: 480px) {
+        a {
+            height: 20px;
+            padding: 0 12px;
+            font-size: 7px;
+            border-radius: 4px;
+        }
+    }
+}
+.wa {
+    font-weight: bold;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.section-menu ul li a.active {
+    color: #009944;
+    font-weight: 600;
+}

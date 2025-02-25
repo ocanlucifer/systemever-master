@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Rubik:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@font-face {
+    font-family: 'Linux Biolinum Slanted Bold';
+    src: url('fonts/LinBiolinumSlantedB.woff2') format('woff2'),
+        url('fonts/LinBiolinumSlantedB.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Linux Biolinum Capitals Italic';
+    src: url('fonts/LinBiolinumCapitalsI.woff2') format('woff2'),
+        url('fonts/LinBiolinumCapitalsI.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Linux Biolinum Slanted Reguler';
+    src: url('fonts/LinBiolinumSlanted.woff2') format('woff2'),
+        url('fonts/LinBiolinumSlanted.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Linux Biolinum Reguler';
+    src: url('fonts/LinBiolinum.woff2') format('woff2'),
+        url('fonts/LinBiolinum.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Linux Biolinum Bold';
+    src: url('fonts/LinBiolinumB.woff2') format('woff2'),
+        url('fonts/LinBiolinumB.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Linux Biolinum Italic';
+    src: url('fonts/LinBiolinumI.woff2') format('woff2'),
+        url('fonts/LinBiolinumI.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+

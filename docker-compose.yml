@@ -1,0 +1,27 @@
+version: '3'
+services:
+    db:
+        image: mariadb
+        environment:
+            - MYSQL_ROOT_PASSWORD=apple
+            - MYSQL_DATABASE=systemever
+        ports:
+            - 3307:3306
+        volumes:
+            - ./docker/mysql:/var/lib/mysql
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        ports:
+            - "8887:80"
+        depends_on:
+            - db
+    php:
+        image: akhyarmaulana/php73-apache-gd
+        ports:
+            - "80:80"
+        depends_on:
+            - db
+        volumes:
+            - ./:/var/www/html/
+            - ./docker/000-default.conf:/etc/apache2/sites-available/000-default.conf
+            - ./docker/000-default.conf:/etc/apache2/sites-enabled/000-default.conf
