@@ -11,7 +11,7 @@ class SitemapController extends Controller
     {
         $data = [];
         $page = [];
-            
+
         $page[]['link'] = route('get.index');
         $page[]['link'] = route('get.pages.abouts.indonesia_branch');
         $page[]['link'] = route('get.pages.abouts.system_ever');
@@ -42,7 +42,7 @@ class SitemapController extends Controller
                 'link' => route('get.pages.article.article_detail', ['slug' => $v->slug]),
                 'updated_at' => $v->updated_at
             ];
-        }        
+        }
         $page[]['link'] = route('get.pages.article.news');
         $page[]['link'] = route('get.pages.article.article_list_category');
         $page[]['link'] = route('get.pages.support.support');
@@ -91,6 +91,30 @@ class SitemapController extends Controller
         $page[]['link'] = seeineng(route('get.pages.join_partnership'));
         $page[]['link'] = seeineng(route('get.contact'));
         // dd($page);
+
+        //korea
+        $page[]['link'] = seeinkor(route('get.index'));
+        $page[]['link'] = seeinkor(route('get.pages.abouts.indonesia_branch'));
+        $page[]['link'] = seeinkor(route('get.pages.abouts.system_ever'));
+        $page[]['link'] = seeinkor(route('get.pages.abouts.history'));
+        $page[]['link'] = seeinkor(route('get.pages.services.feature'));
+        $page[]['link'] = seeinkor(route('get.pages.services.quality_security'));
+        $page[]['link'] = seeinkor(route('get.pages.services.customer_industry'));
+        $page[]['link'] = seeinkor(route('get.pages.pricing.accounting_tax'));
+        $page[]['link'] = seeinkor(route('get.pages.pricing.integrated_erp'));
+        $page[]['link'] = seeinkor(route('get.pages.solutions.accounting_management_systems'));
+        $page[]['link'] = seeinkor(route('get.pages.solutions.i5_trading'));
+        $page[]['link'] = seeinkor(route('get.pages.solutions.i7_manufacture'));
+        $page[]['link'] = seeinkor(route('get.pages.article.article'));
+        $page[]['link'] = seeinkor(route('get.pages.article.article.search'));
+        $page[]['link'] = seeinkor(route('get.pages.article.news'));
+        $page[]['link'] = seeinkor(route('get.pages.article.article_list_category'));
+        $page[]['link'] = seeinkor(route('get.pages.support.support'));
+        $page[]['link'] = seeinkor(route('get.pages.support.support_guide'));
+        $page[]['link'] = seeinkor(route('get.pages.support.video'));
+        $page[]['link'] = seeinkor(route('get.pages.support.video.search'));
+        $page[]['link'] = seeinkor(route('get.pages.join_partnership'));
+        $page[]['link'] = seeinkor(route('get.contact'));
 
         $data['page'] = $page;
         return response()->view('sitemap/sitemap', $data)->header('Content-Type', 'text/xml');

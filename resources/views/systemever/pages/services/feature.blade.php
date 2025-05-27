@@ -14,8 +14,8 @@
 @media only screen and (max-width: 600px) {
     .mainowl-margin {
         padding-top:65px;
-    } 
-}     
+    }
+}
 .service-feature-video-systemever {
     margin-bottom:-4px !important;
 }
@@ -34,18 +34,18 @@
         <div class="row d-flex justify-content-center mb-lg-5 mb-md-4 mb-sm-3 mb-3">
             <div class="col-lg-9 px-4">
                 <div class="info-system-ever text-center">
-                    <h3>{{ stringlang('Unique Selling Point', 'Kelebihan Produk') }}</h3>
+                    <h3>{{ stringlang('Unique Selling Point', 'Kelebihan Produk', 'SystemEver만의 경쟁력') }}</h3>
                 </div>
             </div>
         </div>
         <div class="row mb-lg-5 d-flex mb-md-4 mb-sm-3 mb-3">
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 bg-green pl-0 pr-0">
                 <div class="video-home feature service-feature-video-systemever">
-                    <iframe 
-                        src="https://www.youtube.com/embed/{{get_youtube_id($data->unique_selling_point_youtube)}}" 
-                        title="YouTube video player" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    <iframe
+                        src="https://www.youtube.com/embed/{{get_youtube_id($data->unique_selling_point_youtube)}}"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                 </div>
             </div>
             <div class="col-lg-12 pt-4">
-                <div class="caption-img-konsep text-center">{{ stringlang('Visual-K™  Process Map', 'Peta Proses Visual-K™') }}</div>
+                <div class="caption-img-konsep text-center">{{ stringlang('Visual-K™  Process Map', 'Peta Proses Visual-K™', 'Visual-K™ Process Map') }}</div>
             </div>
         </div>
         <div class="row d-flex justify-content-center">
@@ -78,9 +78,9 @@
     <div class="container">
         <div class="row d-flex">
             <div class="box-list-proses-map">
-                <div class="list">{{ stringlang('Self-Design', 'Self-Design' )}}</div>
-                <div class="list">{{ stringlang('Visibly', 'Visibilitas' )}}</div>
-                <div class="list">{{ stringlang('User Friendly', 'Mudah Digunakan' )}}</div>
+                <div class="list">{{ stringlang('Self-Design', 'Self-Design', 'Self-design')}}</div>
+                <div class="list">{{ stringlang('Visibly', 'Visibilitas', '직관적인 시각화' )}}</div>
+                <div class="list">{{ stringlang('User Friendly', 'Mudah Digunakan','사용자 친화적')}}</div>
             </div>
             <div class="col-lg-9">
                 {{-- <div class="img-circle-hijau">
@@ -91,7 +91,7 @@
                     {{-- <img src="{{ asset_to_webp(uri($data->visual_k_proccess_map_banner_mobile)) }}" alt="" class="d-block d-md-none"> --}}
                 </div>
                 <div class="caption-img-map-proses bg-green">
-                    {{ stringlang('Suitable to the implement work environment', 'Mudah digunakan dan diimplementasikan') }}
+                    {{ stringlang('Suitable to the implement work environment', 'Mudah digunakan dan diimplementasikan', '다양한 업무 환경에 맞게 유연하게 대응') }}
                 </div>
             </div>
         </div>
@@ -127,20 +127,20 @@
     <div class="container-content">
         <div class="row  mb-lg-5 mb-md-4 mb-sm-3 mb-3">
             <div class="col-lg-12 mt-lg-5 mt-md-4 mt-sm-3 mt-3">
-                <div class="caption-img-konsep text-center">{{ stringlang('Features', 'Fitur') }}</div>
+                <div class="caption-img-konsep text-center">{{ stringlang('Features', 'Fitur', '주요기능') }}</div>
             </div>
         </div>
         <div class="row mb-lg-5 mb-md-4 mb-sm-3 mb-3">
             <div class="col-lg-12">
                 <ul class="nav nav-tabs nav-tabs-video nav-tabs-feature mb-lg-5 mb-md-4 mb-sm-3 mb-3 w-auto system-feature-tab">
                     <li class="nav-item mx-lg-4 mx-md-3 mx-1">
-                        <a class="nav-link w-auto active" data-toggle="tab" href="#tab-menu-1">{{ stringlang('Mobile App', 'Aplikasi Mobile') }}</a>
+                        <a class="nav-link w-auto active" data-toggle="tab" href="#tab-menu-1">{{ stringlang('Mobile App', 'Aplikasi Mobile', '모바일 앱') }}</a>
                     </li>
                     <li class="nav-item mx-lg-4 mx-md-3 mx-1">
-                        <a class="nav-link  w-auto" data-toggle="tab" href="#tab-menu-2">{{ stringlang('Multilingual', 'Multi Bahasa') }}</a>
+                        <a class="nav-link  w-auto" data-toggle="tab" href="#tab-menu-2">{{ stringlang('Multilingual', 'Multi Bahasa', '다국어') }}</a>
                     </li>
                     <li class="nav-item mx-lg-4 mx-md-3 mx-1">
-                        <a class="nav-link  w-auto" data-toggle="tab" href="#tab-menu-3">{{ stringlang('Multi-currency', 'Multi-currency') }}</a>
+                        <a class="nav-link  w-auto" data-toggle="tab" href="#tab-menu-3">{{ stringlang('Multi-currency', 'Multi-currency', '다중 통화') }}</a>
                     </li>
                 </ul>
             </div>
@@ -153,7 +153,7 @@
                     <div class="row">
                         <div class="col-lg-7 col-md-7 col-12 pl-lg-5 pl-md-5 pl-3">
                             <div class="desc-tab-mobile px-md-0 px-3">
-                                <p>{{ $data->mobile_app_description }}</p> 
+                                <p>{{ $data->mobile_app_description }}</p>
                                 <div class="row mt-lg-5 mt-md-4 mt-3">
                                     @foreach($data->mobile_app_selling_point as $v)
                                     <div class="col-lg-6 col-md-6 col-6 mb-4">
@@ -170,7 +170,7 @@
                             <div class="img-mobile-apps text-center">
                                 <img src="{{ asset_to_webp(asset('assets/img/Ellipse142.png')) }}" class="latar-hijau" alt="">
                                 <img src="{{ asset_to_webp(asset('assets/img/image196.png')) }}" class="mobile-apps" alt="">
-                                <p style='font-family: "Poppins",sans-serif; color:#DB2700'>(This app will be available for Indonesian market soon)</p>
+                                <p style='font-family: "Poppins",sans-serif; color:#DB2700'>{{ stringlang('(This app will be available for Indonesian market soon)', '(This app will be available for Indonesian market soon)', '(본 앱은 곧 인도네시아 시장에 출시될 예정입니다)') }}</p>
                             </div>
                         </div>
                     </div>
@@ -207,7 +207,7 @@
                     </p>
                     <img class="d-lg-block d-md-block d-sm-none d-none w-100" src="{{  asset_to_webp(uri($data->mobile_app_multi_curency_feature_ilustration)) }}" alt="">
                     <img class="d-lg-none d-md-none d-sm-block d-block w-100" src="{{  asset_to_webp(uri($data->mobile_app_multi_curency_feature_ilustration_mobile)) }}" alt="">
-                    
+
                 </div>
             </div>
         </div>

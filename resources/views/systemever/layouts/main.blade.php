@@ -8,6 +8,12 @@
         {{-- {{ dd($article_seo_meta) }} --}}
         <title>{{ !empty($article_seo_meta) ? '' . $article_seo_meta['title'] : 'SystemEver ' }}</title>
         @yield('custom_css')
+        <style>
+            .section-menu {
+                /* background-color: #D4F1E4; */
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Tambahkan drop shadow */
+            }
+        </style>
         <script src="//unpkg.com/alpinejs" defer></script>
         <link href="{{ asset('assets/css/main.css?20220609') }}" rel="stylesheet" />
         <link href="{{ asset('assets/css/newcode.css?20220609') }}" rel="stylesheet" />

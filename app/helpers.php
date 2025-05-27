@@ -142,7 +142,7 @@ function noSpace($string)
 }
 
 function plainjson($data)
-{    
+{
     return response()->json($data['data'], $data['code']);
 }
 
@@ -330,7 +330,7 @@ function payment_method_list()
     } else {
         $res = $payment_list;
     }
-    
+
     return $res;
 }
 
@@ -343,7 +343,7 @@ function payment_method_label($key)
 
 function login_user()
 {
-    $login = session("login");    
+    $login = session("login");
     $user_token = \App\UserToken::where('jwt_token' , $login['id_token'])->first();
     if (!empty($user_token)) {
         $user = \App\User::find($user_token->user_id);
@@ -357,7 +357,7 @@ function login_user()
 
 function mytoken()
 {
-    $login = session("login");    
+    $login = session("login");
     if (!empty($login['id_token'])) {
         return $login['id_token'];
     } else {
@@ -562,7 +562,7 @@ function paymentmethod()
                     'value'=>'indomaret',
                     'inisial'=>'indomaret'
                 ],
-                
+
                 // [
                 //     'img_method'=>'group-46@3x.png',
                 //     'label_method'=>'Indomaret (Phoenix)',
@@ -595,7 +595,7 @@ function paymentmethod()
                 $payment_method[$key]['method'][$k]['is_active'] = true;
             }
         }
-    }    
+    }
 
     return $payment_method;
 }
@@ -651,7 +651,7 @@ function sortBy($field, &$array, $direction = 'asc')
     } else {
         $result = usort($array, "cmp_desc");
     }
-    $GLOBALS['field'] = null;    
+    $GLOBALS['field'] = null;
 
     return $result;
 }
@@ -671,9 +671,9 @@ function setting($key, $default = "")
         $config = \Illuminate\Support\Facades\Storage::get('setting/MAIN_SETTING_CONFIG');
     }
 
-    $config = json_decode($config, true);    
+    $config = json_decode($config, true);
     // dd($config);
-    
+
     if (!empty($config)) {
         if (is_string($config[$key])) {
             return $config[$key];
@@ -765,15 +765,19 @@ function activelang()
     // dd(\Session::get("lang"));
     if (\Request::segment(1) == "en") {
         return "EN";
+    } else if (\Request::segment(1) == "kor") {
+        return "KOR";
     } else {
         return "ID";
     }
 }
 
-function stringlang($eng, $ind)
+function stringlang($eng, $ind, $kor = "")
 {
     if (activelang() == "EN") {
         return $eng;
+    } if (activelang() == "KOR") {
+        return $kor ?: $eng;
     } else {
         return $ind;
     }
@@ -819,7 +823,7 @@ function obj_count($obj)
     if (empty($obj)) {
         return 0;
     }
-    
+
     $count = 0;
     foreach ($obj as $v) {
         $count++;
@@ -833,7 +837,7 @@ function obj_biggest($obj)
     if (empty($obj)) {
         return 0;
     }
-    
+
     $list = [];
     foreach ($obj as $k => $v) {
         $list[] = $k;
@@ -846,7 +850,7 @@ function obj_biggest($obj)
 
 function url_to_svg($url)
 {
-    
+
     $is_compress = env('WEBP_COMPRESS', true);
     if (!$is_compress) {
         return $url;
@@ -923,7 +927,7 @@ function asset_to_webp($source)
     if (empty($asset)) {
         $target_url = "uploads/compress/" . md5($source) . ".webp";
         $target = __DIR__ . "/../storage/app/" . $target_url;
-        $new_file = resize(0, $target, $source);        
+        $new_file = resize(0, $target, $source);
 
         $asset = new \App\AssetCompressMapper;
         $asset->md5 = md5($source);
@@ -955,8 +959,8 @@ function resize($newWidth, $targetFile, $originalFile) {
             case 'image/png':
                     $image_create_func = 'imagecreatefrompng';
                     break;
-                    
-            default: 
+
+            default:
                     return false;
     }
 
@@ -968,7 +972,7 @@ function resize($newWidth, $targetFile, $originalFile) {
         $newWidth = $width;
         $newHeight = $height;
     } else {
-        $newHeight = ($height / $width) * $newWidth;        
+        $newHeight = ($height / $width) * $newWidth;
     }
 
     $tmp = imagecreatetruecolor($newWidth, $newHeight);
@@ -976,7 +980,7 @@ function resize($newWidth, $targetFile, $originalFile) {
     imagealphablending($tmp, false);
     $white = imagecolorallocatealpha($tmp, 255, 255, 255, 127);
     imagefill($tmp, 0, 0, $white);
-    imagecopyresampled($tmp, $img, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);    
+    imagecopyresampled($tmp, $img, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
     imagewebp($tmp, $targetFile, 100);
 
     return true;
@@ -990,6 +994,9 @@ function remove_attr_tag($string)
 function seeinindo()
 {
     $full = \Request::fullUrl();
+    $baseUrl = url("");
+    $full = str_replace($baseUrl . "/en", $baseUrl, $full);
+    $full = str_replace($baseUrl . "/kor", $baseUrl, $full);
     return str_replace("/en", "" , $full);
 
 }
@@ -999,7 +1006,30 @@ function seeineng($full = "")
     if (empty($full)) {
         $full = \Request::fullUrl();
     }
+    $baseUrl = url("");
+
+    $full = str_replace($baseUrl . "/en", $baseUrl, $full);
+    $full = str_replace($baseUrl . "/kor", $baseUrl, $full);
     return str_replace(url(""), url("") . "/en", $full);
+}
+
+function seeinkor($full = "")
+{
+    if (empty($full)) {
+        $full = \Request::fullUrl();
+    }
+
+    $baseUrl = url("");
+
+    // Hapus /en jika ada di URL
+    $full = str_replace($baseUrl . "/en", $baseUrl, $full);
+
+    // Cek apakah sudah ada /kor, jika belum tambahkan
+    if (strpos($full, $baseUrl . "/kor") === false) {
+        return str_replace($baseUrl, $baseUrl . "/kor", $full);
+    }
+
+    return $full; // Jika sudah ada "/kor", kembalikan apa adanya
 }
 
 function listfromtext($lists)
@@ -1012,7 +1042,7 @@ function listfromtext($lists)
 function read_file_online($url)
 {
     $curl = curl_init();
-    
+
     curl_setopt_array($curl, array(
       CURLOPT_URL => $url,
       CURLOPT_RETURNTRANSFER => true,
@@ -1023,11 +1053,11 @@ function read_file_online($url)
       CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
       CURLOPT_CUSTOMREQUEST => 'GET',
     ));
-    
+
     $response = curl_exec($curl);
-    
+
     curl_close($curl);
-    
+
     return $response;
 }
 
