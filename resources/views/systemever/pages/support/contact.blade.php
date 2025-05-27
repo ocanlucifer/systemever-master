@@ -5,7 +5,7 @@
 @section('custom_css')
 <style>
     @media only screen and (max-width: 1365px) {
-        .contactbg {            
+        .contactbg {
             background-image: url('{{ asset_to_webp(uri('assets/img/contact-img.png')) }}');
             background-position:top center;
             background-size:200%;
@@ -94,18 +94,20 @@
                 <div class="contactbg"></div>
                 <div class="contact-page p-0 p-lg-5 pt-5">
                     <a href="{{ route('get.index') }}" class="ml-5 mb-5 d-block"><img src="{{ uri('assets/fl/logo.svg') }}" ></a>
-                    <h1 class="contact-title mx-5">{!! stringlang('Make It Simple', 'Jadi Lebih Mudah') !!}</h1>
+                    <h1 class="contact-title mx-5">{!! stringlang('Make It Simple', 'Jadi Lebih Mudah', '훨씬 더 쉬워졌어요') !!}</h1>
                     <p class="mx-5 my-4 text-white">
                         {{ stringlang("We provide our customers with the best solution and
-                        satisfactory service for competent business management.", 
-                        "Kami memberikan kepada pelangga solusi & layanan terbaik ,serta keberhasilan Anda adalah dasar kesuksesan Kami.") }}
+                        satisfactory service for competent business management.",
+                        "Kami memberikan kepada pelangga solusi & layanan terbaik ,serta keberhasilan Anda adalah dasar kesuksesan Kami.",
+                        "우리는 고객에게 최고의 솔루션과 서비스를 제공하며, 고객의 성공은 우리의 성공의 기반입니다.") }}
                     </p>
                     <p class="mx-5 my-4 text-white">
                         {{ stringlang("Keeping in mind that customers’ prosperity is the
                         foundation of our success, we prosper along with our
                         customers based on sound management, and pursue
-                        happiness of life, hand in hand with our family as well.", 
-                        "SystemEver – Make It Simple") }}
+                        happiness of life, hand in hand with our family as well.",
+                        "SystemEver – Make It Simple",
+                        "SystemEver – 훨씬 더 쉬워졌어요") }}
                     </p>
                     <div class="text-center">
                         <img src="{{ asset_to_webp(uri('assets/img/systemever-ball.png')) }}" class="my-5 w-50">
@@ -115,8 +117,8 @@
             <div class="col-12 col-lg-6 p-5 bg-white main-body-col">
                 <div class="form bg-white p-0 p-lg-5">
                     <div class="contact-header mb-4">
-                        <p>{{ stringlang('Take a coffee break with SystemEver', 'Hubungi Kami Sekarang!') }}</p>
-                        <h2>{{ stringlang('Complete the Form Below and We Will Follow up Soon!', 'Lengkapi form di bawah ini dan Kami akan segera menghubungi Anda.') }}</h2>
+                        <p>{{ stringlang('Take a coffee break with SystemEver', 'Hubungi Kami Sekarang!', '지금 연락하세요!') }}</p>
+                        <h2>{{ stringlang('Complete the Form Below and We Will Follow up Soon!', 'Lengkapi form di bawah ini dan Kami akan segera menghubungi Anda.', '아래 양식을 작성하시면 곧 연락드리겠습니다.') }}</h2>
                     </div>
                     <div class="contact-body ">
                         <form action="{{ route('post.form.submit') }}" method="post" id="contact_us_form">
@@ -124,43 +126,43 @@
                               <div class="form-group">
                                   <div class="row">
                                       <div class="col-lg-6 mb-3">
-                                          <div class="label-field">{{ stringlang('Name', 'Nama') }}</div>
-                                          <input type="text" name="nama" id="input_nama" class="form-control txt-form" placeholder="{{ stringlang('Insert your name', 'Masukkan nama anda') }}" required>
+                                          <div class="label-field">{{ stringlang('Name', 'Nama', '이름') }}</div>
+                                          <input type="text" name="nama" id="input_nama" class="form-control txt-form" placeholder="{{ stringlang('Insert your name', 'Masukkan nama anda', '이름을 입력하세요') }}" required>
                                       </div>
                                       <div class="col-lg-6">
-                                          <div class="label-field">{{ stringlang('Title', 'Jabatan') }}</div>
-                                          <input type="text" name="title" id="input_title" class="form-control txt-form" placeholder="{{ stringlang('Insert your title', 'Masukkan jabatan anda') }}">
+                                          <div class="label-field">{{ stringlang('Title', 'Jabatan', '위치') }}</div>
+                                          <input type="text" name="title" id="input_title" class="form-control txt-form" placeholder="{{ stringlang('Insert your title', 'Masukkan jabatan anda', '당신의 위치를 ​​입력하세요') }}">
                                       </div>
                                   </div>
                               </div>
-                
+
                               <div class="form-group">
                                   <div class="row">
                                       <div class="col-lg-6">
-                                          <div class="label-field">{{ stringlang('Phone', 'Telepon') }}</div>
+                                          <div class="label-field">{{ stringlang('Phone', 'Telepon', '전화') }}</div>
                                           <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                               <span class="input-group-text" id="basic-addon1">+62</span>
                                             </div>
-                                            <input type="number" name="phone" id="input_phone" minlength="5" maxlength="13" class="form-control txt-form" placeholder="{{ stringlang('Phone Number', 'Nomor Telepon') }}" aria-label="{{ stringlang('Phone Number', 'Nomor Telepon') }}" aria-describedby="basic-addon1" required>
+                                            <input type="number" name="phone" id="input_phone" minlength="5" maxlength="13" class="form-control txt-form" placeholder="{{ stringlang('Phone Number', 'Nomor Telepon') }}" aria-label="{{ stringlang('Phone Number', 'Nomor Telepon', '전화 번호') }}" aria-describedby="basic-addon1" required>
                                           </div>
                                       </div>
                                       <div class="col-lg-6">
-                                          <div class="label-field">Email</div>
-                                          <input type="text" name="email" id="input_email" class="form-control txt-form" placeholder="{{ stringlang('Insert your email', 'Masukkan email anda') }}" required>
+                                          <div class="label-field">{{ stringlang('Email', 'Email', '이메일') }}</div>
+                                          <input type="text" name="email" id="input_email" class="form-control txt-form" placeholder="{{ stringlang('Insert your email', 'Masukkan email anda', '이메일을 입력하세요') }}" required>
                                       </div>
                                   </div>
                               </div>
-                
+
                               <div class="form-group">
                                   <div class="row">
                                       <div class="col-lg-6 mb-3">
-                                          <div class="label-field">{{ stringlang('Company','Perusahaan') }}</div>
-                                          <input type="text" name="company" id="input_company" class="form-control txt-form" placeholder="{{ stringlang('Insert your Company', 'Masukkan perusahaan anda') }}" >
+                                          <div class="label-field">{{ stringlang('Company','Perusahaan', '회사') }}</div>
+                                          <input type="text" name="company" id="input_company" class="form-control txt-form" placeholder="{{ stringlang('Insert your Company', 'Masukkan perusahaan anda', '귀하의 회사를 입력하세요') }}" >
                                       </div>
                                       <div class="col-lg-6">
-                                        <div class="label-field">{{ stringlang('Industries','Industri') }}</div>
-                                        <input type="text" name="industries" id="input_industries" class="form-control txt-form" placeholder="{{ stringlang('Insert your Industries', 'Masukkan industri anda') }}">
+                                        <div class="label-field">{{ stringlang('Industries','Industri', '산업') }}</div>
+                                        <input type="text" name="industries" id="input_industries" class="form-control txt-form" placeholder="{{ stringlang('Insert your Industries', 'Masukkan industri anda', '귀하의 산업을 입력하세요') }}">
                                       </div>
                                   </div>
                               </div>
@@ -168,28 +170,28 @@
                               <div class="form-group">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="label-field w-100">{{ stringlang('Experience in ERP?', 'Memiliki Pengalaman menggunakan ERP?') }}</div>
+                                        <div class="label-field w-100">{{ stringlang('Experience in ERP?', 'Memiliki Pengalaman menggunakan ERP?', 'ERP 사용 경험이 있나요?') }}</div>
                                         <div class="d-flex justify-content-start align-items-center">
                                           <label class="container-check mb-0 pl-4 mr-4">
                                               <input type="radio" name="radio-erp" id="input_radio_yes" value="yes">
                                               <span class="checkmark-circle"></span>
-                                              <div class="caption-check">{{ stringlang('Yes', 'Ya') }}</div>
+                                              <div class="caption-check">{{ stringlang('Yes', 'Ya', '예') }}</div>
                                           </label>
                                           <label class="container-check mb-0 pl-4">
                                               <input type="radio" name="radio-erp" id="input_radio_no" value="no">
                                               <span class="checkmark-circle"></span>
-                                              <div class="caption-check">{{ stringlang('No', 'Tidak') }}</div>
+                                              <div class="caption-check">{{ stringlang('No', 'Tidak', '아니요') }}</div>
                                           </label>
                                       </div>
                                     </div>
                                 </div>
                             </div>
-                
+
                               <div class="form-group">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="label-field">{{ stringlang('Message','Pesan') }}</div>
-                                        <textarea name="message" id="input_message" placeholder="{{ stringlang('Type your message', 'Tulis pesan anda') }}" class="form-control txt-area no-resize" id="" rows="3"></textarea>
+                                        <div class="label-field">{{ stringlang('Message','Pesan', '메시지') }}</div>
+                                        <textarea name="message" id="input_message" placeholder="{{ stringlang('Type your message', 'Tulis pesan anda', '메시지를 작성하세요') }}" class="form-control txt-area no-resize" id="" rows="3"></textarea>
                                         <input type="hidden" name="type" id="input_type" value="contact">
                                         <input type="hidden" name="from" id="input_from" value="{{ \URL::full() }}">
                                         <div class="mt-3">
@@ -200,7 +202,7 @@
                                 @include('systemever/includes/agreement')
                                 <div class="row">
                                     <div class="col-12 mt-4">
-                                        <button id="submit" disabled type="submit" class="btn btn-white-orange w-100 btn-submit-modal" onclick="$('.submitme_contact_us_form').click()">{{ stringlang('Submit', 'Kirim') }}</button>
+                                        <button id="submit" disabled type="submit" class="btn btn-white-orange w-100 btn-submit-modal" onclick="$('.submitme_contact_us_form').click()">{{ stringlang('Submit', 'Kirim', '보내다') }}</button>
                                     </div>
                                 </div>
                             </div>
@@ -257,7 +259,7 @@ setInterval(function(){
     // }
     // var input_radio_yes = $("#input_radio_yes").is(':checked');
     // var input_radio_no = $("#input_radio_no").is(':checked');
-    
+
     // if (input_radio_yes == false && input_radio_no == false) {
     //     no_empty_input = false;
     // }

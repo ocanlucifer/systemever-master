@@ -10,19 +10,19 @@ class ArticleController extends Controller
     public function article()
     {
         $data['breadcrumbs'] = array(
-            [ 
-                'label'=>'Home',
+            [
+                'label'=> stringlang('Home', 'Beranda', '홈페이지'),
                 'link'=> route('get.index')
             ],
-            [ 
-                'label'=>'Business Insight',
+            [
+                'label'=> stringlang('Business Insight', 'Business Insight', '인사이트'),
                 'link'=> route('get.pages.article.article')
-            ], 
-            [ 
-                'label'=>'General',
+            ],
+            [
+                'label'=> stringlang('General', 'General', '일반'),
                 'link'=> route('get.pages.article.article')
-            ], 
-            
+            ],
+
         );
         $lang = "EN";
         $top_en = \App\Settings::where([
@@ -43,7 +43,7 @@ class ArticleController extends Controller
         $data['top']->sec_1_top_article_en = \App\Post::find($data['top']->sec_1_top_article_en);
         $data['top']->sec_2_top_article_en = \App\Post::find($data['top']->sec_2_top_article_en);
 
-        
+
         $data['highlight'] = \App\Settings::where([
             // ['key', $lang],
             ["setting_type", "article_highlight"],
@@ -101,19 +101,19 @@ class ArticleController extends Controller
         $data['pagination'] = $post->toArray();
 
         $data['breadcrumbs'] = array(
-            [ 
-                'label'=>'Home',
+            [
+                'label'=>stringlang('Home', 'Beranda', '홈페이지'),
                 'link'=> route('get.index')
             ],
-            [ 
-                'label'=>'Business Insight',
+            [
+                'label'=> stringlang('Business Insight', 'Business Insight', '인사이트'),
                 'link'=> route('get.pages.article.article')
-            ], 
-            [ 
-                'label'=>'Article',
+            ],
+            [
+                'label'=> stringlang('Article', 'Article'),
                 'link'=> route('get.pages.article.article')
-            ], 
-            
+            ],
+
         );
 
         // dd($data);
@@ -147,24 +147,24 @@ class ArticleController extends Controller
             ->get()
             ->pluck("post_id");
         $data['related'] = \App\Post::whereIn("id", $related)->orderBy('id', 'desc')->paginate(4);
-        
+
         $data['breadcrumbs'] = array(
-            [ 
-                'label'=>'Home',
+            [
+                'label'=>stringlang('Home', 'Beranda', '홈페이지'),
                 'link'=> route('get.index')
             ],
-            // [ 
-            //     'label'=>'Business Insight',
+            // [
+            //     'label'=> stringlang('Business Insight', 'Business Insight', '인사이트'),
             //     'link'=> route('get.pages.article.article')
-            // ], 
-            [ 
+            // ],
+            [
                 'label'=>'Article',
                 'link'=> route('get.pages.article.article')
-            ], 
-            [ 
+            ],
+            [
                 'label'=>$post->title,
                 'link'=> route('get.pages.article.article_detail', ['slug' => $post->slug])
-            ], 
+            ],
         );
 
         $seometa = \App\SeoTag::where([
@@ -185,21 +185,21 @@ class ArticleController extends Controller
 
         return view('systemever/pages/article/article_detail',$data);
     }
-    
+
     public function news(){
         $data['breadcrumbs'] = array(
-            [ 
-                'label'=>'Home',
+            [
+                'label'=>stringlang('Home', 'Beranda', '홈페이지'),
                 'link'=> route('get.index')
             ],
-            [ 
-                'label'=>'Business Insight',
+            [
+                'label'=> stringlang('Business Insight', 'Business Insight', '인사이트'),
                 'link'=> route('get.pages.article.article')
-            ], 
-            [ 
-                'label'=>'News',
+            ],
+            [
+                'label'=>stringlang('News', 'News', '뉴스'),
                 'link'=> route('get.pages.article.news')
-            ], 
+            ],
         );
         $lang = "EN";
         $data['data'] = $paginate =  \App\Post::where([
@@ -214,19 +214,19 @@ class ArticleController extends Controller
     public function professional()
     {
         $data['breadcrumbs'] = array(
-            [ 
-                'label'=>'Home',
+            [
+                'label'=>stringlang('Home', 'Beranda', '홈페이지'),
                 'link'=> route('get.index')
             ],
-            [ 
-                'label'=>'Business Insight',
+            [
+                'label'=> stringlang('Business Insight', 'Business Insight', '인사이트'),
                 'link'=> route('get.pages.article.article')
-            ], 
-            [ 
-                'label'=>'Professional',
+            ],
+            [
+                'label'=>stringlang('Professional', 'Professional', '프로페셔널'),
                 'link'=> route('get.pages.article.professional')
-            ], 
-            
+            ],
+
         );
 
         $data['article'] = \App\Post::where([

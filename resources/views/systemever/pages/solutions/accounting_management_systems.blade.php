@@ -170,7 +170,7 @@
 
 <section class="py-8 lg:py-16">
     <div class="container">
-        <div class="bc"><a href="/">{{ stringlang('Home', 'Beranda') }}</a><img src="{{asset('assets/fl/bc.png')}}" alt=""><a href="">{{ stringlang('Solution', 'Solusi') }}</a><img src="{{asset('assets/fl/bc.png')}}" alt=""><a href="" class="active">SystemEver AccounTax</a></div>
+        <div class="bc"><a href="/">{{ stringlang('Home', 'Beranda','홈페이지') }}</a><img src="{{asset('assets/fl/bc.png')}}" alt=""><a href="">{{ stringlang('Solution', 'Solusi','솔루션') }}</a><img src="{{asset('assets/fl/bc.png')}}" alt=""><a href="" class="active">SystemEver AccounTax</a></div>
         <div class="flex flex-col-reverse lg:flex-row items-center "  >
             <div class="w-full lg:w-1/2 flex flex-col gap-5 lg:gap-8 lg:pr-20">
                 <h1 class="font-poppins  text-17px lg:text-27px font-bold leading-6 lg:leading-9 text-center lg:text-left">
@@ -211,11 +211,11 @@
 <section class="pt-8 lg:pt-16" x-data="{current:0}">
     <div class="container pb-5 lg:pb-10">
         <h2 class="text-20px lg:text-27px font-poppins font-medium text-center mb-3 lg:mb-6">
-            
+
             {!!  str_replace( "#JadiLebihMudah", "<strong>#JadiLebihMudah</strong>", ordefault($meta->second_section_title, 'Pembukuan #JadiLebihMudah'))  !!}
-            
+
             {{-- {{ str_replace($meta->second_section_title, "#JadiLebihMudah", "<strong>#JadiLebihMudah</strong>")  }} --}}
-            
+
         </h2>
         <p class="font-opensans text-11px lg:text-19px text-[#626B79] text-center lg:max-w-[55%] mx-auto leading-4 lg:leading-6">
             {{ $meta->second_section_sub_title }}
@@ -433,7 +433,7 @@
                 @if (!empty($features))
                 @foreach ($features as $k => $feature)
                 @php if ($k == 0) { continue; } @endphp
-                
+
                 <div class="flex flex-col gap-3px lg:gap-6px py-4">
                     <div class="flex gap-2 lg:gap-4 items-center  mb-3 lg:mb-4">
                         <img src="{{ uri($feature->feature_check_list_icon)}}" alt="" class="lg:w-auto w-6"><span class="text-11px lg:text-19px font-poppins font-semibold text-[#009944]">
@@ -585,7 +585,8 @@
 @endsection
 
 @section('footer')
-@include('systemever/includes/footers')
+{{-- @include('systemever/includes/footers') --}}
+@include('systemever/includes/footer')
 @endsection
 
 @section('custom_js')
@@ -619,6 +620,6 @@
     }
     window.addEventListener("resize", swiperCard);
     window.addEventListener("DOMContentLoaded", swiperCard);
-    
+
 </script>
 @endsection

@@ -167,7 +167,7 @@
 @section('content')
 <section class="py-8 lg:py-16">
     <div class="container">
-        <div class="bc"><a href="/">{{ stringlang('Home', 'Beranda') }}</a><img src="{{asset('assets/fl/bc.png')}}" alt=""><a href="">{{ stringlang('Solution', 'Solusi') }}</a><img src="{{asset('assets/fl/bc.png')}}" alt=""><a href="" class="active">SystemEver Manufacturing ERP</a></div>
+        <div class="bc"><a href="/">{{ stringlang('Home', 'Beranda','홈페이지') }}</a><img src="{{asset('assets/fl/bc.png')}}" alt=""><a href="">{{ stringlang('Solution', 'Solusi', '솔루션') }}</a><img src="{{asset('assets/fl/bc.png')}}" alt=""><a href="" class="active">{{ stringlang('SystemEver Manufacturing ERP', 'SystemEver Manufacturing ERP','SystemEver 제조 ERP') }}</a></div>
         <div class="flex flex-col-reverse lg:flex-row items-center "  >
             <div class="w-full lg:w-1/2 flex flex-col gap-5 lg:gap-8 lg:pr-8">
                 <h1 class="font-poppins  text-17px lg:text-27px font-bold leading-6 lg:leading-9 text-center lg:text-left">
@@ -210,7 +210,7 @@
         <h2 class="text-20px lg:text-27px font-poppins font-medium text-center mb-3 lg:mb-6  leading-6 lg:leading-9">
             {!!  str_replace( "#JadiLebihMudah", "<strong>#JadiLebihMudah</strong>", ordefault($meta->second_section_title, 'Kontrol aktivitas produksi <br><strong>#JadiLebihMudah</strong> dengan SystemEver'))  !!}
         </h2>
-        
+
         <p class="font-opensans text-11px lg:text-19px text-[#626B79] text-center lg:max-w-[60%] mx-auto leading-4 lg:leading-6">
             {{ $meta->second_section_sub_title }}</p>
         <div class="justify-between w-full px-14 mt-16 hidden lg:flex">
@@ -299,7 +299,7 @@
                         </div>
                         @endforeach
                         @endif
-                        
+
                     </div>
                     <div class="w-full lg:w-[55%] lg:pt-10 pt-2">
                         <img src="{{ uri($meta->export_import_feature_main_image) }}" alt="">
@@ -336,7 +336,7 @@
                         @endforeach
                         @endif
 
-                       
+
                     </div>
                     <div class="w-full lg:w-[55%] lg:pt-10 pt-2">
                         <img src="{{uri($meta->smart_report_feature_main_image)}}" alt="">

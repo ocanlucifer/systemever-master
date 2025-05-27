@@ -5,7 +5,7 @@
             <div class="card  d-block">
               <a href="{{ route('get.index') }}" class="d-inline-block">
                 <div class="card-header border-bottom-0 pb-2">
-                  {{ stringlang("Home", "Beranda") }} 
+                  {{ stringlang("Home", "Beranda") }}
                 </div>
               </a>
               <button class="close-sidebar"><img src="{{ asset('assets/img/close-sidebar.svg') }}" alt=""></button>
@@ -15,15 +15,15 @@
             <div class="card">
               <a class="collapsed {{ Request::segment(2)=='about' ? 'active':'' }}" href="#" data-toggle="collapse" data-target="#collapse-about" aria-expanded="true" aria-controls="collapse-about">
                 <div class="card-header">
-                  {{ stringlang("About", "Tentang Kami") }} <span class="arrow"><i class="fa fa-angle-down"></i></span>
+                  {{ stringlang("About", "Tentang Kami", "회사소개") }} <span class="arrow"><i class="fa fa-angle-down"></i></span>
                 </div>
               </a>
               <div id="collapse-about" class="collapse" aria-labelledby="headingOne" data-parent="#accordionMenu">
                 <div class="card-body">
                   <ul class="list-unstyled">
-                    <li> <a href="{{ route('get.pages.abouts.indonesia_branch') }}">{{ stringlang('Indonesian Branch', 'Kantor Cabang Indonesia') }}</a></li>
+                    <li> <a href="{{ route('get.pages.abouts.indonesia_branch') }}">{{ stringlang('Indonesian Branch', 'Kantor Cabang Indonesia', '인도네시아 법인') }}</a></li>
                     <li> <a href="{{ route('get.pages.abouts.system_ever') }}">SystemEver</a></li>
-                    <li> <a href="{{ route('get.pages.abouts.history') }}">{{ stringlang('History', 'Sejarah') }}</a></li>
+                    <li> <a href="{{ route('get.pages.abouts.history') }}">{{ stringlang('History', 'Sejarah', '주요 연혁') }}</a></li>
                   </ul>
                 </div>
               </div>
@@ -33,7 +33,7 @@
             <div class="card">
               <a class="collapsed {{ Request::segment(2)=='about' ? 'active':'' }}" href="#" data-toggle="collapse" data-target="#collapse-solution" aria-expanded="true" aria-controls="collapse-solution">
                 <div class="card-header">
-                  {{ stringlang('Solution', 'Solusi') }} <span class="arrow"><i class="fa fa-angle-down"></i></span>
+                  {{ stringlang('Solution', 'Solusi','솔루션') }} <span class="arrow"><i class="fa fa-angle-down"></i></span>
                 </div>
               </a>
               <div id="collapse-solution" class="collapse" aria-labelledby="headingOne" data-parent="#accordionMenu">
@@ -42,20 +42,20 @@
                     <li> <a href="{{ route('get.pages.solutions.accounting_management_systems') }}">{{ stringlang('SystemEver AccounTax ', 'SystemEver AccounTax ') }}</a></li>
                     <!-- <li> <a href="{{ route('get.pages.solutions.bms') }}">{{ stringlang('Business Management System (BMS)', ' Business Management System (BMS)') }}</a></li> -->
                     <li> <a href="{{ route('get.pages.solutions.elearning') }}" ><i class="fa fa-angle-right"></i> {{ stringlang('AccounTax E-Learning', ' AccounTax E-Learning') }}</a></li>
-                    <li> <a href="{{ route('get.pages.solutions.i5_trading') }}">{{ stringlang('SystemEver Distribution ERP', ' SystemEver Distribution ERP') }}</a></li>
-                    <li> <a href="{{ route('get.pages.solutions.i7_manufacture') }}">{{ stringlang('SystemEver Manufacture ERP', ' SystemEver Manufacture ERP') }}</a></li>
+                    <li> <a href="{{ route('get.pages.solutions.i5_trading') }}">{{ stringlang('SystemEver Distribution ERP', ' SystemEver Distribution ERP', 'SystemEver 유통 ERP') }}</a></li>
+                    <li> <a href="{{ route('get.pages.solutions.i7_manufacture') }}">{{ stringlang('SystemEver Manufacture ERP', ' SystemEver Manufacture ERP', 'SystemEver 제조 ERP') }}</a></li>
                     {{-- <li> <a href="{{ route('get.pages.solutions.i7_manufacture') }}">{{ stringlang('Integrated Manufacturing', 'Manufaktur Terintegrasi') }}</a></li> --}}
                   </ul>
                 </div>
               </div>
             </div>
           </li>
-          
+
           <li>
             <div class="card">
               <a class="collapsed {{ Request::segment(2)=='about' ? 'active':'' }}" href="{{route('get.pages.performance')}}">
                 <div class="card-header">
-                 Performance Quality
+                    {{ stringlang('Performance Quality', 'Performance Quality','성능 품질') }}
                 </div>
               </a>
             </div>
@@ -101,7 +101,7 @@
             <div class="card">
               <a class="{{ Request::segment(2)=='pricing' ? 'active':'' }}" href="{{ route('get.pages.pricing.accounting_tax') }}" style="background-color: transparent;">
                 <div class="card-header">
-                  {{ stringlang('Pricing', 'Harga') }} 
+                  {{ stringlang('Pricing', 'Harga') }}
                   {{-- <span class="arrow"><i class="fa fa-angle-down"></i></span> --}}
                 </div>
               </a>
@@ -119,15 +119,15 @@
             <div class="card">
               <a class="collapsed {{ Request::segment(2)=='about' ? 'active':'' }}" href="#" data-toggle="collapse" data-target="#collapse-BI" aria-expanded="true" aria-controls="collapse-BI">
                 <div class="card-header">
-                  Business Insight <span class="arrow"><i class="fa fa-angle-down"></i></span>
+                    {{ stringlang('Business Insight', 'Business Insight', '인사이트') }}  <span class="arrow"><i class="fa fa-angle-down"></i></span>
                 </div>
               </a>
               <div id="collapse-BI" class="collapse" data-parent="#accordionMenu">
                 <div class="card-body">
                   <ul class="list-unstyled">
-                    <li> <a href="{{ route('get.pages.article.professional') }}">{{ stringlang('Professional', 'Professional') }}</a></li>
-                    <li> <a href="{{ route('get.pages.article.article') }}">{{ stringlang('Article', 'Artikel') }}</a></li>
-                    <li> <a href="{{ route('get.pages.article.news') }}">{{ stringlang('News', 'Berita') }}</a></li>
+                    <li> <a href="{{ route('get.pages.article.professional','프로페셔널') }}">{{ stringlang('Professional', 'Professional','프로페셔널') }}</a></li>
+                    <li> <a href="{{ route('get.pages.article.article') }}">{{ stringlang('Article', 'Artikel', '일반') }}</a></li>
+                    <li> <a href="{{ route('get.pages.article.news') }}">{{ stringlang('News', 'Berita', '뉴스') }}</a></li>
                   </ul>
                 </div>
               </div>
@@ -137,7 +137,7 @@
             <div class="card">
               <a class="collapsed {{ Request::segment(2)=='about' ? 'active':'' }}" href="#" data-toggle="collapse" data-target="#collapse-lang" aria-expanded="true" aria-controls="collapse-lang">
                 <div class="card-header head-language">
-                  Language <span class="arrow"><i class="fa fa-angle-down"></i></span><span class="simbol-lang cl-blue float-right">{{ stringlang('EN', 'ID') }} &nbsp;&nbsp;</span>
+                  Language <span class="arrow"><i class="fa fa-angle-down"></i></span><span class="simbol-lang cl-blue float-right">{{ stringlang('EN', 'ID', 'KOR') }} &nbsp;&nbsp;</span>
                 </div>
               </a>
               <div id="collapse-lang" class="collapse" data-parent="#accordionMenu">
@@ -145,6 +145,7 @@
                   <ul class="list-unstyled choose-language">
                     <li> <a href="{{seeinindo()}}">Indonesian</a></li>
                     <li> <a href="{{seeineng()}}">English</a></li>
+                    <li> <a href="{{seeinkor()}}">Korea</a></li>
                   </ul>
                 </div>
               </div>

@@ -187,7 +187,7 @@
 <div>
     <section class="pt-8 pb-4 lg:pt-16 lg:pb-0">
         <div class="container">
-            <div class="bc"><a href="/">{{ stringlang('Home', 'Beranda') }}</a><img src="{{asset('assets/fl/bc.png')}}" alt=""><a href="">{{ stringlang('Solution', 'Solusi') }}</a><img src="{{asset('assets/fl/bc.png')}}" alt=""><a href="{{route('get.pages.solutions.accounting_management_systems')}}">{{ stringlang('SystemEver AccounTax', 'SystemEver AccounTax') }}</a><img src="{{asset('assets/fl/bc.png')}}" alt=""><a href="" class="active">AccounTax E-Learning</a></div>
+            <div class="bc"><a href="/">{{ stringlang('Home', 'Beranda','홈페이지') }}</a><img src="{{asset('assets/fl/bc.png')}}" alt=""><a href="">{{ stringlang('Solution', 'Solusi', '솔루션') }}</a><img src="{{asset('assets/fl/bc.png')}}" alt=""><a href="{{route('get.pages.solutions.accounting_management_systems')}}">{{ stringlang('SystemEver AccounTax', 'SystemEver AccounTax') }}</a><img src="{{asset('assets/fl/bc.png')}}" alt=""><a href="" class="active">AccounTax E-Learning</a></div>
             <div class="flex lg:flex-row flex-col-reverse items-center ">
                 <div class="lg:w-[40%] w-full flex flex-col lg:items-start items-center lg:gap-6 gap-4 lg:pr-10 lg:pt-8">
                     <h2 class="font-popins lg:text-37px text-22px font-bold lg:leading-10 leading-6 text-center lg:text-left">

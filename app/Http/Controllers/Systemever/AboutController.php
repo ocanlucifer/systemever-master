@@ -13,6 +13,8 @@ class AboutController extends Controller
         if (env('APP_ENV') == "production") {
             if ($lang == 'EN') {
                 $view = \Cache::pull('en.about.indonesia_branch');
+            } else if ($lang == 'KOR') {
+                $view = \Cache::pull('kor.about.indonesia_branch');
             } else {
                 $view = \Cache::pull('id.about.indonesia_branch');
             }
@@ -22,18 +24,18 @@ class AboutController extends Controller
         }
 
         $data['breadcrumbs'] = array(
-            [ 
-                'label'=> stringlang('Home', 'Beranda'),
+            [
+                'label'=> stringlang('Home', 'Beranda', '홈페이지'),
                 'link'=>route("get.index")
             ],
-            [ 
-                'label'=> stringlang('About', 'Tentang Kami'),
+            [
+                'label'=> stringlang('About', 'Tentang Kami', '회사소개'),
                 'link'=>'#'
-            ], 
-            [ 
-                'label'=> stringlang('Indonesia Branch', 'Kantor Cabang Indonesia'),
+            ],
+            [
+                'label'=> stringlang('Indonesia Branch', 'Kantor Cabang Indonesia', '인도네시아 법인'),
                 'link'=>'#'
-            ], 
+            ],
         );
         $about = \App\About::where([
             ["title", "indonesia-branch"],
@@ -46,19 +48,23 @@ class AboutController extends Controller
         if (env('APP_ENV') == "production") {
             if ($lang == 'EN') {
                 \Cache::put('en.about.indonesia_branch', $view);
+            } else if ($lang == 'KOR') {
+                \Cache::put('kor.about.indonesia_branch', $view);
             } else {
                 \Cache::put('id.about.indonesia_branch', $view);
             }
         }
         return $view;
     }
-    
+
     public function system_ever(){
         $lang = activelang();
 
         if (env('APP_ENV') == "production") {
             if ($lang == 'EN') {
                 $view = \Cache::pull('en.about.system_ever');
+            } else if ($lang == 'KOR') {
+                $view = \Cache::pull('kor.about.system_ever');
             } else {
                 $view = \Cache::pull('id.about.system_ever');
             }
@@ -68,20 +74,20 @@ class AboutController extends Controller
         }
 
         $data['breadcrumbs'] = array(
-            [ 
-                'label'=> stringlang('Home', 'Beranda'),
+            [
+                'label'=> stringlang('Home', 'Beranda', '홈페이지'),
                 'link'=>route("get.index")
             ],
-            [ 
-                'label'=> stringlang('About', 'Tentang Kami'),
+            [
+                'label'=> stringlang('About', 'Tentang Kami', '회사소개'),
                 'link'=>'#'
-            ], 
-            [ 
+            ],
+            [
                 'label'=>'SystemEver',
                 'link'=> route('get.pages.abouts.system_ever')
-            ], 
+            ],
         );
-        
+
         $about = \App\About::where([
             ["title", "system-ever"],
             ["lang", $lang]
@@ -96,12 +102,14 @@ class AboutController extends Controller
 
         $data['testimony'] = \App\testimony::where([
             ["lang", $lang],
-        ])->get();  
+        ])->get();
 
         $view = view('systemever/pages/abouts/system_ever',$data);
         if (env('APP_ENV') == "production") {
             if ($lang == 'EN') {
                 \Cache::put('en.about.system_ever', $view);
+            } else if ($lang == 'KOR') {
+                \Cache::put('kor.about.system_ever', $view);
             } else {
                 \Cache::put('id.about.system_ever', $view);
             }
@@ -117,29 +125,31 @@ class AboutController extends Controller
         if (env('APP_ENV') == "production") {
             if ($lang == 'EN') {
                 $view = \Cache::pull('en.about.history');
+            } else if ($lang == 'KOR') {
+                $view = \Cache::pull('kor.about.history');
             } else {
                 $view = \Cache::pull('id.about.history');
             }
             if (!empty($view)) {
                 return $view;
             }
-        }        
+        }
 
         $data['breadcrumbs'] = array(
-            [ 
-                'label'=> stringlang('Home', 'Beranda'),
+            [
+                'label'=> stringlang('Home', 'Beranda', '홈페이지'),
                 'link'=>route("get.index")
             ],
-            [ 
-                'label'=> stringlang('About', 'Tentang Kami'),
+            [
+                'label'=> stringlang('About', 'Tentang Kami', '회사소개'),
                 'link'=>'#'
-            ], 
-            [ 
-                'label'=> stringlang('History', 'Sejarah'),
+            ],
+            [
+                'label'=> stringlang('History', 'Sejarah', '주요 연혁'),
                 'link'=>route('get.pages.abouts.history')
-            ], 
+            ],
         );
-        
+
         $about = \App\About::where([
             ["title", "history"],
             ["lang", $lang]
@@ -147,12 +157,14 @@ class AboutController extends Controller
         $data["data"] = json_decode($about->json_content);
         $data["history"] = \App\AboutUsHistory::where([
             ["lang", $lang]
-        ])->orderBy("year", "desc")->get();        
+        ])->orderBy("year", "desc")->get();
 
         $view = view('systemever/pages/abouts/history',$data);
         if (env('APP_ENV') == "production") {
             if ($lang == 'EN') {
                 \Cache::put('en.about.history', $view);
+            } else if ($lang == 'KOR') {
+                \Cache::put('kor.about.history', $view);
             } else {
                 \Cache::put('id.about.history', $view);
             }

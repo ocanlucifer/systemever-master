@@ -491,7 +491,7 @@ console.log(Swiper);
             },
         }
     });
-    
+
     var userAgent = navigator.userAgent.toLowerCase();
     var isMac = /mac|iphone|ipad|ipod/.test(userAgent);
     if(isMac){

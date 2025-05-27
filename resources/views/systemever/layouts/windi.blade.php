@@ -36,7 +36,11 @@
             color: #009944;
             font-weight: bold;
         }
-        
+        .section-menu {
+            /* background-color: #D4F1E4; */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Tambahkan drop shadow */
+        }
+
         @media only screen and (max-width: 1024px) {
             .bc{
                 margin-top: -16px;
@@ -48,10 +52,20 @@
             }
         }
     </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y37PHLQ09S"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-Y37PHLQ09S');
+    </script>
 </head>
 
 <body>
-    
+
     @include('systemever/includes/header')
     @include('systemever/includes/sidebar')
     <div class="wrapper">

@@ -11,9 +11,9 @@
     <div class="container">
         <div class="col-lg-12 d-flex justify-content-center">
             <ul class="list-unstyled menu-about d-flex justify-content-center mb-0">
-                <li><a class="{{ Request::segment(2) == 'professional' ? 'active':'' }} {{ Request::segment(3) == 'professional' ? 'active':'' }}" href="{{ route('get.pages.article.professional') }}">Professional</a></li>
-                <li><a class="{{ Request::segment(2) == 'article' ? 'active':'' }} {{ Request::segment(3) == 'article' ? 'active':'' }}" href="{{ route('get.pages.article.article') }}">{{ stringlang("General", "General") }} </a></li>
-                <li><a class="{{ Request::segment(2) == 'news' ? 'active':'' }} {{ Request::segment(3) == 'news' ? 'active':'' }}" href="{{ route('get.pages.article.news') }}">{{ stringlang("News", "Berita") }} </a></li>
+                <li><a class="{{ Request::segment(2) == 'professional' ? 'active':'' }} {{ Request::segment(3) == 'professional' ? 'active':'' }}" href="{{ route('get.pages.article.professional') }}">{{ stringlang("Professional", "Professional", "프로페셔널") }}</a></li>
+                <li><a class="{{ Request::segment(2) == 'article' ? 'active':'' }} {{ Request::segment(3) == 'article' ? 'active':'' }}" href="{{ route('get.pages.article.article') }}">{{ stringlang("General", "General", "일반") }} </a></li>
+                <li><a class="{{ Request::segment(2) == 'news' ? 'active':'' }} {{ Request::segment(3) == 'news' ? 'active':'' }}" href="{{ route('get.pages.article.news') }}">{{ stringlang("News", "Berita", "뉴스") }} </a></li>
             </ul>
         </div>
     </div>
