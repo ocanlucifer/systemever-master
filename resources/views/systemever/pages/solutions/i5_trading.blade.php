@@ -164,7 +164,7 @@
 @section('content')
 <section class="py-8 lg:py-16">
     <div class="container">
-        <div class="bc"><a href="/">{{ stringlang('Home', 'Beranda') }}</a><img src="{{asset('assets/fl/bc.png')}}" alt=""><a href="">{{ stringlang('Solution', 'Solusi') }}</a><img src="{{asset('assets/fl/bc.png')}}" alt=""><a href="" class="active">SystemEver Distribution ERP</a></div>
+        <div class="bc"><a href="/">{{ stringlang('Home', 'Beranda','홈페이지') }}</a><img src="{{asset('assets/fl/bc.png')}}" alt=""><a href="">{{ stringlang('Solution', 'Solusi','솔루션') }}</a><img src="{{asset('assets/fl/bc.png')}}" alt=""><a href="" class="active">{{ stringlang('SystemEver Distribution ERP', 'SystemEver Distribution ERP','SystemEver 유통 ERP') }}</a></div>
         <div class="flex flex-col-reverse lg:flex-row items-center "  >
             <div class="w-full lg:w-1/2 flex flex-col gap-5 lg:gap-8 lg:pr-20">
                 <h1 class="font-poppins  text-17px lg:text-27px font-bold leading-6 lg:leading-9 text-center lg:text-left">
@@ -536,7 +536,7 @@
 
                 <img src="{{ uri(ordefault($meta->feature_checklist_image, 'assets/fl/i5-img.png'))}}" alt="" class="lg:ml-4 lg:mt-12 w-[40%] mx-auto lg:w-auto mb-4 hidden lg:block">
             </div>
-            
+
             @php
             $i = 0;
             $features = [];

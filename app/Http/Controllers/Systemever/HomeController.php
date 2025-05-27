@@ -14,6 +14,8 @@ class HomeController extends Controller
         if (env('APP_ENV') == "production") {
             if ($lang == 'EN') {
                 $view = \Cache::pull('en.home.index');
+            } else if ($lang == 'KOR') {
+                $view = \Cache::pull('kor.home.index');
             } else {
                 $view = \Cache::pull('id.home.index');
             }
@@ -68,12 +70,14 @@ class HomeController extends Controller
         }
 
         // dd($data);
-        
-        
+
+
         $view = view('systemever/index', $data)->render();
         if (env('APP_ENV') == "production") {
             if ($lang == 'EN') {
                 \Cache::put('en.home.index', $view, 30);
+            } else if ($lang == 'KOR') {
+                \Cache::put('kor.home.index', $view, 30);
             } else {
                 \Cache::put('id.home.index', $view, 30);
             }
@@ -135,7 +139,7 @@ class HomeController extends Controller
                 ])->first();
                 if (!empty($setting_download)) {
                     $download = asset($setting_download->value);
-                }   
+                }
             }
 
             if ($request->lang != 'ID') {
@@ -171,7 +175,7 @@ class HomeController extends Controller
                     ",
                 ];
             }
-        
+
 
             // return view('emails.general', ['param' => $param]);
             \App\Service\MailService::contact($param);
@@ -183,8 +187,8 @@ class HomeController extends Controller
                 "name"      => $request->nama,
                 "message"   => "Dear ".$request->nama."<br>
                 <br>
-                Teknologi SaaS saat ini sudah menjadi bagian penting dalam keseharian pekerjaan kita. 
-                Salah satunya adalah Sistem Cloud ERP yang memungkinkan kita untuk bekerja dimana saja 
+                Teknologi SaaS saat ini sudah menjadi bagian penting dalam keseharian pekerjaan kita.
+                Salah satunya adalah Sistem Cloud ERP yang memungkinkan kita untuk bekerja dimana saja
                 dan kapan saja selama terkoneksi dengan internet.<br>
                 <br>
                 Kami memahami kebutuhan Anda akan teknologi terkini yang dapat membantu pekerjaan Anda lebih efektif dan efisien. Anda dapat mengunduh informasi produk <a href='$download'>SystemEver</a><br>
@@ -230,8 +234,8 @@ class HomeController extends Controller
                 Systemever Mailing System
                 ",
             ]);
-        }        
-         
+        }
+
         // \Session::flash('success', "success");
         // \Session::flash('modalsuccess', "success");
         // return redirect()->back();

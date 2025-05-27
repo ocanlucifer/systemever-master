@@ -10,25 +10,25 @@ class PartnershipController extends Controller
     public function join_partnership(){
         $lang = activelang();
         $data['breadcrumbs'] = array(
-            [ 
-                'label'=>'Home',
+            [
+                'label'=>stringlang('Home', 'Home', '홈페이지'),
                 'link'=> route('get.index')
-            ],            
-            [ 
-                'label'=> stringlang('Join', 'Bergabung'),
+            ],
+            [
+                'label'=> stringlang('Join', 'Bergabung', '가입하다'),
                 'link'=>'#'
-            ], 
-            [ 
-                'label'=> stringlang('Partnership', 'Kemitraaan'),
+            ],
+            [
+                'label'=> stringlang('Partnership', 'Kemitraaan', '공동'),
                 'link'=>'#'
-            ], 
+            ],
         );
         $post = \App\Post::where([
             ["slug", "pertnership"],
             ["lang", "ID"]
         ])->first();
         if ($lang != $post->lang) {
-            $child = \App\Post::where("parent_id", $post->id)->first();
+            $child = \App\Post::where("parent_id", $post->id)->where("lang", $lang)->first();
             if (!empty($child)) {
                 $post = $child;
             }

@@ -5,7 +5,7 @@
                 <div class="title-form-consultant">
                     {{-- @if (activelang() == "EN")
                     <h5>{{ stringlang('Talk to Our Consultant', 'Bicarakan pada Konsultan Kami') }}</h5>
-                    <h3>Need Bookkeeping Solution <br> for your Busines?</h3>  
+                    <h3>Need Bookkeeping Solution <br> for your Busines?</h3>
                     <p>We can help you get to know us better by providing steps to use SystemEver.</p>
                     @else
                     <h5>Hubungi Konsultan Kami</h5>
@@ -17,7 +17,7 @@
                     <p>{{ $meta->home_contact_desc }}</p>
                     <div class="d-flex justify-content-lg-start justify-content-md-center justify-content-center pt-0 px-lg-0 px-md-3 px-5">
                         <a href="{{ route('get.contact') }}" class="btn-oval btn-view-detail btn-white-orange btn-block mt-4 text-center">
-                        {{ stringlang('Contact Us', 'Hubungi Kami') }}
+                        {{ stringlang('Contact Us', 'Hubungi Kami','문의하기') }}
                         </a>
                     </div>
                 </div>

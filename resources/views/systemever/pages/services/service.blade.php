@@ -12,8 +12,8 @@
         <div class="container">
             {{-- <h1>{{ stringlang('How can we help you?', 'Apa yang bisa kami bantu') }}</h1>
             <p>{{ stringlang('Running your business is now easier than ever', 'Menjalankan bisnis anda kini lebih mudah dari sebelumnya') }}</p> --}}
-            <h1>{{ stringlang('One Page ERP for Small Medium Enterprises', 'One Page ERP untuk Usaha Kecil dan Menengah Anda') }}</h1>
-            <p>{{ stringlang('Running your business now easier with SystemEver', 'menjalankan bisnis anda kini lebih mudah dengan SystemEver') }}</p>
+            <h1>{{ stringlang('One Page ERP for Small Medium Enterprises', 'One Page ERP untuk Usaha Kecil dan Menengah Anda', '중소기업을 위한 원페이지 ERP') }}</h1>
+            <p>{{ stringlang('Running your business now easier with SystemEver', 'menjalankan bisnis anda kini lebih mudah dengan SystemEver', 'SystemEver와 함께라면 비즈니스 운영이 더 쉬워집니다') }}</p>
         </div>
     </div>
 </section>

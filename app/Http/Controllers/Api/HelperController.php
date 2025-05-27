@@ -84,7 +84,7 @@ class HelperController extends Controller
                 ])->orderBy('max_pay_date', 'asc')->first();
 
                 $cost->harga_f = nominal($cost->harga);
-    
+
                 return response()->json([
                     'status'    => 'success',
                     'data'      => $cost
@@ -102,6 +102,12 @@ class HelperController extends Controller
     public function langen()
     {
         session(['lang' => 'EN']);
+        echo \Session::get("lang");
+    }
+
+    public function langkor()
+    {
+        session(['lang' => 'KOR']);
         echo \Session::get("lang");
     }
 
@@ -153,13 +159,13 @@ class HelperController extends Controller
             ['ref_survey_answers_id', $post['ref_survey_answers_id']],
         ])->first();
         if (empty($detail)) {
-            $detail = new \App\RefSurveiDetails;            
+            $detail = new \App\RefSurveiDetails;
             $detail->ref_surfeys_id = $ref_surfeys_id;
             $detail->ref_mitras_id = $post['ref_mitras_id'];
             $detail->cms_users_id = $post['cms_users_id'];
             $detail->ref_survey_questions_id = $post['ref_survey_questions_id'];
             $detail->ref_survey_answers_id = $post['ref_survey_answers_id'];
-            
+
         }
         $detail->answer_value = $post['answer_value'];
         $detail->answer_type = $post['answer_type'];
@@ -190,7 +196,7 @@ class HelperController extends Controller
             $setting->value = "[]";
             $json = [];
         }
-        
+
         $table_setting = null;
         if ($post['input_type'] == "table") {
             $header = [];
@@ -219,7 +225,7 @@ class HelperController extends Controller
         // print_r($json); exit();
         $setting->value = json_encode($json);
         $setting->save();
-        
+
         return response()->json([
             'code' => '200',
             'message' => 'success',
@@ -234,7 +240,7 @@ class HelperController extends Controller
             ["setting_type", "custom_page_setting"]
         ])->first();
         $json = json_decode($setting->value, true);
-        
+
         foreach ($json as $k => $v) {
             if ($k == $request->key) {
                 unset($json[$k]);
@@ -242,7 +248,7 @@ class HelperController extends Controller
         }
         $setting->value = json_encode($json);
         $setting->save();
-        
+
         return response()->json([
             'code' => '200',
             'message' => 'success',
@@ -277,7 +283,7 @@ class HelperController extends Controller
             $newsletter_member = new \App\NewsletterMembers;
             $newsletter_member->email = $request->email;
             $newsletter_member->save();
-    
+
             return response()->json([
                 'code' => 200,
                 'message' => 'Success',

@@ -13,27 +13,29 @@ class ServiceController extends Controller
         if (env('APP_ENV') == "production") {
             if ($lang == 'EN') {
                 $view = \Cache::pull('en.get.pages.services.feature');
-            } else {
+            } else if ($lang == 'KOR') {
+                $view = \Cache::pull('kor.get.pages.services.feature');
+            }  else {
                 $view = \Cache::pull('id.get.pages.services.feature');
             }
             if (!empty($view)) {
                 return $view;
             }
-        }  
+        }
 
         $data['breadcrumbs'] = array(
-            [ 
-                'label'=> stringlang('Home', 'Beranda'),
+            [
+                'label'=> stringlang('Home', 'Beranda', '홈페이지'),
                 'link'=>route("get.index")
             ],
-            [ 
-                'label'=> stringlang('Service', 'Layanan'),
+            [
+                'label'=> stringlang('Service', 'Layanan', '서비스'),
                 'link'=> '#'
-            ], 
-            [ 
-                'label'=> stringlang('SystemEver Feature', 'Fitur SystemEver'),
+            ],
+            [
+                'label'=> stringlang('SystemEver Feature', 'Fitur SystemEver', 'SystemEver 기능'),
                 'link'=> route('get.pages.services.feature')
-            ], 
+            ],
         );
 
         $service = \App\Service::where([
@@ -46,6 +48,8 @@ class ServiceController extends Controller
         if (env('APP_ENV') == "production") {
             if (activelang() == "EN") {
                 \Cache::put('en.get.pages.services.feature', $view);
+            } else if (activelang() == "KOR") {
+                \Cache::put('kor.get.pages.services.feature', $view);
             } else {
                 \Cache::put('id.get.pages.services.feature', $view);
             }
@@ -59,28 +63,30 @@ class ServiceController extends Controller
         if (env('APP_ENV') == "production") {
             if ($lang == 'EN') {
                 $view = \Cache::pull('en.get.pages.services.quality_security');
+            } else if ($lang == 'KOR') {
+                $view = \Cache::pull('kor.get.pages.services.quality_security');
             } else {
                 $view = \Cache::pull('id.get.pages.services.quality_security');
             }
             if (!empty($view)) {
                 return $view;
             }
-        }  
+        }
         $data['breadcrumbs'] = array(
-            [ 
+            [
                 'label'=> stringlang('Home', 'Beranda'),
                 'link'=>route("get.index")
             ],
-            [ 
+            [
                 'label'=> stringlang('Support', 'Pendukung'),
                 'link'=>'#'
-            ], 
-            [ 
+            ],
+            [
                 'label'=> stringlang('Quality/Security', 'Kualitas/Keamanan'),
                 'link'=>'#'
-            ], 
+            ],
         );
-        
+
         $service = \App\Service::where([
             ["lang", $lang],
             ["type", "quality-security"]
@@ -91,18 +97,22 @@ class ServiceController extends Controller
         if (env('APP_ENV') == "production") {
             if ($lang == 'EN') {
                 \Cache::put('en.get.pages.services.quality_security', $view);
+            } else if ($lang == 'KOR') {
+                \Cache::put('kor.get.pages.services.quality_security', $view);
             } else {
                 \Cache::put('id.get.pages.services.quality_security', $view);
             }
         }
         return $view;
     }
-    
+
     public function customer_industry(){
         $lang = activelang();
         if (env('APP_ENV') == "production") {
             if ($lang == 'EN') {
                 $view = \Cache::pull('en.get.pages.services.customer_industry');
+            } else if ($lang == 'KOR') {
+                $view = \Cache::pull('kor.get.pages.services.customer_industry');
             } else {
                 $view = \Cache::pull('id.get.pages.services.customer_industry');
             }
@@ -111,20 +121,20 @@ class ServiceController extends Controller
             }
         }
         $data['breadcrumbs'] = array(
-            [ 
+            [
                 'label'=> stringlang('Home', 'Beranda'),
                 'link'=>route("get.index")
             ],
-            [ 
+            [
                 'label'=> stringlang('Service', 'Layanan'),
                 'link'=>'#'
-            ], 
-            [ 
+            ],
+            [
                 'label'=> stringlang('Customer Industry', 'Pelanggan & Industri'),
                 'link'=>'#'
-            ], 
+            ],
         );
-        
+
         $service = \App\Service::where([
             ["lang", $lang],
             ["type", "customer-industry"]
@@ -139,6 +149,8 @@ class ServiceController extends Controller
         if (env('APP_ENV') == "production") {
             if ($lang == "EN") {
                 \Cache::put('en.get.pages.services.customer_industry', $view);
+            } else if ($lang == "KOR") {
+                \Cache::put('kor.get.pages.services.customer_industry', $view);
             } else {
                 \Cache::put('id.get.pages.services.customer_industry', $view);
             }

@@ -192,7 +192,7 @@
 
 <div x-data="{showx:false, pagex:0,pagessx:[],init(){this.pagessx = Object.values({!!str_replace("\"", "'",json_encode($meta->{'tabs'}))!!}).map(e=>e.title)}}">
     <section class="pt-8 pb-4 lg:pt-16 lg:pb-16">
-        <div class="container"><div class="bc"><a href="/">{{ stringlang('Home', 'Beranda') }}</a><img src="{{asset('assets/fl/bc.png')}}" alt=""><a href="" class="active">Performance Quality</a></div>
+        <div class="container"><div class="bc"><a href="/">{{ stringlang('Home', 'Beranda', '홈페이지') }}</a><img src="{{asset('assets/fl/bc.png')}}" alt=""><a href="" class="active">{{ stringlang('Performance Quality', 'Performance Quality', '성능 품질') }}</a></div>
             <div class="flex flex-col-reverse lg:flex-row items-center ">
                 <div class="w-full lg:w-[40%] flex flex-col gap-3 lg:gap-8 lg:pt-12">
                     <h1 class="font-poppins  text-22px lg:text-37px font-bold leading-6 lg:leading-9 text-center lg:text-left">
@@ -251,7 +251,7 @@
                         <span class="lg:text-18px text-12px lg:leading-6 leading-4">{{$item->description}}</span>
                     </div>
                     @endforeach
-                   
+
                 </div>
                 <br>
                 <div class="grid lg:grid-cols-3 grid-cols-1 lg:gap-8 gap-4 font-opensans">

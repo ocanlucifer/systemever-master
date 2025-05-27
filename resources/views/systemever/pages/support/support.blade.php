@@ -47,7 +47,7 @@
         <div class="container">
             <div class="row mb-4">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-12 overflow-hide pr-4">
-                   <div class="title-pages mb-4 pl-lg-3 pl-md-3 pl-1"> 
+                   <div class="title-pages mb-4 pl-lg-3 pl-md-3 pl-1">
                        <h3>{!!stringlang('FAQ', 'Tanya&nbsp;Jawab')!!}</h3>
                     </div>
                     <div class="box-nav-tab d-lg-block d-md-block d-sm-none d-none">
@@ -57,7 +57,7 @@
                             @endforeach
                         </div>
                     </div>
-                </div> 
+                </div>
                 <div class="col-lg-8 col-md-8 col-sm-12 col-12 position-relative box-desc-faq pt-lg-4 pt-md-4 pt-0 mt-lg-5 mt-md-5 mt-0">
                     {{-- tab desktop --}}
                     <div class="tab-content bg-white px-lg-3 px-md-3 px-1 pt-3 pb-5 d-lg-block d-md-block d-sm-none d-none" id="v-pills-tabContent">
@@ -76,7 +76,7 @@
                                                     </button>
                                                 </h5>
                                             </div>
-                                        
+
                                             <div id="collapse-{{ $i }}" class="collapse " aria-labelledby="headcard-{{ $i }}" data-parent="#accordion-{{$no}}">
                                                 <div class="card-body pt-0 pb-1">
                                                     {!!$v->answer!!}
@@ -101,7 +101,7 @@
                                         </button>
                                     </h5>
                                 </div>
-                            
+
                                 <div id="collapse-menu-{{ $x }}" class="collapse " aria-labelledby="headcard-menu-{{ $x }}" data-parent="#accordion-menu">
                                     <div class="card-body pt-0">
                                         <div id="accordion-mb-1" class="accordion-mb">
@@ -116,7 +116,7 @@
                                                             </button>
                                                         </h5>
                                                     </div>
-                                                
+
                                                     <div id="collapse-mb-{{ $n }}" class="collapse " aria-labelledby="headcard-mb-{{ $n }}" data-parent="#accordion-mb-1">
                                                         <div class="card-body">
                                                             {!!$v->answer!!}

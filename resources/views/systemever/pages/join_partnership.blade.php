@@ -66,17 +66,17 @@
                     @foreach ($data->partnership_feature_list as $v)
                         @if ($i % 2 == 0)
                         <li class="list-group-item">
-                            <a href="{{ $v->partnership_feature_list_url }}">
-                                <img class="left" src="{{ url_to_svg($v->partnership_feature_list_icon) }}" alt=""/> 
+                            {{-- <a href="{{ $v->partnership_feature_list_url }}"> --}}
+                                <img class="left" src="{{ url_to_svg($v->partnership_feature_list_icon) }}" alt=""/>
                                 {{$v->partnership_feature_list_title}}
-                            </a>
+                            {{-- </a> --}}
                         </li>
                         @else
                         <li class="list-group-item">
-                            <a href="{{ $v->partnership_feature_list_url }}">
+                            {{-- <a href="{{ $v->partnership_feature_list_url }}"> --}}
                                 {{$v->partnership_feature_list_title}}
-                                <img class="left" src="{{ url_to_svg($v->partnership_feature_list_icon) }}" alt=""/> 
-                            </a>
+                                <img class="left" src="{{ url_to_svg($v->partnership_feature_list_icon) }}" alt=""/>
+                            {{-- </a> --}}
                         </li>
                         @endif
                         @php $i++ @endphp
@@ -89,7 +89,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 </section>
 
@@ -119,7 +119,7 @@
                         </div>
                         @endforeach
                     @endif
-                    <button class="btn-oval btn-view-detail btn-join-us btn-white-orange mb-lg-4 ml-md-4 ml-0 mt-lg-5 mt-md-5 mt-3" data-toggle="modal" data-target="#modal-patner">{{ stringlang('Join Us', 'Gabung Sekarang') }}</button>
+                    <button class="btn-oval btn-view-detail btn-join-us btn-white-orange mb-lg-4 ml-md-4 ml-0 mt-lg-5 mt-md-5 mt-3" data-toggle="modal" data-target="#modal-patner">{{ stringlang('Join Us', 'Gabung Sekarang', '우리와 함께하세요') }}</button>
                 </div>
             </div>
         </div>
@@ -141,7 +141,7 @@
                                 <h5>{{ $v->partnership_consulting_partner_list_name }}</h5>
                                 <p>{!! nl2br($v->partnership_consulting_partner_list_address) !!}</p>
                             </div>
-                            @endforeach 
+                            @endforeach
                         @endif
                     </div>
                </section>
@@ -166,7 +166,7 @@
                         <img class="color" src="{{ asset_to_webp(uri($photo->grid_item_width2->photo)) }}" alt="">
                         <div class="caption-grid">
                             {{($photo->grid_item_width2->title)}}
-                        </div> 
+                        </div>
                     </div>
                     <div class="grid-item grid-item--width3">
                         <img class="abu" src="{{ asset_to_webp(uri($photo->grid_item_width3->photo)) }}" alt="">

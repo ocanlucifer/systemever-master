@@ -13,7 +13,7 @@
                 <p>{{$data->sub_title}}</p>
             </div>
         </div>
-        
+
     </div>
 </section>
 <section class="section-cabang d-lg-flex d-md-flex d-sm-block d-block">
@@ -40,7 +40,7 @@
                     </div>
                     <div class="px-lg-0 px-md-0 px-sm-3 px-3">
                         <p>{{$data->vision_detail}}</p>
-                    </div> 
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6 py-4 pr-lg-5 pr-md-5 pr-3 pl-lg-3 pr-md-3 pl-sm-3 pl-3 ">
@@ -58,6 +58,8 @@
             <div class="col-lg-12 mb-5">
                 @if (activelang() == "EN")
                 <h2>Need ERP Software for Your Small<br/> Medium Business?</h2>
+                @elseif (activelang() == 'KOR')
+                <h2>중소기업을 위한 ERP 소프트웨어가<br/> 필요하십니까?</h2>
                 @else
                 <h2>Mengapa SystemEver tepat untuk Usaha <br/>Kecil dan Menengah?</h2>
                 @endif
@@ -66,16 +68,16 @@
         <div class="row mb-5">
             <div class="col-sm-12 px-lg-3 px-sm-0 px-0 d-lg-none d-md-none d-sm-flex d-flex">
                 <div class="video-home">
-                    <iframe 
-                         src="https://www.youtube.com/embed/m3o1KpM2g9w" 
-                         title="YouTube video player" 
-                         frameborder="0" 
-                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    <iframe
+                         src="https://www.youtube.com/embed/m3o1KpM2g9w"
+                         title="YouTube video player"
+                         frameborder="0"
+                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                          allowfullscreen></iframe>
                 </div>
             </div>
             <div class="col-lg-5 list-medium-business">
-                
+
                 @foreach ($data->video_section_usp as $v)
                 <div class="row mb-4">
                     <div class="col-lg-2 px-0">
@@ -93,6 +95,8 @@
                         <a class="btn-oval btn-view-detail btn-block text-white text-center btn-white-orange mb-lg-4 m-auto" href="{{ route('get.pages.services.feature') }}">
                             @if (activelang() == "EN")
                             View Detail
+                            @elseif (activelang() == 'KOR')
+                            자세히 보기
                             @else
                             Lihat Detail
                             @endif
@@ -102,12 +106,12 @@
             </div>
             <div class="col-lg-7 d-lg-block d-md-block d-sm-none d-none">
                 <div class="video-home">
-                    <iframe 
-                         src="https://www.youtube.com/embed/m3o1KpM2g9w" 
-                         title="YouTube video player" 
-                         frameborder="0" 
-                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                         allowfullscreen></iframe>                    
+                    <iframe
+                         src="https://www.youtube.com/embed/m3o1KpM2g9w"
+                         title="YouTube video player"
+                         frameborder="0"
+                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                         allowfullscreen></iframe>
                 </div>
             </div>
         </div>

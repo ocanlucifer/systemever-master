@@ -24,7 +24,7 @@
                     <div class="name-title text-center">
                         <h5>{{$data->CRI_name}}</h5>
                         <!--<p>Chief in Representative Indonesia</p>-->
-                        <p>President Director</p>
+                        <p>{{ stringlang("President Director", "President Director", "대표") }}</p>
 
                     </div>
                 </div>
@@ -83,7 +83,7 @@
                         <img class="color" src="{{ asset_to_webp(uri($data->grid_item_width2->photo)) }}" alt="">
                         <div class="caption-grid">
                             {{($data->grid_item_width2->title)}}
-                        </div> 
+                        </div>
                     </div>
                     <div class="grid-item grid-item--width3">
                         <img class="abu" src="{{ asset_to_webp(uri($data->grid_item_width3->photo)) }}" alt="">
