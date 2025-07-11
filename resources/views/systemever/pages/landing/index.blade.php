@@ -242,20 +242,46 @@
         font-weight: bold;
     }
 
-    .truncate-multiline {
+    .truncate-3-lines {
         display: -webkit-box;
-        -webkit-line-clamp: 3 /* jumlah baris */
+        -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
+        min-height: 48px; /* set sesuai tinggi 2 baris */
         text-align: left;
+        font-size: 11px;
+        word-break: keep-all;      /* penting: biar kata tidak terpotong */
+        text-overflow: ellipsis;
+        white-space: normal; /* ⬅️ ini lebih aman dari pre-line */
     }
     .truncate-2-lines {
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
-        min-height: 48px; /* set sesuai tinggi 2 baris */
+        min-height: 48px;
         text-align: left;
+        word-break: keep-all;      /* penting: biar kata tidak terpotong */
+        text-overflow: ellipsis;
+        white-space: normal; /* ⬅️ ini lebih aman dari pre-line */
+    }
+     /* .truncate-2-lines {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis; */
+        /* min-height: 48px;
+        text-align: left;
+    } */
+    .truncate-1-lines {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        min-height: 20px; /* set sesuai tinggi 2 baris */
+        text-align: left;
+        font-size: 13px;
     }
 
     .swiper-pagination {
@@ -285,6 +311,36 @@
     transform: scale(1.4);
     }
 
+    .title-ceo {
+        font-size: 47px;
+    }
+    .swipper-ceo-body {
+        background: rgba(155, 158, 155, 0.363);
+        backdrop-filter: blur(70px);
+        -webkit-backdrop-filter: blur(70px);
+        border-radius: 16px;
+        padding: 1rem;
+        text-align: center;
+        transition: transform 0.3s;
+    }
+    .swipper-ceo-button {
+        display: inline-block;
+        padding: 0.5rem 1.25rem;
+        background: rgba(0, 0, 0, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 9999px;
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        color: #fff;
+        font-weight: 500;
+        text-decoration: none;
+        transition: background 0.3s, transform 0.3s;
+    }
+    .swipper-ceo-img {
+        height: 200px;
+        width: 400px;
+    }
+
     @media only screen and (max-width: 1024px) {
         .page-content {
             margin-top: 55px;
@@ -293,10 +349,16 @@
         .aspect-mod {
             aspect-ratio: 12/8;
         }
+        .custom-button {
+            font-size: 14px; /* Font lebih besar */
+            padding: 7px 50px; /* Padding lebih besar */
+        }
         .tabs-container {
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             scroll-snap-type: x mandatory; /* Menyediakan efek snap antar tab */
+            padding-left: 300px; /* atau sesuai kebutuhan */
+            padding-right: 300px;
         }
 
         .tabs {
@@ -305,10 +367,6 @@
             width: max-content; /* Lebar tab menyesuaikan konten */
             scroll-snap-align: start; /* Setiap tab berhenti di posisi awal */
             font-size: 14px;
-        }
-        .custom-button {
-            font-size: 14px; /* Font lebih besar */
-            padding: 7px 50px; /* Padding lebih besar */
         }
 
         .tab-button {
@@ -354,80 +412,134 @@
         .description-box {
             font-size: 14px;
         }
+
+        .truncate-1-lines {
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 20px; /* set sesuai tinggi 2 baris */
+            text-align: left;
+            font-size: 12px;
+        }
+        .truncate-2-lines {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 48px; /* set sesuai tinggi 2 baris */
+            text-align: left;
+            font-size: 15px;
+            word-break: keep-all;      /* penting: biar kata tidak terpotong */
+            text-overflow: ellipsis;
+            white-space: normal; /* ⬅️ ini lebih aman dari pre-line */
+        }
+        .truncate-3-lines {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 48px; /* set sesuai tinggi 2 baris */
+            text-align: left;
+            font-size: 10px;
+            word-break: keep-all;      /* penting: biar kata tidak terpotong */
+            text-overflow: ellipsis;
+            white-space: normal; /* ⬅️ ini lebih aman dari pre-line */
+        }
+        .title-ceo {
+            font-size: 27px;
+        }
+        .swipper-ceo-body {
+            background: rgba(155, 158, 155, 0.363);
+            backdrop-filter: blur(70px);
+            -webkit-backdrop-filter: blur(70px);
+            border-radius: 16px;
+            padding: 0.75rem; /* lebih kecil */
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .swipper-ceo-button {
+            background: rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            transition: all 0.3s;
+        }
+        .swipper-ceo-img {
+            height: 160px;
+            width: 100%;
+            max-width: 100%;
+        }
     }
 
 </style>
 @endsection
 @section('content')
+{{-- <section class="pt-8 pb-4 lg:pt-16 lg:pb-16" style="background: linear-gradient(135deg, #1a1f1d, #2c3e30, #2a403d   );"> --}}
+<section class="pt-4 pb-4 lg:pt-16 lg:pb-16" style="background: linear-gradient(190deg, #3B5E56, #000000   );">
 
-    {{-- <section class="lg:pt-200px lg:pb-140px pt-10px pb-12px" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9, #a5d6a7);"> --}}
-    {{-- <section class="lg:pt-200px lg:pb-140px pt-10px pb-12px" style="background: linear-gradient(135deg, #c2f0c2, #a0d6b4, #6ec2a8);"> --}}
-    {{-- <section class="lg:pt-200px lg:pb-140px pt-10px pb-12px" style="background: linear-gradient(135deg, #1a1f1d, #2a403d, #3c6e6a);"> --}}
-<section class="lg:pt-200px lg:pb-140px lg:pb-140px pt-10px pb-12px" style="background: linear-gradient(135deg, #1a1f1d, #2c3e30, #2a403d   );">
-{{-- <section class="lg:pt-200px lg:pb-140px lg:pb-140px pt-10px pb-12px" style="background: linear-gradient(135deg, #2a403d, #2c3e30, #111   );"> --}}
-    <div class="container overflow-hidden">
-        <h1 class="font-poppins lg:text-37px  lg:leading-12 lg:text-left lg:mb-5 lg:mt-8 mb-2 leading-7 text-26px font-bold text-white text-center">
+    <div class="container relative">
+        <br>
+        <p class="font-poppins lg:text-24px  lg:leading-12 lg:text-left  lg:mb-0 lg:mt-8 mb-0 leading-7 text-21px  text-white text-center">
+            20년 넘게 이어온 영림원소프트랩의
+        </p>
+        <h1 class="font-poppins lg:leading-12 lg:text-left  lg:mb-5 lg:mt-0 mb-2 leading-7 font-bold text-white text-center title-ceo">
             CEO Forum
         </h1>
+        <p class="font-opensans text-white lg:text-17px lg:mb-8 mb-4 lg:text-left text-center text-11px ">
+            대한민국 리더들의 통찰과 전략이 만나는 자리
+        </p>
         <div class="swiper CEOForumSwiper relative">
             <div class="swiper-wrapper">
                 @if(!empty($ceoforum))
                     @foreach ($ceoforum as $v)
+
                     <div class="swiper-slide">
-                        <div style="background: rgba(137, 141, 137, 0.363);
-                                    backdrop-filter: blur(30px);
-                                    -webkit-backdrop-filter: blur(30px);
-                                    border-radius: 16px;
-                                    padding: 1rem;
-                                    text-align: center;
-                                    transition: transform 0.3s;"
-                             onmouseover="this.style.transform='scale(1.05)'"
-                             onmouseout="this.style.transform='scale(1)'">
+                        <div class="swipper-ceo-body">
+                            <div onmouseover="this.style.transform='scale(1.03)'"
+                                 onmouseout="this.style.transform='scale(1)'">
 
-                            {{-- Title --}}
-                            <h3 class="text-lg font-bold text-white mb-2 truncate-2-lines">
-                                {{-- {{ \Illuminate\Support\Str::limit(strip_tags($v->title), 100) }} --}}
-                                {{ \Illuminate\Support\Str::limit(strip_tags('201회, 정수복 박사(사회학자, 작가) (2025.1.15)'), 100) }}
-                            </h3>
+                                {{-- Title --}}
+                                <p class="text-sm text-white font-bold mb-2 truncate-2-lines min-h-[36px] leading-snug">
+                                    {{ \Illuminate\Support\Str::limit(strip_tags($v->title), 100) }}
+                                    {{-- {{ \Illuminate\Support\Str::limit(strip_tags('201회, 정수복 박사(사회학자, 작가) (2025.1.15)'), 100) }} --}}
+                                </p>
 
-                            {{-- Image --}}
-                            <div class="rounded-xl overflow-hidden mb-3">
-                                {{-- <img src="{{ uri($v->photo) }}" alt="{{ $v->title }}" class="w-full h-[180px] object-cover"> --}}
-                                <img src="https://blog.ksystem.co.kr/wp-content/uploads/2025/01/%EC%A0%95%EC%88%98%EB%B3%B5-%ED%99%8D%EB%B3%B4%EC%9A%A9-%EC%82%AC%EC%A7%84-558x372.jpg" alt="Nelson Mandela" class="object-cover" style="height: 300px; width: 400px">
+                                {{-- Image --}}
+                                <div class="rounded-xl overflow-hidden mb-2">
+                                    <img src="{{ uri($v->image_url) }}" alt="{{ $v->title }}" class="w-full h-[180px] object-cover swipper-ceo-img">
+                                    {{-- <img src="https://blog.ksystem.co.kr/wp-content/uploads/2025/01/%EC%A0%95%EC%88%98%EB%B3%B5-%ED%99%8D%EB%B3%B4%EC%9A%A9-%EC%82%AC%EC%A7%84-558x372.jpg" alt="Nelson Mandela" class="object-cover" style="height: 200px; width: 400px"> --}}
+                                </div>
+
+                                {{-- Description --}}
+                                @if(!empty($v->body))
+                                    <p class="text-sm text-white mb-1 truncate-1-lines min-h-[24px] leading-tight">
+                                        {{ \Illuminate\Support\Str::limit(strip_tags($v->slider_title), 100) }}
+                                        {{-- {{ \Illuminate\Support\Str::limit(strip_tags('201회, 정수복 박사(사회학자, 작가) (2025.1.15)'), 100) }} --}}
+                                    </p>
+                                    <p class="text-sm text-white mb-2 truncate-3-lines min-h-[48px] leading-snug">
+                                        {{ \Illuminate\Support\Str::limit(strip_tags($v->body), 300) }}
+                                    </p>
+                                @endif
+
+                                {{-- <div class="my-4"> --}}
+                                    <hr class="border-t-2 border-white w-2/3 mx-auto my-2">
+                                {{-- </div> --}}
+
+                                {{-- Read More Button --}}
+                                {{-- <a href="{{ route('get.pages.article.ceo_forum_detail', ['id' => $v->id]) }}" style=" --}}
+                                <a href="{{ 'https://systemever.co.id/kor/business-insight/ceo_forum/detail/'.$v->id }}"
+                                    class="text-xs font-medium text-white px-3 py-1 inline-block rounded-full swipper-ceo-button"
+                                    onmouseover="this.style.background='rgba(0, 255, 204, 0.6)'; this.style.transform='scale(1.05)'"
+                                    onmouseout="this.style.background='rgba(0, 0, 0, 0.15)'; this.style.transform='scale(1)'">
+                                    Read More
+                                </a>
+
+                                <div class="my-2"></div>
                             </div>
-
-                            {{-- Description --}}
-                            {{-- @if(!empty($v->description)) --}}
-                            <p class="text-sm text-white mb-4 truncate-2-lines min-h-[48px]">
-                                {{ \Illuminate\Support\Str::limit(strip_tags('사회학자 정수복 박사가 15일, 201회 영림원CEO포럼에서 ‘한국인의 문화적 문법과 이타적 개인주의’를 주제로 강연했다.'), 100) }}
-                            </p>
-                            {{-- @endif --}}
-
-                            <div class="my-4">
-                                <hr class="border-t-2 border-white w-2/3 mx-auto">
-                            </div>
-
-                            {{-- Read More Button --}}
-                            <a href="#" style="
-                                display: inline-block;
-                                padding: 0.5rem 1.25rem;
-                                background: rgba(0, 0, 0, 0.15);
-                                border: 1px solid rgba(255, 255, 255, 0.25);
-                                border-radius: 9999px;
-                                backdrop-filter: blur(6px);
-                                -webkit-backdrop-filter: blur(6px);
-                                color: #fff;
-                                font-weight: 500;
-                                text-decoration: none;
-                                transition: background 0.3s, transform 0.3s;"
-                                onmouseover="this.style.background='rgba(0, 255, 204, 0.6)'; this.style.transform='scale(1.05)'"
-                                onmouseout="this.style.background='rgba(0, 0, 0, 0.15)'; this.style.transform='scale(1)'">
-                                Read More
-                            </a>
-
-                            <div class="my-2"></div>
                         </div>
                     </div>
+
                     @endforeach
                 @endif
             </div>
@@ -439,16 +551,12 @@
     </div>
 </section>
 
-<section class="py-0 lg:py-2">
-    <picture class="absolute top-10 left-0 w-full lg:h-700px h-380px">
+<section class="relative overflow-hidden flex items-center justify-center" style="padding-top: 50px; padding-bottom: 180px;">
+    <picture class="absolute top-0 left-0 w-full h-full z-0">
         <source srcset="{{ asset('assets/fl/home-bg-1.png')}}" media="(min-width: 1024px)" class="w-full h-full object-cover" style="object-position: bottom center;" />
         <img src="{{ asset('assets/fl/home-bg-1-m.png')}}" alt="" class="w-full h-full object-cover" style="object-position: bottom center;" />
     </picture>
-    <div class="container relative">
-        <br>
-        <br>
-        <br>
-        <br>
+    <div class="container relative z-10">
         <div class="flex flex-col lg:flex-row">
             <div class="lg:w-[60%]  mx-auto">
                 <p class="font-opensans text-white lg:text-16px lg:mb-0 mb-0 lg:text-left text-center text-11px ">
@@ -503,11 +611,12 @@
         </div>
     </div>
 </section> --}}
+{{-- <br>
 <br>
 <br>
 <br>
-<br>
-<br>
+<br> --}}
+
 <section class="lg:pt-10px lg:pb-50px pt-20px pb-60px relative">
     <div class="container relative">
         <div class="tabs-container">
@@ -571,6 +680,10 @@
         },
         breakpoints: {
             0: {
+                slidesPerView: 1, // Tampilkan hanya 1 slide di layar kecil
+                spaceBetween: 16, // Sedikit spasi untuk tampilan mobile
+            },
+            768: {
                 slidesPerView: 2,
                 spaceBetween: 24,
             },

@@ -239,4 +239,44 @@ class ArticleController extends Controller
 
         return view('systemever/pages/article/professional',$data);
     }
+
+    public function ceo_forum()
+    {
+        $data['breadcrumbs'] = array(
+            [
+                'label'=> stringlang('Home', 'Beranda', '홈페이지'),
+                'link'=> route('get.index')
+            ],
+            [
+                'label'=> stringlang('Business Insight', 'Business Insight', '인사이트'),
+                'link'=> route('get.pages.article.article')
+            ],
+            [
+                'label'=> stringlang('Ceo Forum', 'Ceo Forum', 'Ceo Forum'),
+                'link'=> route('get.pages.article.ceo_forum')
+            ],
+
+        );
+        $lang = activelang();
+
+        // dd($data['highlight']);
+        $data['ceo_forum'] = \App\CEOForum::where([
+            // ['lang', $lang],
+        ])->orderBy('post_date', 'desc')->paginate(10);
+
+        return view('systemever/pages/article/ceo_forum',$data);
+    }
+
+    public function ceo_forum_detail($id)
+    {
+        $data = \App\CEOForum::where("id", $id)->first();
+        if (empty($data)) {
+            return view('systemever/pages/article/article_not_found');
+        }
+
+
+        // dd($data);
+
+        return view('systemever/pages/article/ceo_forum_detail',['data' => $data]);
+    }
 }
