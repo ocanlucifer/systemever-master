@@ -14,6 +14,7 @@
                 <li><a class="{{ Request::segment(2) == 'professional' ? 'active':'' }} {{ Request::segment(3) == 'professional' ? 'active':'' }}" href="{{ route('get.pages.article.professional') }}">{{ stringlang("Professional", "Professional", "프로페셔널") }}</a></li>
                 <li><a class="{{ Request::segment(2) == 'article' ? 'active':'' }} {{ Request::segment(3) == 'article' ? 'active':'' }}" href="{{ route('get.pages.article.article') }}">{{ stringlang("General", "General", "일반") }} </a></li>
                 <li><a class="{{ Request::segment(2) == 'news' ? 'active':'' }} {{ Request::segment(3) == 'news' ? 'active':'' }}" href="{{ route('get.pages.article.news') }}">{{ stringlang("News", "Berita", "뉴스") }} </a></li>
+                <li><a class="{{ Request::segment(2) == 'ceo_forum' ? 'active':'' }} {{ Request::segment(3) == 'ceo_forum' ? 'active':'' }}" href="{{ route('get.pages.article.ceo_forum') }}">{{ stringlang("CEO Forum", "CEO Forum", "CEO Forum") }} </a></li>
             </ul>
         </div>
     </div>
