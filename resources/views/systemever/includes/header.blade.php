@@ -4,13 +4,13 @@
       <div class="row d-flex align-items-center">
         <div class="col-lg-8">
           {{-- {{seeinindo()}} --}}
-          @if (activelang() == "EN")
+          {{-- @if (activelang() == "EN")
           Learn how SystemEver fits perfectly into your remote work trip. <a href="{{ route('get.pages.support.video') }}"><b> Watch Tutorial Video.</b></a>
           @elseif (activelang() == "KOR")
           SystemEver, 원격 작업에 왜 찰떡인지 <a href="{{ route('get.pages.support.video') }}"><b> 영상 </b> 으로 만나보세요!
           @else
           Pelajari lebih lanjut bagaimana SystemEver sangat tepat untuk bekerja remote <a href="{{ route('get.pages.support.video') }}"><b> Lihat Video Tutorial.</b></a>
-          @endif
+          @endif --}}
         </div>
         <div class="col-lg-4">
           <ul class="list-unstyled mb-0 d-flex align-items-center justify-content-end">
@@ -203,6 +203,15 @@
                         </div>
                       </div>
                     </li>
+                    <li class="{{ Request::segment(2) == 'news' ? 'active':'' }}">
+                      <a onclick="imgControl('5')" href="{{ route('get.pages.article.ceo_forum') }}">{{ stringlang('CEO Forum', 'CEO Forum', 'CEO Forum') }}</a>
+                      <div class="img-menu img-menu-2">
+                        <img src="{{ asset('assets/img/img-menu-support.png') }}" alt="">
+                        <div class="arrow-down position-absolute">
+                          <a href=""><img src="{{ asset('assets/img/arrow-down.svg') }}" alt=""></a>
+                        </div>
+                      </div>
+                    </li>
                   </ul>
                 </div>
                 <div class="img-menu-drop position-relative" id="menu-img-5">
@@ -217,8 +226,8 @@
           </ul>
         </div>
         <div class="d-flex actionss">
-          <a href="{{ route('get.pages.join_partnership') }}" class="clear">@if (activelang() == "EN") Become Partner @elseif (activelang() == "KOR") 퍼트너 되기 @else Menjadi Mitra @endif</a>
-          <a href="{{ route('get.contact') }}" class="fill">@if (activelang() == "EN") Free Demo @elseif (activelang() == "KOR") 무료 시연 @else Demo Gratis @endif</a>
+          {{-- <a href="{{ route('get.pages.join_partnership') }}" class="clear">@if (activelang() == "EN") Become Partner @elseif (activelang() == "KOR") 퍼트너 되기 @else Menjadi Mitra @endif</a> --}}
+          <a href="{{ route('get.contact') }}" class="fill">@if (activelang() == "EN") Free Demo @elseif (activelang() == "KOR") 무료 데모 @else Demo Gratis @endif</a>
         </div>
       </div>
     </div>
@@ -240,8 +249,8 @@
             </div>
           </div>
           <div class="d-flex actionss">
-            <a href="{{ route('get.pages.join_partnership') }}" class="clear">@if (activelang() == "EN") Become Partner @elseif (activelang() == "KOR") 퍼트너 되기 @else Menjadi Mitra @endif</a>
-            <a href="{{ route('get.contact') }}" class="fill">@if (activelang() == "EN") Free Demo @elseif (activelang() == "KOR") 무료 시연 @else Demo Gratis @endif</a>
+            {{-- <a href="{{ route('get.pages.join_partnership') }}" class="clear">@if (activelang() == "EN") Become Partner @elseif (activelang() == "KOR") 퍼트너 되기 @else Menjadi Mitra @endif</a> --}}
+            <a href="{{ route('get.contact') }}" class="fill">@if (activelang() == "EN") Free Demo @elseif (activelang() == "KOR") 무료 데모 @else Demo Gratis @endif</a>
           </div>
         </div>
       </div>

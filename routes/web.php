@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 $langprefix = "/";
 if (activelang() == "EN") {
     $langprefix = "/en/";
@@ -87,6 +89,8 @@ Route::prefix($langprefix)->group(function () {
     Route::get('business-insight/news', ['as' => 'get.pages.article.news', 'uses' => '\App\Http\Controllers\Systemever\ArticleController@news']);
     Route::get('business-insight/article/category', ['as' => 'get.pages.article.article_list_category', 'uses' => '\App\Http\Controllers\Systemever\ArticleController@article_list_category']);
     Route::get('business-insight/professional', ['as' => 'get.pages.article.professional', 'uses' => '\App\Http\Controllers\Systemever\ArticleController@professional']);
+    Route::get('business-insight/ceo_forum/detail/{id}', ['as' => 'get.pages.article.ceo_forum_detail', 'uses' => '\App\Http\Controllers\Systemever\ArticleController@ceo_forum_detail']);
+    Route::get('business-insight/ceo_forum', ['as' => 'get.pages.article.ceo_forum', 'uses' => '\App\Http\Controllers\Systemever\ArticleController@ceo_forum']);
 
     Route::get('support/faq', ['as' => 'get.pages.support.support', 'uses' => '\App\Http\Controllers\Systemever\FaqController@support']);
     Route::get('support/user-manual', ['as' => 'get.pages.support.user_manual', 'uses' => '\App\Http\Controllers\Systemever\SupportController@user_manual']);
@@ -109,6 +113,42 @@ Route::prefix($langprefix)->group(function () {
 
     //new
     Route::get('/landing', ['as' => 'get.landing', 'uses' => '\App\Http\Controllers\Systemever\LandingPageController@index']);
+
+    Route::get('/soundcloud', function () {
+        return view('systemever/pages/article/test_audio_player');
+    });
+
+    Route::get('/check-play', function (Request $request) {
+        $ip = $request->ip();
+        // $track_id = $request->query('track_id');
+
+        $exists = DB::table('audio_play_logs')
+            ->where('ip_address', $ip)
+            // ->where('track_id', $track_id)
+            ->exists();
+
+        return response()->json(['hasPlayed' => $exists]);
+    });
+
+    Route::post('/log-play', function (Request $request) {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'track_id' => 'required|numeric',
+        ]);
+
+        DB::table('audio_play_logs')->insert([
+            'name' => $request->name,
+            'email' => $request->email,
+            'track_id' => $request->track_id,
+            'ip_address' => $request->ip(),
+            'played_at' => now(),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        return response()->json(['status' => 'ok']);
+    });
 });
 
 // Route::prefix('frontend')->group(function () {
@@ -171,6 +211,7 @@ Route::prefix('integrated')->group(function () {
     Route::get('business-insight/news/detail', ['as' => 'integrated.pages.article.news_detail', 'uses' => '\App\Http\Controllers\FrontendController@news_detail']);
     Route::get('business-insight/news', ['as' => 'integrated.pages.article.news', 'uses' => '\App\Http\Controllers\FrontendController@news']);
     Route::get('business-insight/article/category', ['as' => 'integrated.pages.article.article_list_category', 'uses' => '\App\Http\Controllers\FrontendController@article_list_category']);
+
 
     Route::get('support/faq', ['as' => 'integrated.pages.support.support', 'uses' => '\App\Http\Controllers\FrontendController@support']);
     Route::get('support/video', ['as' => 'integrated.pages.support.video', 'uses' => '\App\Http\Controllers\FrontendController@video']);
