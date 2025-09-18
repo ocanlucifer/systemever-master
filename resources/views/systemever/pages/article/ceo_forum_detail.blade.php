@@ -143,6 +143,7 @@
 </section>
 
 <div class="container">
+    <input type="hidden" id="audiosource" name="audiosource" value="{{ $data->trackId }}">
     <div class="row">
         <div class="col-lg-12">
             <section class="section-detail-article mb-5">
@@ -174,24 +175,49 @@
                         @endphp
 
                         <div class="ms-3 position-relative" style="min-width: 180px;">
+                            <a href="#"
+                                class="btn text-white {{ !$data->trackId ? 'disabled' : '' }}"
+                                id="openFormModal"
+                                style="
+                                    font-size: 16px;
+                                    font-weight: 600;
+                                    background-color: {{ $isValidUrl ? '#2596be' : '#6c757d' }};
+                                    pointer-events: {{ $isValidUrl ? 'auto' : 'none' }};
+                                    opacity: {{ $isValidUrl ? '1' : '0.7' }};"
+                            >
+                                {{ stringlang('Play Podcast', 'Play Podcast', 'AI 음성 요약 듣기') }}
+                            </a>
                             <a href="{{ $isValidUrl ? uri($data->video_link) : '#' }}"
-                            target="_blank"
-                            class="btn text-white px-4 py-2 {{ !$isValidUrl ? 'disabled' : '' }}"
-                            style="
-                                font-size: 16px;
-                                font-weight: 600;
-                                background-color: {{ $isValidUrl ? '#28a745' : '#6c757d' }};
-                                pointer-events: {{ $isValidUrl ? 'auto' : 'none' }};
-                                opacity: {{ $isValidUrl ? '1' : '0.7' }};
-                            ">
+                                target="_blank"
+                                class="btn text-white px-4 py-2 {{ !$isValidUrl ? 'disabled' : '' }}"
+                                style="
+                                    font-size: 16px;
+                                    font-weight: 600;
+                                    background-color: {{ $isValidUrl ? '#28a745' : '#6c757d' }};
+                                    pointer-events: {{ $isValidUrl ? 'auto' : 'none' }};
+                                    opacity: {{ $isValidUrl ? '1' : '0.7' }};"
+                            >
                                 {{ stringlang('Watch Full Video', 'Lihat Video Lengkap', '전체강연 보러가기') }}
                             </a>
 
+                            @if(!$data->trackId)
+                                <span style="
+                                    position: absolute;
+                                    bottom: -18px;
+                                    left: 20%;
+                                    transform: translateX(-50%);
+                                    color: red;
+                                    font-size: 10px;
+                                    white-space: nowrap;
+                                ">
+                                    {{ stringlang('*Audio is not available.', '*Audio tidak tersedia', '*음성이 제공되지 않습니다') }}
+                                </span>
+                            @endif
                             @if(!$isValidUrl)
                                 <span style="
                                     position: absolute;
                                     bottom: -18px;
-                                    left: 35%;
+                                    left: 70%;
                                     transform: translateX(-50%);
                                     color: red;
                                     font-size: 10px;
@@ -239,8 +265,82 @@
         </div>
     </div>
 </div>
+
+    <!-- Modal 2: Audio Player -->
+    <div id="audioModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('audioModal')">&times;</span>
+            {{-- <h3>Enjoy the music 🎧</h3> --}}
+            <div id="iframeContainer"></div>
+        </div>
+    </div>
 @endsection
 
 @section('footer')
     @include('systemever/includes/footer')
+@endsection
+
+@section('custom_js')
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    window.CSRF_TOKEN = "{{ csrf_token() }}";
+    const trackId = document.getElementById('audiosource').value;
+    // const formModal = document.getElementById('formModal');
+    const audioModal = document.getElementById('audioModal');
+    const iframeContainer = document.getElementById('iframeContainer');
+
+    function openAudioModal() {
+        iframeContainer.innerHTML = `
+            <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${trackId}&auto_play=true&color=%23ff5500&show_comments=true&visual=true">
+            </iframe>`;
+        audioModal.style.display = "block";
+    }
+
+    function closeModal(id) {
+        document.getElementById(id).style.display = "none";
+        if (id === 'audioModal') iframeContainer.innerHTML = "";
+    }
+
+    document.getElementById('openFormModal').addEventListener('click', function () {
+        // fetch(`/check-play?track_id=${trackId}`)
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         if (data.hasPlayed) {
+                    // ✅ IP sudah pernah play → langsung tampilkan audio tanpa insert ulang
+                    openAudioModal();
+            //     } else {
+            //         // ❌ IP belum pernah play → tampilkan form
+            //         formModal.style.display = "block";
+            //     }
+            // });
+    });
+
+
+    // document.getElementById('playForm').addEventListener('submit', function (e) {
+    //     e.preventDefault();
+    //     const name = this.name.value;
+    //     const email = this.email.value;
+
+    //     fetch("/log-play", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content
+    //         },
+    //         body: JSON.stringify({ name, email, track_id: trackId })
+    //     })
+    //     .then(res => res.json())
+    //     .then(() => {
+    //         formModal.style.display = "none";
+    //         openAudioModal();
+    //     });
+    // });
+
+    window.onclick = function(event) {
+        // if (event.target === formModal) formModal.style.display = "none";
+        if (event.target === audioModal) closeModal('audioModal');
+    };
+});
+</script>
 @endsection
