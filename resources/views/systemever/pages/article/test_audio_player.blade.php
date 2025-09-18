@@ -45,7 +45,9 @@
 
 @section('content')
     <!-- Play Button -->
-    <button id="openFormModal">Play</button>
+    <a href="#" id="openFormModal">Play Podcast</a>
+
+    <input type="text" id="audiosource" name="audiosource" value="2128149045">
 
     <!-- Modal 1: Form -->
     <div id="formModal" class="modal">
@@ -78,7 +80,7 @@
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     window.CSRF_TOKEN = "{{ csrf_token() }}";
-    const trackId = 2103475278;
+    const trackId = document.getElementById('audiosource').value;
     const formModal = document.getElementById('formModal');
     const audioModal = document.getElementById('audioModal');
     const iframeContainer = document.getElementById('iframeContainer');
