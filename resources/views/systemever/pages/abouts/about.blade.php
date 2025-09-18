@@ -36,9 +36,9 @@
                 <h1>{{ $main_banner_text }}</h1>
                 @else
                 <p>
-                    {!! stringlang("With 30 years of experience, we successfully provide a feature rich and useful business software. We provide a solution for small and mid sized distributors and manufacturer because we believe that every business should be grow.",
-                    "Dengan pengalaman selama 30 tahun, kami berhasil menyediakan perangkat lunak bisnis yang kaya fitur dan bermanfaat. Kami menyediakan solusi untuk distributor dan produsen skala kecil dan menengah karena kami percaya bahwa setiap bisnis harus berkembang.",
-                    "30년의 경험을 바탕으로  풍부한 기능과  유용한 비즈니스 소프트웨어를 성공적으로 제공합니다. 모든 비즈니스의 성장을 믿기에 중소 규모 유통업체 및 제조업체를 위한 솔루션을 제공합니다.") !!}
+                    {!! stringlang("With 32 years of experience, we successfully provide a feature rich and useful business software. We provide a solution for small and mid sized distributors and manufacturer because we believe that every business should be grow.",
+                    "Dengan pengalaman selama 32 tahun, kami berhasil menyediakan perangkat lunak bisnis yang kaya fitur dan bermanfaat. Kami menyediakan solusi untuk distributor dan produsen skala kecil dan menengah karena kami percaya bahwa setiap bisnis harus berkembang.",
+                    "32년의 경험을 바탕으로  풍부한 기능과  유용한 비즈니스 소프트웨어를 성공적으로 제공합니다. 모든 비즈니스의 성장을 믿기에 중소 규모 유통업체 및 제조업체를 위한 솔루션을 제공합니다.") !!}
                 </p>
                 @endif
             </div>

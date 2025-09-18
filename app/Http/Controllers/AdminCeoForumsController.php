@@ -34,6 +34,7 @@
 			$this->col[] = ["label"=>"Post Date","name"=>"post_date"];
 			$this->col[] = ["label"=>"Image Url","name"=>"image_url","image"=>true];
 			$this->col[] = ["label"=>"Slider Title","name"=>"slider_title"];
+			$this->col[] = ["label"=>"Soundcloud Track ID","name"=>"trackId"];
 			$this->col[] = ["label"=>"Video Link","name"=>"video_link"];
 			$this->col[] = ["label"=>"Presenter","name"=>"presenter"];
 			// $this->col[] = ["label"=>"Body","name"=>"body"];
@@ -44,9 +45,11 @@
 			$this->form = [];
 			$this->form[] = ['label'=>'Title','name'=>'title','type'=>'text','validation'=>'required|string|min:3|max:100','width'=>'col-sm-10','placeholder'=>'You can only enter the letter only'];
 			$this->form[] = ['label'=>'Post Date','name'=>'post_date','type'=>'date','validation'=>'required|date','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Image Url','name'=>'image_url','type'=>'upload','validation'=>'required','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Image Url','name'=>'image_url','type'=>'upload','width'=>'col-sm-10'];
+			// $this->form[] = ['label'=>'Image Url','name'=>'image_url','type'=>'upload','validation'=>'string','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Slider Title','name'=>'slider_title','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Video Link','name'=>'video_link','type'=>'text','validation'=>'required','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Soundcloud Track ID','name'=>'trackId','type'=>'text','validation'=>'required','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Presenter','name'=>'presenter','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Body','name'=>'body','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-10'];
 			// $this->form[] = ['label'=>'Body','name'=>'body','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-10', "callback" => function($row){
