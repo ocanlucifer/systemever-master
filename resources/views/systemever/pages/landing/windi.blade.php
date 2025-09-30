@@ -65,11 +65,9 @@
         }
 
 
-        .section-menu {
-            padding: 15px 0; /* Tambahkan padding atas dan bawah */
-            /* background-color: #D4F1E4; */
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Tambahkan drop shadow */
-        }
+    /* Use default header sizing; only minimal tweak to ensure not larger than homepage */
+    .section-menu { padding: 0; box-shadow:none; }
+    header .section-menu .logo img{max-height:50px;}
 
         @media only screen and (max-width: 1024px) {
             .bc{

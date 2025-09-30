@@ -113,6 +113,18 @@ Route::prefix($langprefix)->group(function () {
 
     //new
     Route::get('/landing', ['as' => 'get.landing', 'uses' => '\App\Http\Controllers\Systemever\LandingPageController@index']);
+    
+    // IT Inventory page - Multilingual
+    Route::get('ITInventory', ['as' => 'get.pages.it_inventory', 'uses' => '\App\Http\Controllers\Systemever\ITInventoryController@index']);
+    Route::post('ITInventory', ['as' => 'post.pages.it_inventory', 'uses' => '\App\Http\Controllers\Systemever\ITInventoryController@submit'])->middleware('throttle:5,1');
+    
+    // English routes
+    Route::get('en/ITInventory', ['as' => 'get.pages.it_inventory.en', 'uses' => '\App\Http\Controllers\Systemever\ITInventoryController@index']);
+    Route::post('en/ITInventory', ['as' => 'post.pages.it_inventory.en', 'uses' => '\App\Http\Controllers\Systemever\ITInventoryController@submit'])->middleware('throttle:5,1');
+    
+    // Korean routes
+    Route::get('kor/ITInventory', ['as' => 'get.pages.it_inventory.kor', 'uses' => '\App\Http\Controllers\Systemever\ITInventoryController@index']);
+    Route::post('kor/ITInventory', ['as' => 'post.pages.it_inventory.kor', 'uses' => '\App\Http\Controllers\Systemever\ITInventoryController@submit'])->middleware('throttle:5,1');
 
     Route::get('/soundcloud', function () {
         return view('systemever/pages/article/test_audio_player');
