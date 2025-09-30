@@ -1,0 +1,399 @@
+@extends('systemever/layouts/windi', [
+    'spesifice_page_seo' => ''
+])
+
+@section('custom_css')
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+    .font-montserrat {
+        font-family: 'Montserrat', sans-serif;
+    }
+    .font-poppins {
+        font-family: 'Poppins', sans-serif;
+    }
+    .font-opensans {
+        font-family: 'Open Sans', sans-serif;
+    }
+    .font-inter {
+        font-family: 'Inter', sans-serif;
+    }
+    
+    .container {
+        max-width: 1140px;
+        margin: auto;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .hsd:hover {
+        box-shadow: 0px 4px 20px 0px #00000055;
+    }
+    
+    .aspect-mod {
+        aspect-ratio: 12/11;
+    }
+    
+    .aspect-mod1 {
+        aspect-ratio: 12/8;
+    }
+    
+    @media only screen and (max-width: 1024px) {
+        .aspect-mod {
+            aspect-ratio: 12/8;
+        }
+        .page-content {
+            margin-top: 55px;
+        }
+    }
+    .page-content { margin-top: 0; }
+</style>
+@endsection
+
+@section('content')
+<!-- Hero Section dengan Background Image -->
+<section class="lg:pt-200px lg:pb-140px pt-20px pb-60px relative">
+    <picture class="absolute top-0 left-0 w-full lg:h-700px h-380px">
+        <source srcset="{{ asset('assets/custom/headline.png?v=1')}}" media="(min-width: 1024px)" class="w-full h-full object-cover" style="object-position: bottom center;" />
+        <img src="{{ asset('assets/custom/headline.png?v=1')}}" alt="IT Inventory Hero" class="w-full h-full object-cover" style="object-position: bottom center;" />
+    </picture>
+    <div class="container relative">
+        <div class="flex flex-col lg:flex-row">
+            <div class="lg:w-[60%]  mx-auto">
+                <h1 class="font-poppins lg:text-37px  lg:leading-12 lg:text-left  lg:mb-8 lg:mt-8 mb-4 leading-7 text-21px font-bold text-white text-center">
+                    It's Time to Stop the Risk!
+                </h1>
+                <p class="font-opensans text-white lg:text-19px lg:mb-4 mb-4 lg:text-left text-center text-14px font-semibold">
+                    Fines and License Suspension Await If Your IT Inventory Isn't Integrated.
+                </p>
+                <p class="font-opensans text-white lg:text-16px lg:mb-16 mb-6 lg:text-left text-center text-12px">
+                    Don't let manual processes and compliance risks threaten your business operations in Bonded Zones. SystemEver's Category A IT Inventory ensures full compliance with DJBC regulations while streamlining your operations.
+                </p>
+                <div class="flex gap-4 justify-center lg:justify-start">
+                    <a href="#contact-form" class="font-montserrat inline-flex items-center justify-center lg:h-48px lg:px-70px lg:text-16px text-12px h-28px px-20px rounded-full bg-white hover:text-[#009944] text-[#009944] font-bold">
+                        {{ stringlang('Free Demo', 'Demo Gratis', '무료 데모') }}
+                    </a>
+                    <a href="#solutions" class="font-montserrat inline-flex items-center justify-center lg:h-48px lg:px-70px lg:text-16px text-12px h-28px px-20px rounded-full bg-transparent hover:text-white text-white font-bold border-1 border-white">
+                        {{ stringlang('Learn More', 'Selengkapnya', '자세히 보기') }}
+                    </a>
+                </div>
+            </div>
+            <div class="lg:w-[40%] pt-2">
+                <div class="lg:h-[372px] lg:w-[550px] w-[72%] aspect-mod1 overflow-hidden flex items-center justify-center mx-auto lg:-mt-10">
+                    <video src="{{ asset('assets/custom/video-section-3.mp4?v=1') }}" autoplay muted loop playsinline class="rounded-lg shadow-lg"></video>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Problems -->
+<section id="problems" class="py-8 lg:py-20">
+    <div class="container relative">
+        <h2 class="text-center text-19px lg:text-28px font-semibold font-poppins text-[#444444] mb-4 lg:mb-6">
+            Problem & Pain Points
+        </h2>
+        <p class="text-11px lg:text-17px text-[#626B79] font-opensans text-center lg:w-[70%] mx-auto mb-8 lg:mb-16 leading-4 lg:leading-6">
+            Main problems faced by companies in Bonded Zones:
+        </p>
+        <!-- Section 1 Image -->
+        <div class="flex justify-center mb-8 lg:mb-16">
+            <img src="{{ asset('assets/custom/section-1.png?v=1') }}" alt="Problems in Bonded Zones" class="max-w-full h-auto rounded-lg shadow-lg">
+        </div>
+        <div class="grid lg:grid-cols-2 grid-cols-1 gap-4 lg:my-20 my-6">
+            <div class="w-full rounded-md lg:rounded-2xl hsd transition flex flex-col gap-1 lg:gap-4 items-start p-4 group lg:bg-white bg-[#F7F7F7]">
+                <div class="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                <p class="text-14px lg:text-16px text-[#5b5b5b] font-opensans leading-5 lg:leading-6">
+                    Time-consuming and error-prone manual data entry.
+                </p>
+            </div>
+            
+            <div class="w-full rounded-md lg:rounded-2xl hsd transition flex flex-col gap-1 lg:gap-4 items-start p-4 group lg:bg-white bg-[#F7F7F7]">
+                <div class="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                <p class="text-14px lg:text-16px text-[#5b5b5b] font-opensans leading-5 lg:leading-6">
+                    Difficulty synchronizing data between departments.
+                </p>
+            </div>
+            
+            <div class="w-full rounded-md lg:rounded-2xl hsd transition flex flex-col gap-1 lg:gap-4 items-start p-4 group lg:bg-white bg-[#F7F7F7]">
+                <div class="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                <p class="text-14px lg:text-16px text-[#5b5b5b] font-opensans leading-5 lg:leading-6">
+                    Complexity in preparing Customs reports (BC 2.3, BC 2.6.1, BC 4.0).
+                </p>
+            </div>
+            
+            <div class="w-full rounded-md lg:rounded-2xl hsd transition flex flex-col gap-1 lg:gap-4 items-start p-4 group lg:bg-white bg-[#F7F7F7]">
+                <div class="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                <p class="text-14px lg:text-16px text-[#5b5b5b] font-opensans leading-5 lg:leading-6">
+                    Risk of fines and sanctions from the Directorate General of Customs and Excise (DJBC).
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Solutions -->
+<section id="solutions" class="py-8 lg:py-20 bg-[#F9F9F9]">
+    <div class="container">
+        <div class="flex flex-col lg:flex-row">
+            <div class="lg:w-[50%]">
+                <div class="lg:h-[372px] lg:w-[500px] w-[90%] overflow-hidden flex items-center justify-center mx-auto">
+                    <img src="{{ asset('assets/custom/section-3.png?v=1') }}" alt="The Right Solution" class="w-full h-full object-cover rounded-lg shadow-lg">
+                </div>
+            </div>
+            <div class="lg:w-[45%] flex flex-col justify-center gap-4 lg:gap-6 p-4">
+                <h2 class="font-poppins text-14px lg:text-24px text-[#009944]">
+                    The Right Solution
+                </h2>
+                <h3 class="font-poppins text-16px lg:text-27px leading-6 lg:leading-9 font-medium">
+                    Introducing SystemEver as a Category A IT Inventory that addresses all of these issues.
+                </h3>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-sync-alt text-[#009944] text-xl"></i>
+                        <div>
+                            <h4 class="font-poppins font-semibold text-[#464646]">
+                                Full Integration
+                            </h4>
+                            <p class="font-opensans text-[#5b5b5b] text-sm">
+                                All data is connected, from warehouse to financial reports.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-award text-[#009944] text-xl"></i>
+                        <div>
+                            <h4 class="font-poppins font-semibold text-[#464646]">
+                                Category A Status
+                            </h4>
+                            <p class="font-opensans text-[#5b5b5b] text-sm">
+                                Official validation from the Directorate General of Customs and Excise (DJBC) guarantees compliance.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 3: Business Process Video -->
+<section id="business-process" class="py-8 lg:py-20">
+    <div class="container">
+        <h2 class="text-center text-19px lg:text-28px font-semibold font-poppins text-[#444444] mb-4 lg:mb-6">
+            Business Process
+        </h2>
+        <p class="text-11px lg:text-17px text-[#626B79] font-opensans text-center lg:w-[70%] mx-auto mb-8 lg:mb-16 leading-4 lg:leading-6">
+            Storyboard: Problem => Background overview => Benefit IT Inventory => Flow => Detail report
+        </p>
+        
+        <div class="flex justify-center">
+            <div class="lg:w-[60%] w-[90%]">
+                <div class="relative">
+                    <video 
+                        class="w-full h-auto rounded-lg shadow-2xl"
+                        autoplay 
+                        loop 
+                        muted 
+                        playsinline
+                        controls
+                    >
+                        <source src="{{ asset('assets/custom/video-section-3.mp4?v=1') }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section id="contact-form" class="py-10 lg:py-20 bg-[#F9F9F9]">
+    <div class="container">
+        <div class="text-center mb-8 lg:mb-12">
+            <h2 class="text-19px lg:text-28px font-semibold font-poppins text-[#444444] mb-4 lg:mb-6">
+                {{ stringlang(
+                    'Ready to Improve IT Inventory Efficiency?', 
+                    'Siap Tingkatkan Efisiensi IT Inventory?',
+                    'IT 인벤토리 효율성을 향상시킬 준비가 되셨나요?'
+                ) }}
+            </h2>
+            <p class="text-11px lg:text-17px text-[#626B79] font-opensans text-center lg:w-[70%] mx-auto leading-4 lg:leading-6">
+                {{ stringlang(
+                    'Get a free consultation and demo of IT Inventory system tailored to your company needs. Ensure DJBC compliance and improve operational efficiency.', 
+                    'Dapatkan konsultasi gratis dan demo sistem IT Inventory yang sesuai dengan kebutuhan perusahaan Anda. Pastikan compliance dengan DJBC dan tingkatkan efisiensi operasional.',
+                    '귀하의 회사 요구에 맞는 IT 인벤토리 시스템의 무료 상담 및 데모를 받아보세요. DJBC 규정 준수를 보장하고 운영 효율성을 향상시키세요.'
+                ) }}
+            </p>
+        </div>
+        
+        <!-- Scoped styles to keep spacing and controls consistent -->
+        <style>
+            .se-form .field label{margin-bottom:8px;font-weight:600;color:#2C2C2C}
+            .se-form .se-ctrl{position:relative}
+            .se-form .se-ico{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#9CA3AF}
+            .se-form .se-ico i{font-size:14px}
+            .se-form .se-input{height:52px;border:1px solid #E5E7EB;border-radius:12px;padding:0 16px 0 40px;background:#fff;width:100%;box-sizing:border-box}
+            .se-form .se-input:focus{outline:none;border-color:#009944;box-shadow:0 0 0 4px rgba(0,153,68,.15)}
+            .se-form .se-textarea{min-height:150px;border:1px solid #E5E7EB;border-radius:12px;padding:12px 16px 12px 40px;background:#fff;width:100%;box-sizing:border-box}
+            .se-form .se-textarea:focus{outline:none;border-color:#009944;box-shadow:0 0 0 4px rgba(0,153,68,.15)}
+            .se-btn{height:52px;padding:0 28px;border-radius:9999px;background:linear-gradient(180deg,#10B981 0%,#009944 100%);color:#fff;font-weight:700;box-shadow:0 8px 16px rgba(16,185,129,.28);transition:transform .15s ease, box-shadow .15s ease}
+            .se-btn:hover{transform:translateY(-1px);box-shadow:0 14px 24px rgba(16,185,129,.36)}
+            .se-btn:active{transform:translateY(0)}
+            .se-btn .ico-arrow{margin-left:10px;transition:transform .15s ease}
+            .se-btn:hover .ico-arrow{transform:translateX(3px)}
+            /* Floating label */
+            .se-ctrl .se-flabel{position:absolute;left:40px;top:50%;transform:translateY(-50%);color:#6B7280;font-size:14px;line-height:1;background:#fff;padding:0 6px;pointer-events:none;transition:all .15s ease}
+            .se-ctrl input:focus + .se-flabel,
+            .se-ctrl input:not(:placeholder-shown) + .se-flabel,
+            .se-ctrl textarea:focus + .se-flabel,
+            .se-ctrl textarea:not(:placeholder-shown) + .se-flabel{top:-8px;transform:none;font-size:12px;color:#009944}
+            /* Textarea specific base position (no inline style, so floating works) */
+            .se-ctrl.ta .se-ico{top:18px;transform:none}
+            .se-ctrl.ta .se-flabel{top:14px;transform:none}
+            .se-divider{height:1px;background:#F1F5F9}
+            /* Error states */
+            .se-error{border-color:#EF4444!important;box-shadow:0 0 0 4px rgba(239,68,68,.12)!important}
+            .se-err-text{color:#B91C1C;font-size:12px;margin-top:6px}
+        </style>
+
+        @if (session('status'))
+            <div id="toast-se" class="fixed z-40 bottom-6 right-6 bg-[#009944] text-white rounded-xl shadow-lg px-4 py-3 flex items-center gap-2 transition duration-300">
+                <i class="fa fa-check-circle"></i>
+                <span class="font-opensans text-[14px]">{{ session('status') }}</span>
+                <button type="button" onclick="var t=document.getElementById('toast-se'); if(t){ t.remove(); }" class="opacity-80 hover:opacity-100">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <script>
+                setTimeout(function(){
+                    var t=document.getElementById('toast-se');
+                    if(t){ t.style.opacity='0'; t.style.transform='translateY(6px)'; setTimeout(function(){ if(t){ t.remove(); } },300); }
+                },3200);
+            </script>
+        @endif
+
+    <div class="lg:w-[900px] mx-auto bg-white rounded-2xl shadow-xl p-6 lg:p-10">
+                @if ($errors->any())
+                    <div class="mb-6 p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg text-14px lg:text-15px">
+                        <ul class="list-disc pl-5">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <form class="se-form space-y-6" action="{{ 
+                    activelang() == 'EN' ? route('post.pages.it_inventory.en') : 
+                    (activelang() == 'KOR' ? route('post.pages.it_inventory.kor') : route('post.pages.it_inventory')) 
+                }}" method="POST">
+                    @csrf
+                    <div class="hidden">
+                        <label>Website</label>
+                        <input type="text" name="website" autocomplete="off" tabindex="-1">
+                    </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="field">
+                        <div class="se-ctrl">
+                            <span class="se-ico"><i class="fa fa-user-o"></i></span>
+                            <input id="first_name" type="text" name="first_name" value="{{ old('first_name') }}" class="se-input shadow-sm{{ $errors->has('first_name') ? ' se-error' : '' }}" aria-invalid="{{ $errors->has('first_name') ? 'true' : 'false' }}" placeholder=" ">
+                            <label for="first_name" class="se-flabel">
+                                {{ stringlang('First name', 'Nama depan', '이름') }}
+                            </label>
+                        </div>
+                        @if($errors->has('first_name'))<p class="se-err-text">{{ $errors->first('first_name') }}</p>@endif
+                    </div>
+                    <div class="field">
+                        <div class="se-ctrl">
+                            <span class="se-ico"><i class="fa fa-user-o"></i></span>
+                            <input id="last_name" type="text" name="last_name" value="{{ old('last_name') }}" class="se-input shadow-sm{{ $errors->has('last_name') ? ' se-error' : '' }}" aria-invalid="{{ $errors->has('last_name') ? 'true' : 'false' }}" placeholder=" ">
+                            <label for="last_name" class="se-flabel">
+                                {{ stringlang('Last name', 'Nama belakang', '성') }}
+                            </label>
+                        </div>
+                        @if($errors->has('last_name'))<p class="se-err-text">{{ $errors->first('last_name') }}</p>@endif
+                    </div>
+                </div>
+
+                <div class="se-divider my-2"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="field">
+                        <div class="se-ctrl">
+                            <span class="se-ico"><i class="fa fa-envelope-o"></i></span>
+                            <input id="corporate_email" type="email" name="corporate_email" value="{{ old('corporate_email') }}" class="se-input shadow-sm{{ $errors->has('corporate_email') ? ' se-error' : '' }}" aria-invalid="{{ $errors->has('corporate_email') ? 'true' : 'false' }}" placeholder=" " required>
+                            <label for="corporate_email" class="se-flabel">
+                                {{ stringlang('Corporate Email', 'Email Perusahaan', '회사 이메일') }} <span class="text-red-500">*</span>
+                            </label>
+                        </div>
+                        @if($errors->has('corporate_email'))<p class="se-err-text">{{ $errors->first('corporate_email') }}</p>@endif
+                    </div>
+                    <div class="field">
+                        <div class="se-ctrl">
+                            <span class="se-ico"><i class="fa fa-phone"></i></span>
+                            <input id="phone_number" type="tel" name="phone_number" value="{{ old('phone_number') }}" class="se-input shadow-sm{{ $errors->has('phone_number') ? ' se-error' : '' }}" aria-invalid="{{ $errors->has('phone_number') ? 'true' : 'false' }}" placeholder=" " required>
+                            <label for="phone_number" class="se-flabel">
+                                {{ stringlang('Phone Number', 'Nomor Telepon', '전화번호') }} <span class="text-red-500">*</span>
+                            </label>
+                        </div>
+                        @if($errors->has('phone_number'))<p class="se-err-text">{{ $errors->first('phone_number') }}</p>@endif
+                    </div>
+                </div>
+
+                <div class="se-divider my-2"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="field">
+                        <div class="se-ctrl">
+                            <span class="se-ico"><i class="fa fa-building-o"></i></span>
+                            <input id="company" type="text" name="company" value="{{ old('company') }}" class="se-input shadow-sm{{ $errors->has('company') ? ' se-error' : '' }}" aria-invalid="{{ $errors->has('company') ? 'true' : 'false' }}" placeholder=" " required>
+                            <label for="company" class="se-flabel">
+                                {{ stringlang('Company', 'Perusahaan', '회사') }} <span class="text-red-500">*</span>
+                            </label>
+                        </div>
+                        @if($errors->has('company'))<p class="se-err-text">{{ $errors->first('company') }}</p>@endif
+                    </div>
+                    <div class="field">
+                        <div class="se-ctrl">
+                            <span class="se-ico"><i class="fa fa-briefcase"></i></span>
+                            <input id="job_title" type="text" name="job_title" value="{{ old('job_title') }}" class="se-input shadow-sm{{ $errors->has('job_title') ? ' se-error' : '' }}" aria-invalid="{{ $errors->has('job_title') ? 'true' : 'false' }}" placeholder=" " required>
+                            <label for="job_title" class="se-flabel">
+                                {{ stringlang('Job Title', 'Jabatan', '직책') }} <span class="text-red-500">*</span>
+                            </label>
+                        </div>
+                        @if($errors->has('job_title'))<p class="se-err-text">{{ $errors->first('job_title') }}</p>@endif
+                    </div>
+                </div>
+
+                <div class="se-divider my-2"></div>
+
+                <div class="field">
+                    <div class="se-ctrl ta">
+                        <span class="se-ico"><i class="fa fa-commenting-o"></i></span>
+                        <textarea id="message" name="message" class="se-textarea shadow-sm resize-y{{ $errors->has('message') ? ' se-error' : '' }}" aria-invalid="{{ $errors->has('message') ? 'true' : 'false' }}" placeholder=" " required>{{ old('message') }}</textarea>
+                        <label for="message" class="se-flabel">
+                            {{ stringlang('Type your inquiry here..', 'Ketik pertanyaan Anda di sini..', '문의사항을 입력해주세요..') }} <span class="text-red-500">*</span>
+                        </label>
+                    </div>
+                    @if($errors->has('message'))<p class="se-err-text">{{ $errors->first('message') }}</p>@endif
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="se-btn inline-flex items-center justify-center w-full lg:w-auto">
+                        {{ stringlang('Submit', 'Kirim', '제출') }} <i class="fa fa-angle-right ico-arrow" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>
+@endsection
+
+@section('footer')
+@include('systemever/includes/footer')
+@endsection

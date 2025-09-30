@@ -60,6 +60,16 @@
               </a>
             </div>
           </li>
+          
+          <li>
+            <div class="card">
+              <a class="collapsed {{ Request::segment(1)=='ITInventory' ? 'active':'' }}" href="{{route('get.pages.it_inventory')}}">
+                <div class="card-header">
+                    {{ stringlang('IT Inventory', 'IT Inventory','IT 인벤토리') }}
+                </div>
+              </a>
+            </div>
+          </li>
           <!-- <li>
             <div class="card">
               <a class="collapsed {{ Request::segment(2)=='about' ? 'active':'' }}" href="#" data-toggle="collapse" data-target="#collapse-service" aria-expanded="true" aria-controls="collapse-service">

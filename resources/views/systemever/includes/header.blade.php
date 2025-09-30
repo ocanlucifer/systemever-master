@@ -42,29 +42,28 @@
               <div class="dropdown dropdown-language">
                 <button class="btn d-flex align-items-center" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <div id="EN" class="lang {{ activelang() == "EN" ? 'active' : '' }}">
-                    {{-- ENG --}}
-                    <img src="{{ asset('assets/img/english-icon.png')}}" style="height:18px;"> <strong>EN</strong>
+                    <img src="{{ asset('assets/img/english-icon.png')}}" style="height:18px;"> <strong>{{ stringlang('EN','EN','영어') }}</strong>
                   </div>
                   <div id="ID" class="lang {{ activelang() == "ID" ? 'active' : '' }}">
-                    <img src="{{ asset('assets/img/indonesia-icon.png')}}" style="height:18px;"> <strong>ID</strong>
+                    <img src="{{ asset('assets/img/indonesia-icon.png')}}" style="height:18px;"> <strong>{{ stringlang('ID','ID','인니') }}</strong>
                   </div>
                   <div id="KOR" class="lang {{ activelang() == "KOR" ? 'active' : '' }}">
-                    <img src="{{ asset('assets/img/korean-flag.png')}}" style="height:18px;"> <strong>KOR</strong>
+                    <img src="{{ asset('assets/img/korean-flag.png')}}" style="height:18px;"> <strong>{{ stringlang('KOR','KOR','한국어') }}</strong>
                   </div>
                   <i class="fa fa-angle-down ml-2"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-language" aria-labelledby="dropdownMenu2">
                   <a class="dropdown-item text-black" style="color:#000" type="button" href="{{seeinindo()}}">
                     <img src="{{ asset('assets/img/indonesia-icon.png')}}" style="height:20px; margin-right:10px;">
-                    INDONESIA
+                    {{ stringlang('INDONESIA','INDONESIA','인도네시아') }}
                   </a>
                   <a class="dropdown-item text-black" style="color:#000" type="button" href="{{seeineng()}}">
                     <img src="{{ asset('assets/img/english-icon.png')}}" style="height:20px; margin-right:10px;">
-                    ENGLISH
+                    {{ stringlang('ENGLISH','ENGLISH','영어') }}
                   </a>
                   <a class="dropdown-item text-black" style="color:#000" type="button" href="{{seeinkor()}}">
                     <img src="{{ asset('assets/img/korean-flag.png')}}" style="height:20px; margin-right:10px;">
-                    KOREA
+                    {{ stringlang('KOREA','KOREA','한국어') }}
                   </a>
                 </div>
               </div>
@@ -167,6 +166,11 @@
             <li>
               <a href="{{ route('get.pages.performance') }}" class="{{ Request::segment(1) == 'performance-quality' ? 'active':'' }}">{{ stringlang('Performance Quality', 'Performance Quality','성능 품질') }}</a>
             </li>
+            
+            <li>
+              <a href="{{ route('get.pages.it_inventory') }}" class="{{ Request::segment(1) == 'ITInventory' ? 'active':'' }}">{{ stringlang('IT Inventory', 'IT Inventory','IT 인벤토리') }}</a>
+            </li>
+            
             <li id="article" class="dropdown-header">
               <a href="{{ route('get.pages.article.professional') }}" class="{{ Request::segment(1) == 'business-insight' ? 'active':'' }}">{{ stringlang('Business Insight', 'Business Insight', '인사이트') }} <img src="{{ asset('assets/fl/down.svg') }}" alt="" class="down"> <img src="{{ asset('assets/fl/up.svg') }}" alt="" class="up"></a>
               <div class="dropdown-menu-header py-4 px-4 ">
