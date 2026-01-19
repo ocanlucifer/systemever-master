@@ -4,6 +4,36 @@
 
 @section('custom_css')
 
+<style>
+    /* Fix navbar solid white and remove left gap on homepage */
+    .section-menu {
+        background: #fff !important;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3) !important;
+    }
+    
+    /* Remove left/right gaps completely */
+    body, html {
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden !important;
+    }
+    
+    .wrapper, .page-content {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    /* Ensure container-content doesn't add unwanted padding */
+    .container-content, .container-content-1 {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+    
+    /* Hide collapsed accessibility element */
+    a.collapsed {
+        display: none !important;
+    }
+</style>
 
 <!--@include('systemever/includes/swiper')-->
 <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />-->
@@ -34,10 +64,6 @@
     /* .section-demo {
         opacity: 0;
     } */
-
-    .page-content {
-        margin-top: 0;
-    }
 
     .font-montserrat {
         font-family: 'Montserrat', sans-serif;
@@ -111,6 +137,7 @@
     @media only screen and (max-width: 1024px) {
         .page-content {
             margin-top: 55px;
+            padding-top: 20px;
         }
 
         .aspect-mod {
@@ -140,6 +167,7 @@
 
         }
     }
+
 </style>
 @endsection
 @section('content')

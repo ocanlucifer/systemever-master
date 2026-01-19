@@ -474,6 +474,129 @@
 
 </style>
 
+{{-- CEO Forum Section - Paling Atas --}}
+<section class="pt-4 pb-4 lg:pt-16 lg:pb-16" style="background: linear-gradient(190deg, #3B5E56, #000000);">
+    <div class="container relative">
+        <br>
+        <p class="font-poppins lg:text-24px lg:leading-12 lg:text-left lg:mb-0 lg:mt-8 mb-0 leading-7 text-21px text-white text-center">
+            20년 넘게 이어온 영림원소프트랩의
+        </p>
+        <h1 class="font-poppins lg:leading-12 lg:text-left lg:mb-5 lg:mt-0 mb-2 leading-7 font-bold text-white text-center title-ceo">
+            CEO Forum
+        </h1>
+        <p class="font-opensans text-white lg:text-17px lg:mb-8 mb-4 lg:text-left text-center text-11px">
+            대한민국 리더들의 통찰과 전략이 만나는 자리
+        </p>
+        <div class="swiper CEOForumSwiper relative">
+            <div class="swiper-wrapper">
+                @if(!empty($ceoforum) && count($ceoforum) > 0)
+                    @foreach ($ceoforum as $v)
+                    <div class="swiper-slide">
+                        <div class="swipper-ceo-body">
+                            <div onmouseover="this.style.transform='scale(1.03)'"
+                                 onmouseout="this.style.transform='scale(1)'">
+
+                                {{-- Title --}}
+                                <p class="text-sm text-white font-bold mb-2 truncate-2-lines min-h-[36px] leading-snug">
+                                    @if(!empty($v->title) && $v->title !== '???????????? ????????? ??????? ?????? ?????? ????????? ?????? ???????????? ???????????? ??????????????????')
+                                        {{ \Illuminate\Support\Str::limit(strip_tags($v->title), 100) }}
+                                    @else
+                                        {{ $loop->iteration }}회 CEO Forum - 리더들의 통찰과 전략
+                                    @endif
+                                </p>
+
+                                {{-- Image --}}
+                                <div class="rounded-xl overflow-hidden mb-2">
+                                    @if(!empty($v->image_url))
+                                        <img src="https://systemever.co.id/{{ $v->image_url }}" 
+                                             alt="{{ $v->title }}" 
+                                             class="w-full h-[180px] object-cover swipper-ceo-img" 
+                                             onerror="this.onerror=null; this.src='{{ uri($v->image_url) }}'"
+                                             onabort="this.src='https://via.placeholder.com/400x200/009944/ffffff?text=CEO+Forum'"
+                                             onload="console.log('Image loaded from live server')">
+                                    @else
+                                        <img src="https://via.placeholder.com/400x200/009944/ffffff?text=CEO+Forum" alt="CEO Forum" class="w-full h-[180px] object-cover swipper-ceo-img">
+                                    @endif
+                                </div>
+
+                                {{-- Description --}}
+                                @if(!empty($v->body) && !str_contains($v->body, '???'))
+                                    <p class="text-sm text-white mb-1 truncate-1-lines min-h-[24px] leading-tight">
+                                        {{ !empty($v->slider_title) && !str_contains($v->slider_title, '???') ? \Illuminate\Support\Str::limit(strip_tags($v->slider_title), 100) : '대한민국 리더들의 통찰과 전략' }}
+                                    </p>
+                                    <p class="text-sm text-white mb-2 truncate-3-lines min-h-[48px] leading-snug">
+                                        {{ \Illuminate\Support\Str::limit(strip_tags($v->body), 300) }}
+                                    </p>
+                                @else
+                                    <p class="text-sm text-white mb-1 truncate-1-lines min-h-[24px] leading-tight">
+                                        {{ $v->post_date ? date('Y.m.d', strtotime($v->post_date)) : '' }} CEO Forum
+                                    </p>
+                                    <p class="text-sm text-white mb-2 truncate-3-lines min-h-[48px] leading-snug">
+                                        20년 넘게 이어온 영림원소프트랩의 CEO Forum에서 다양한 산업 리더들의 경험과 통찰을 만나보세요. 대한민국 리더들의 생생한 경영 철학과 성공 스토리를 확인하세요.
+                                    </p>
+                                @endif
+
+                                <hr class="border-t-2 border-white w-2/3 mx-auto my-2">
+
+                                {{-- Read More Button --}}
+                                <a href="{{ 'https://systemever.co.id/kor/business-insight/ceo_forum/detail/'.$v->id }}"
+                                    class="text-xs font-medium text-white px-3 py-1 inline-block rounded-full swipper-ceo-button"
+                                    onmouseover="this.style.background='rgba(0, 255, 204, 0.6)'; this.style.transform='scale(1.05)'"
+                                    onmouseout="this.style.background='rgba(0, 0, 0, 0.15)'; this.style.transform='scale(1)'">
+                                    Read More
+                                </a>
+
+                                <div class="my-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                @else
+                    {{-- Fallback content when no CEO Forum data --}}
+                    @for($i = 1; $i <= 3; $i++)
+                    <div class="swiper-slide">
+                        <div class="swipper-ceo-body">
+                            <div onmouseover="this.style.transform='scale(1.03)'"
+                                 onmouseout="this.style.transform='scale(1)'">
+
+                                <p class="text-sm text-white font-bold mb-2 truncate-2-lines min-h-[36px] leading-snug">
+                                    CEO Forum {{ $i }}{{ $i == 1 ? '회' : ($i == 2 ? '회' : '회') }} - 리더들의 통찰
+                                </p>
+
+                                <div class="rounded-xl overflow-hidden mb-2">
+                                    <img src="https://via.placeholder.com/400x200/009944/ffffff?text=CEO+Forum+{{ $i }}" alt="CEO Forum {{ $i }}" class="w-full h-[180px] object-cover swipper-ceo-img">
+                                </div>
+
+                                <p class="text-sm text-white mb-1 truncate-1-lines min-h-[24px] leading-tight">
+                                    대한민국 리더들의 통찰과 전략
+                                </p>
+                                <p class="text-sm text-white mb-2 truncate-3-lines min-h-[48px] leading-snug">
+                                    20년 넘게 이어온 영림원소프트랩의 CEO Forum에서 다양한 산업 리더들의 경험과 통찰을 만나보세요.
+                                </p>
+
+                                <hr class="border-t-2 border-white w-2/3 mx-auto my-2">
+
+                                <a href="https://systemever.co.id/kor/business-insight/ceo_forum"
+                                    class="text-xs font-medium text-white px-3 py-1 inline-block rounded-full swipper-ceo-button"
+                                    onmouseover="this.style.background='rgba(0, 255, 204, 0.6)'; this.style.transform='scale(1.05)'"
+                                    onmouseout="this.style.background='rgba(0, 0, 0, 0.15)'; this.style.transform='scale(1)'">
+                                    Read More
+                                </a>
+
+                                <div class="my-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    @endfor
+                @endif
+            </div>
+            <br><br>
+            {{-- Pagination --}}
+            <div class="swiper-pagination mt-6 !relative bottom-0 flex justify-center"></div>
+        </div>
+    </div>
+</section>
+
 
 <section class="relative overflow-hidden flex items-center justify-center" style="padding-top: 110px; padding-bottom: 170px;">
     <picture class="absolute top-0 left-0 w-full h-full z-0">
@@ -546,6 +669,10 @@
 <br>
 <br> --}}
 
+</div>
+    </div>
+</section>
+
 <section class="lg:pt-10px lg:pb-50px pt-20px pb-60px relative">
     <div class="container relative">
         <div class="tabs-container">
@@ -583,135 +710,6 @@
 </section>
 @endsection
 @section('content')
-{{-- <section class="pt-8 pb-4 lg:pt-16 lg:pb-16" style="background: linear-gradient(135deg, #1a1f1d, #2c3e30, #2a403d   );"> --}}
-<section class="pt-4 pb-4 lg:pt-16 lg:pb-16" style="background: linear-gradient(190deg, #3B5E56, #000000   );">
-
-    <div class="container relative">
-        <br>
-        <p class="font-poppins lg:text-24px  lg:leading-12 lg:text-left  lg:mb-0 lg:mt-8 mb-0 leading-7 text-21px  text-white text-center">
-            20년 넘게 이어온 영림원소프트랩의
-        </p>
-        <h1 class="font-poppins lg:leading-12 lg:text-left  lg:mb-5 lg:mt-0 mb-2 leading-7 font-bold text-white text-center title-ceo">
-            CEO Forum
-        </h1>
-        <p class="font-opensans text-white lg:text-17px lg:mb-8 mb-4 lg:text-left text-center text-11px ">
-            대한민국 리더들의 통찰과 전략이 만나는 자리
-        </p>
-        <div class="swiper CEOForumSwiper relative">
-            <div class="swiper-wrapper">
-                @if(!empty($ceoforum) && count($ceoforum) > 0)
-                    @foreach ($ceoforum as $v)
-
-                    <div class="swiper-slide">
-                        <div class="swipper-ceo-body">
-                            <div onmouseover="this.style.transform='scale(1.03)'"
-                                 onmouseout="this.style.transform='scale(1)'">
-
-                                {{-- Title --}}
-                                <p class="text-sm text-white font-bold mb-2 truncate-2-lines min-h-[36px] leading-snug">
-                                    @if(!empty($v->title) && $v->title !== '???????????? ????????? ??????? ?????? ?????? ????????? ?????? ???????????? ???????????? ??????????????????')
-                                        {{ \Illuminate\Support\Str::limit(strip_tags($v->title), 100) }}
-                                    @else
-                                        {{ $loop->iteration }}회 CEO Forum - 리더들의 통찰과 전략
-                                    @endif
-                                </p>
-
-                                {{-- Image --}}
-                                <div class="rounded-xl overflow-hidden mb-2">
-                                    @if(!empty($v->image_url))
-                                        {{-- Try to load from live server first, fallback to placeholder if fails --}}
-                                        <img src="https://systemever.co.id/{{ $v->image_url }}" 
-                                             alt="{{ $v->title }}" 
-                                             class="w-full h-[180px] object-cover swipper-ceo-img" 
-                                             onerror="this.onerror=null; this.src='{{ uri($v->image_url) }}'"
-                                             onabort="this.src='https://via.placeholder.com/400x200/009944/ffffff?text=CEO+Forum'"
-                                             onload="console.log('Image loaded from live server')">
-                                    @else
-                                        <img src="https://via.placeholder.com/400x200/009944/ffffff?text=CEO+Forum" alt="CEO Forum" class="w-full h-[180px] object-cover swipper-ceo-img">
-                                    @endif
-                                </div>
-
-                                {{-- Description --}}
-                                @if(!empty($v->body) && !str_contains($v->body, '???'))
-                                    <p class="text-sm text-white mb-1 truncate-1-lines min-h-[24px] leading-tight">
-                                        {{ !empty($v->slider_title) && !str_contains($v->slider_title, '???') ? \Illuminate\Support\Str::limit(strip_tags($v->slider_title), 100) : '대한민국 리더들의 통찰과 전략' }}
-                                    </p>
-                                    <p class="text-sm text-white mb-2 truncate-3-lines min-h-[48px] leading-snug">
-                                        {{ \Illuminate\Support\Str::limit(strip_tags($v->body), 300) }}
-                                    </p>
-                                @else
-                                    <p class="text-sm text-white mb-1 truncate-1-lines min-h-[24px] leading-tight">
-                                        {{ $v->post_date ? date('Y.m.d', strtotime($v->post_date)) : '' }} CEO Forum
-                                    </p>
-                                    <p class="text-sm text-white mb-2 truncate-3-lines min-h-[48px] leading-snug">
-                                        20년 넘게 이어온 영림원소프트랩의 CEO Forum에서 다양한 산업 리더들의 경험과 통찰을 만나보세요. 대한민국 리더들의 생생한 경영 철학과 성공 스토리를 확인하세요.
-                                    </p>
-                                @endif
-
-                                {{-- <div class="my-4"> --}}
-                                    <hr class="border-t-2 border-white w-2/3 mx-auto my-2">
-                                {{-- </div> --}}
-
-                                {{-- Read More Button --}}
-                                <a href="{{ 'https://systemever.co.id/kor/business-insight/ceo_forum/detail/'.$v->id }}"
-                                    class="text-xs font-medium text-white px-3 py-1 inline-block rounded-full swipper-ceo-button"
-                                    onmouseover="this.style.background='rgba(0, 255, 204, 0.6)'; this.style.transform='scale(1.05)'"
-                                    onmouseout="this.style.background='rgba(0, 0, 0, 0.15)'; this.style.transform='scale(1)'">
-                                    Read More
-                                </a>
-
-                                <div class="my-2"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    @endforeach
-                @else
-                    {{-- Fallback content when no CEO Forum data --}}
-                    @for($i = 1; $i <= 3; $i++)
-                    <div class="swiper-slide">
-                        <div class="swipper-ceo-body">
-                            <div onmouseover="this.style.transform='scale(1.03)'"
-                                 onmouseout="this.style.transform='scale(1)'">
-
-                                <p class="text-sm text-white font-bold mb-2 truncate-2-lines min-h-[36px] leading-snug">
-                                    CEO Forum {{ $i }}{{ $i == 1 ? '회' : ($i == 2 ? '회' : '회') }} - 리더들의 통찰
-                                </p>
-
-                                <div class="rounded-xl overflow-hidden mb-2">
-                                    <img src="https://via.placeholder.com/400x200/009944/ffffff?text=CEO+Forum+{{ $i }}" alt="CEO Forum {{ $i }}" class="w-full h-[180px] object-cover swipper-ceo-img">
-                                </div>
-
-                                <p class="text-sm text-white mb-1 truncate-1-lines min-h-[24px] leading-tight">
-                                    대한민국 리더들의 통찰과 전략
-                                </p>
-                                <p class="text-sm text-white mb-2 truncate-3-lines min-h-[48px] leading-snug">
-                                    20년 넘게 이어온 영림원소프트랩의 CEO Forum에서 다양한 산업 리더들의 경험과 통찰을 만나보세요.
-                                </p>
-
-                                <hr class="border-t-2 border-white w-2/3 mx-auto my-2">
-
-                                <a href="https://systemever.co.id/kor/business-insight/ceo_forum"
-                                    class="text-xs font-medium text-white px-3 py-1 inline-block rounded-full swipper-ceo-button"
-                                    onmouseover="this.style.background='rgba(0, 255, 204, 0.6)'; this.style.transform='scale(1.05)'"
-                                    onmouseout="this.style.background='rgba(0, 0, 0, 0.15)'; this.style.transform='scale(1)'">
-                                    Read More
-                                </a>
-
-                                <div class="my-2"></div>
-                            </div>
-                        </div>
-                    </div>
-                    @endfor
-                @endif
-            </div>
-            <br><br>
-            {{-- Pagination --}}
-            <div class="swiper-pagination mt-6 !relative bottom-0 flex justify-center"></div>
-
-        </div>
-    </div>
-</section>
 
 {{-- @include('systemever/includes/modals/intro') --}}
 @endsection

@@ -686,7 +686,8 @@ header {
   left: 0;
   top: 0;
   right: 0;
-  z-index: 10;
+  z-index: 1000;
+  background-color: transparent;
 }
 
 .section-demo {
@@ -696,6 +697,8 @@ header {
   font-weight: 400;
   color: #fff;
   height: 50px;
+  position: relative;
+  z-index: 1001;
 }
 
 .section-demo a {
@@ -767,6 +770,12 @@ header {
   background-color: #fafafa;
   border-radius: 10px;
   max-width: 1306px;
+  position: relative;
+  z-index: 1002;
+}
+
+.section-menu.fixed-top {
+  z-index: 1002;
 }
 
 @media (max-width: 480px) {

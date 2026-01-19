@@ -16,3 +16,11 @@
 <link rel="stylesheet" href="{{ asset('assets/css/custom-checkbox.css') }}">
 <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet" />
 <style>.h-30 { height:30px; }</style>
+<!-- Google tag (gtag.js) - Global include -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17379965129"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date());
+    gtag('config', 'AW-17379965129');
+</script>

@@ -4,7 +4,8 @@ header {
     left: 0;
     top: 0;
     right: 0;
-    z-index: 10;
+    z-index: 1000;
+    background-color: transparent;
     // border-bottom: 1px solid #E2E2E2;
 }
 .section-demo {
@@ -14,6 +15,8 @@ header {
     font-weight: 400;
     color: #fff;
     height: 50px;
+    position: relative;
+    z-index: 1001;
     a {
         color: #fff;
     }
@@ -50,6 +53,11 @@ header {
             }
         }
     }
+    @media (max-width: 991.98px) {
+        &.fixed-top {
+            top: 0;
+        }
+    }
 }
 
 .lang {
@@ -72,6 +80,14 @@ header {
     background-color: #fafafa;
     border-radius: 10px;
     max-width: 1306px;
+    position: relative;
+    z-index: 1002;
+    
+    &.fixed-top {
+        z-index: 1002;
+        top: 50px;
+        margin-top: 0;
+    }
 
     @media (max-width: 480px) {
         margin-top: 0;

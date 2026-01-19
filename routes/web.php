@@ -114,6 +114,9 @@ Route::prefix($langprefix)->group(function () {
     //new
     Route::get('/landing', ['as' => 'get.landing', 'uses' => '\App\Http\Controllers\Systemever\LandingPageController@index']);
     
+    // Test route for landing page with Google tag
+    Route::get('/landings', ['as' => 'get.landings.test', 'uses' => '\App\Http\Controllers\Systemever\LandingPageController@index']);
+    
     // IT Inventory page - Multilingual
     Route::get('ITInventory', ['as' => 'get.pages.it_inventory', 'uses' => '\App\Http\Controllers\Systemever\ITInventoryController@index']);
     Route::post('ITInventory', ['as' => 'post.pages.it_inventory', 'uses' => '\App\Http\Controllers\Systemever\ITInventoryController@submit'])->middleware('throttle:5,1');
@@ -237,5 +240,13 @@ Route::get('/lang/EN', 'Api\HelperController@langen')->name('get.helper.langen')
 Route::get('/lang/KOR', 'Api\HelperController@langkor')->name('get.helper.langkor');
 Route::post('/form/newsletter', 'Api\HelperController@newsletter')->name('get.helper.newsletter');
 
+// Temporary cache clearing route - remove after use
+Route::get('/clear-all-cache', function() {
+    Artisan::call('route:clear');
+    Artisan::call('config:clear');
+    Artisan::call('cache:clear');
+    Artisan::call('view:clear');
+    return "All caches cleared! Route cache, config cache, app cache, and view cache have been cleared. You can now access /landings. IMPORTANT: Delete this route from web.php after use for security!";
+});
 
 Route::get('/sitemap.xml', '\App\Http\Controllers\Systemever\SitemapController@index')->name('get.sitemap');

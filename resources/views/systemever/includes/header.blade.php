@@ -1,6 +1,24 @@
-<header>
+  <style>
+    html,body {margin:0;padding:0;overflow-x:hidden;}
+    
+    .section-demo{position:fixed;top:0;left:0;width:100%;z-index:999;height:60px;background:#000;color:#fff;display:flex;align-items:center;}
+    .section-demo .container{display:flex;align-items:center;justify-content:flex-end;gap:12px;font-size:13px;}
+    .section-demo a{text-decoration:none;color:#fff;}
+
+    .section-menu{position:fixed;top:60px;left:0;width:100%;z-index:998;background:#fff;box-shadow:0px 4px 8px rgba(0,0,0,0.3);}
+
+    /* Hide collapsed accessibility element */
+    a.collapsed {
+        display: none !important;
+    }
+
+    @media (max-width:768px){
+      .section-demo{height:50px;}
+      .section-menu{top:50px;}
+    }
+  </style>
   <div class="section-demo d-lg-block d-sm-none d-none" style="transition:all .5s ease">
-    <div class="container-content-1" style="height:50px">
+    <div class="container-content-1" style="height:60px">
       <div class="row d-flex align-items-center">
         <div class="col-lg-8">
           {{-- {{seeinindo()}} --}}
@@ -16,9 +34,8 @@
           <ul class="list-unstyled mb-0 d-flex align-items-center justify-content-end">
             {{-- <li class="mr-1"><button class="button btn-white-green-demo btn-rounded" data-toggle="modal" data-target="#modal-request-demo">FREE DEMO</button></li> --}}
             <li class="mr-1">
-              <a href="https://wa.me/6281119971017?text=Hello, I want to know more about system ever" class="wa">
-                <img src="{{ asset('assets/fl/wa.svg')}}">
-                +6281119971017
+              <a href="https://wa.me/628111997101?text=Hello, I want to know more about system ever" class="wa">
+                <img src="{{ asset('assets/fl/wa-number.png')}}" alt="WhatsApp" style="height:auto;max-height:40px;">
               </a>
             </li>
             <!-- <li class="mr-1">
@@ -74,7 +91,7 @@
     </div>
   </div>
 
-  <div class="section-menu d-lg-block d-sm-none d-none">
+  <div class="section-menu fixed-top d-lg-block d-sm-none d-none">
     <div class="container-content-1">
       <div class="d-flex align-items-center justify-content-between">
         <div class="d-flex align-items-center">
@@ -236,7 +253,7 @@
       </div>
     </div>
   </div>
-  <div class="section-menu d-lg-none d-md-block d-sm-block d-block">
+  <div class="section-menu fixed-top d-lg-none d-md-block d-sm-block d-block">
     <div class="container-content">
       <div class="row">
         <div class="col-lg-12 d-flex justify-content-between align-items-center">

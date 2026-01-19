@@ -9,7 +9,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
+    /* Follow homepage fonts (Montserrat, Poppins, Open Sans, Inter) */
     .font-montserrat {
         font-family: 'Montserrat', sans-serif;
     }
@@ -22,6 +22,7 @@
     .font-inter {
         font-family: 'Inter', sans-serif;
     }
+    /* Remove previous custom font override to match homepage */
     
     .container {
         max-width: 1140px;
@@ -51,9 +52,17 @@
         }
     }
     .page-content { margin-top: 0; }
-    /* Offset hero dari navbar */
-    .itinv-hero{padding-top:190px;padding-bottom:180px;}
-    @media (max-width:1024px){.itinv-hero{padding-top:160px;padding-bottom:150px;}}
+    
+    .itinv-hero{
+        padding-top:110px;
+        padding-bottom:170px;
+    }
+    @media (max-width:1024px){
+        .itinv-hero{
+            padding-top:90px;
+            padding-bottom:140px;
+        }
+    }
     /* Smooth anchor offset */
     section[id]{scroll-margin-top:120px;}
     /* Use global .fill button from homepage; ensure spacing override for this page */
@@ -144,12 +153,48 @@
     .alert-error:before{background:#dc2626;mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" stroke="white" stroke-width="2" fill="none" viewBox="0 0 24 24"><path d="M12 8v4m0 4h.01"/><circle cx="12" cy="12" r="9"/></svg>') center/contain no-repeat;}
     .m-field.has-error input,.m-field.has-error textarea{border-bottom-color:#dc2626;box-shadow:0 1px 0 0 #dc2626;}
     .f-error{margin-top:6px;font-size:11px;font-family:'Inter';letter-spacing:.4px;color:#b91c1c;}
-    /* Language switcher */
-    .lang-switch{position:absolute;top:18px;right:20px;display:flex;gap:6px;z-index:40;font-family:'Inter';}
-    .lang-switch a{display:inline-flex;align-items:center;justify-content:center;padding:6px 14px;font-size:11px;font-weight:600;letter-spacing:.55px;border:1px solid rgba(255,255,255,.55);color:#ffffff;border-radius:999px;backdrop-filter:blur(5px);background:rgba(255,255,255,.12);transition:.25s;text-decoration:none;}
-    .lang-switch a:hover{background:rgba(255,255,255,.22);} 
-    .lang-switch a.active{background:#ffffff;color:#009944;border-color:#ffffff;box-shadow:0 4px 14px -4px rgba(0,0,0,.28);} 
-    @media(max-width:640px){.lang-switch{top:14px;right:14px;}}
+    /* (lang-switch removed per request) */
+    /* Video hero adjustments */
+    .hero-video-wrapper{width:100%;max-width:640px;position:relative;}
+    @media(min-width:1280px){.hero-video-wrapper{max-width:700px;}}
+    /* Video.js theming overrides */
+    .video-js{border-radius:18px;box-shadow:0 14px 36px -12px rgba(0,0,0,.4);font-family:'Inter','Open Sans',sans-serif;}
+    .vjs-theme-forest .vjs-control-bar{background:linear-gradient(90deg,#003a1d,#067c3f);}
+    .vjs-theme-forest .vjs-play-progress{background:#27d476;}
+    .vjs-theme-forest .vjs-load-progress div{background:rgba(255,255,255,.45);}
+    .vjs-theme-forest .vjs-progress-holder{background:rgba(255,255,255,.25);}
+    .vjs-theme-forest .vjs-control{color:#ffffff;}
+    .vjs-loop-toggle.vjs-control{width:3em;}
+    .vjs-loop-toggle .vjs-icon-placeholder:before{content:'⟲';font-size:1.2em;line-height:2.3em;}
+    .vjs-loop-on .vjs-icon-placeholder:before{color:#27d476;text-shadow:0 0 4px rgba(0,255,120,.8);}
+    /* Mobile layout overrides (single column rows) */
+    @media(max-width:640px){
+        /* Single column grid, full width cards */
+        .problem-grid{display:grid;grid-template-columns:1fr !important;gap:20px;width:100%;}
+        .p-card{display:block;padding:20px 22px 18px;width:100%;max-width:100%;box-sizing:border-box;}
+        .p-ico{margin:0 0 12px 0;}
+        .p-card h3{margin:0 0 8px;}
+        .p-card p{margin:0;}
+        .side-illustration{margin-bottom:30px;}
+        .p-card h3,.p-card p{word-break:normal;white-space:normal;overflow-wrap:break-word;}
+        /* Widen overall content on small devices */
+        .container{padding-left:6px;padding-right:6px;max-width:100%;}
+    }
+    /* Global single-column stacking for small screens (up to tablets) */
+    @media(max-width:768px){
+        /* Hero split columns */
+        .itinv-hero .flex>div{width:100% !important;}
+        /* Generic grids inside key sections */
+        #problems .grid,#solution .grid{grid-template-columns:1fr !important;}
+        /* Business process detail two-column panel */
+        .bp-detail-panel{grid-template-columns:1fr !important;padding:32px 22px 38px;}
+        /* Solution items already vertical but ensure full width */
+        .solution-list{width:100%;}
+        /* CTA form already switches at 820px; enforce sooner */
+        .minimal-form{grid-template-columns:1fr !important;}
+        /* Remove potential leftover flex widths */
+        [class*='lg:w-']{width:100% !important;}
+    }
 </style>
 @endsection
 
@@ -161,12 +206,7 @@
         <img src="{{ asset('assets/fl/home-bg-1-m.png')}}" alt="IT Inventory" class="w-full h-full object-cover" style="object-position: bottom center;" />
     </picture>
     <div class="container relative z-10">
-        <div class="lang-switch">
-            @php $lang = activelang(); @endphp
-            <a href="{{ url('ITInventory') }}" class="{{ $lang=='ID' ? 'active' : '' }}">ID</a>
-            <a href="{{ url('en/ITInventory') }}" class="{{ $lang=='EN' ? 'active' : '' }}">EN</a>
-            <a href="{{ url('kor/ITInventory') }}" class="{{ $lang=='KOR' ? 'active' : '' }}">KOR</a>
-        </div>
+    @php $lang = activelang(); @endphp
         <div class="flex flex-col lg:flex-row">
             <div class="lg:w-[60%] mx-auto">
                 <p class="font-opensans text-white lg:text-16px lg:mb-0 mb-0 lg:text-left text-center text-11px">
@@ -188,8 +228,33 @@
                 </div>
             </div>
             <div class="lg:w-[40%] pt-10">
-                <div class="lg:h-[372px] lg:w-[550px] w-[72%] aspect-mod1 overflow-hidden flex items-center justify-center mx-auto lg:-mt-10">
-                    <video src="{{ asset('assets/custom/video-section-3.mp4?v=1') }}" autoplay muted loop playsinline class=""></video>
+                <div class="hero-video-wrapper mx-auto lg:-mt-10">
+                    @php
+                        $itVideo = null;
+                        try { $itVideo = setting('it_inventory_video'); } catch (Exception $e) { $itVideo = null; }
+                        if(empty($itVideo) || !is_string($itVideo)) {
+                            $itVideo = 'assets/custom/IT Inventory (1).mp4';
+                        }
+                        if($itVideo && is_string($itVideo) && !preg_match('/^https?:\/\//i',$itVideo)) {
+                            $itVideo = asset(ltrim($itVideo,'/'));
+                        }
+                    @endphp
+                    <link href="https://unpkg.com/video.js@8/dist/video-js.min.css" rel="stylesheet" />
+                    <script src="https://unpkg.com/video.js@8/dist/video.min.js"></script>
+                    <video
+                        id="itInventoryVideo"
+                        class="video-js vjs-theme-forest"
+                        controls
+                        autoplay
+                        muted
+                        playsinline
+                        preload="auto"
+                        poster="{{ asset('assets/custom/section-3.png') }}"
+                        data-setup='{"fluid":true,"playbackRates":[0.75,1,1.25,1.5,2]}'
+                    >
+                        <source src="{{ $itVideo }}" type="video/mp4" />
+                        {{ __('Your browser does not support the video tag.') }}
+                    </video>
                 </div>
             </div>
         </div>
@@ -447,7 +512,7 @@
                 titleEl.textContent=step.title;textEl.textContent=step.text;whyEl.textContent=step.why;
                 tagsEl.innerHTML=step.tags.map(t=>`<span class="bp-tag">${t}</span>`).join('');
                 outEl.innerHTML=step.out.map(o=>`<div class='bp-out-card'><h4>${o.h}</h4><p>${o.p}</p><svg class='bp-out-icon' viewBox='0 0 24 24'>${o.icon}</svg></div>`).join('');
-                metricsEl.innerHTML=step.metrics.map(m=>`<div class='p-4 rounded-xl bg-[#f5fbf8] border border-[#d9ebe3]'><strong class='block font-poppins text-emerald-700 text-lg'>${m[0]}</strong><span class='text-11px font-opensans tracking-wide'>${m[1]}</span></div>`).join('');
+                metricsEl.innerHTML=step.metrics.map(m=>`<div class='p-4 rounded-xl bg-[#f5fbf8] border border-[#d9ebe3]'><strong class='block font-poppins text-emerald-700 text-lg'>${m.value}</strong><span class='text-11px font-opensans tracking-wide'>${m.label}</span></div>`).join('');
             }
             nodes.forEach(n=>n.addEventListener('mouseenter',()=>{nodes.forEach(x=>x.classList.remove('active'));n.classList.add('active');render(steps[+n.dataset.step]);}));
             nodes.forEach(n=>n.addEventListener('click',()=>{nodes.forEach(x=>x.classList.remove('active'));n.classList.add('active');render(steps[+n.dataset.step]);}));
@@ -501,33 +566,63 @@
 </section>
 <script>
 document.addEventListener('DOMContentLoaded',function(){
+    // Form submission UX (kept from previous version)
     const cta=document.getElementById('cta');
-    if(!cta) return; 
-    const alert=cta.querySelector('.alert-success, .alert-error');
-    if(alert){
-        // Smooth scroll with navbar offset
-        alert.scrollIntoView({behavior:'smooth',block:'start'});
-        setTimeout(()=>{window.scrollBy({top:-110,behavior:'smooth'});},380);
-        // Focus first invalid field if errors present
-        if(alert.classList.contains('alert-error')){
-             const firstErr=cta.querySelector('.has-error input, .has-error textarea');
-             if(firstErr){try{firstErr.focus({preventScroll:true});}catch(e){}}
+    if(cta){
+        const alert=cta.querySelector('.alert-success, .alert-error');
+        if(alert){
+            alert.scrollIntoView({behavior:'smooth',block:'start'});
+            setTimeout(()=>{window.scrollBy({top:-110,behavior:'smooth'});},380);
+            if(alert.classList.contains('alert-error')){
+                 const firstErr=cta.querySelector('.has-error input, .has-error textarea');
+                 if(firstErr){try{firstErr.focus({preventScroll:true});}catch(e){}}
+            }
+            if(alert.classList.contains('alert-success')){
+                 setTimeout(()=>{alert.style.transition='opacity .45s';alert.style.opacity='0';setTimeout(()=>alert.remove(),500);},7000);
+            }
         }
-        // Auto dismiss success after 7s
-        if(alert.classList.contains('alert-success')){
-             setTimeout(()=>{alert.style.transition='opacity .45s';alert.style.opacity='0';setTimeout(()=>alert.remove(),500);},7000);
+        const form=cta.querySelector('form.minimal-form');
+        const btn=document.getElementById('ctaSubmitBtn');
+        if(form && btn){
+            form.addEventListener('submit',function(e){
+                if(btn.classList.contains('loading')){e.preventDefault();return false;}
+                btn.classList.add('loading');
+                btn.setAttribute('disabled','disabled');
+            });
         }
     }
-      // Loading & double submit guard
-      const form=cta.querySelector('form.minimal-form');
-      const btn=document.getElementById('ctaSubmitBtn');
-      if(form && btn){
-          form.addEventListener('submit',function(e){
-              if(btn.classList.contains('loading')){e.preventDefault();return false;}
-              btn.classList.add('loading');
-              btn.setAttribute('disabled','disabled');
-          });
-      }
+
+    // Initialize Video.js
+    if(window.videojs){
+        const player = videojs('itInventoryVideo');
+        // Custom Loop Toggle Button
+        const Button = videojs.getComponent('Button');
+        class LoopToggle extends Button {
+            constructor(player, options){
+                super(player, options); this.loopOn=false; this.controlText('Loop'); this.addClass('vjs-loop-toggle');
+            }
+            handleClick(){
+                this.loopOn=!this.loopOn; this.player().loop(this.loopOn); this.updateState();
+            }
+            updateState(){
+                if(this.loopOn){ this.addClass('vjs-loop-on'); this.controlText('Disable Loop'); }
+                else { this.removeClass('vjs-loop-on'); this.controlText('Enable Loop'); }
+            }
+        }
+        videojs.registerComponent('LoopToggle', LoopToggle);
+        player.ready(function(){
+            player.muted(true); // ensure muted autoplay
+            const controlBar = player.getChild('controlBar');
+            controlBar.addChild('LoopToggle', {}, controlBar.children().length - 1); // before fullscreen
+            // If seeking still restarts => server missing Accept-Ranges; console note
+            player.on('seeked', function(){
+                // heuristic: if after seek currentTime jumps near 0 unexpectedly
+                if(player.currentTime() < 1 && player.currentTime() !== 0){
+                    console.warn('[ITInventory] Seek appears constrained. Ensure MP4 faststart + Accept-Ranges header.');
+                }
+            });
+        });
+    }
 });
 </script>
 @endsection

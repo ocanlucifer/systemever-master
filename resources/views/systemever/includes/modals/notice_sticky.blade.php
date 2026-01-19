@@ -14,7 +14,7 @@
             <div class="pclose"  @click="popup=false">
                 <img src="{{asset('assets/fl/close.png')}}" alt="">
             </div>
-            <div class="pitem"><img src="{{asset('assets/fl/pop-1.png')}}" alt=""><span> {{ stringlang('Request Demo Register Now!', 'Jadwalkan Demo Daftar Sekarang!', '데모 요청 지금 등록하세요') }}
+            <div class="pitem"><img src="{{asset('assets/fl/pop-3.png')}}" alt=""><span>{{ stringlang('Send your message via Whatsapp', 'Kirim pesan Anda melalui Whatsapp', 'Whatsapp으로 메시지를 보내세요') }} </span><a href="https://api.whatsapp.com/send/?phone=6281119971017&text=Hello%2C+I+want+to+know+more+about+system+ever&type=phone_number&app_absent=0">Whatsapp</a></div>
                     </span><a href="{{ route('get.contact') }}">{{ stringlang('Register', 'Daftar', '등록하다') }}</a></div>
             <div class="pitem"><img src="{{asset('assets/fl/pop-2.png')}}" alt=""><span> {{ stringlang('Send your message via Email', 'Kirim pesan Anda melalui Email', '이메일을 통해 메시지 보내기') }}</span><a href="mailto://info@systemever.com">{{ stringlang('Email', 'Email', '이메일') }}</a></div>
             <div class="pitem"><img src="{{asset('assets/fl/pop-3.png')}}" alt=""><span>{{ stringlang('Send your message via Whatsapp', 'Kirim pesan Anda melalui Whatsapp', 'Whatsapp으로 메시지를 보내세요') }} </span><a href="https://api.whatsapp.com/send/?phone=6281119971017&text=Hello%2C+I+want+to+know+more+about+system+ever&type=phone_number&app_absent=0">Whatsapp</a></div>
