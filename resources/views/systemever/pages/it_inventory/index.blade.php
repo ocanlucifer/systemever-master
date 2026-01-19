@@ -9,7 +9,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
+    /* Follow homepage fonts (Montserrat, Poppins, Open Sans, Inter) */
     .font-montserrat {
         font-family: 'Montserrat', sans-serif;
     }
@@ -22,6 +22,7 @@
     .font-inter {
         font-family: 'Inter', sans-serif;
     }
+    /* Remove previous custom font override to match homepage */
     
     .container {
         max-width: 1140px;
@@ -144,12 +145,14 @@
     .alert-error:before{background:#dc2626;mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" stroke="white" stroke-width="2" fill="none" viewBox="0 0 24 24"><path d="M12 8v4m0 4h.01"/><circle cx="12" cy="12" r="9"/></svg>') center/contain no-repeat;}
     .m-field.has-error input,.m-field.has-error textarea{border-bottom-color:#dc2626;box-shadow:0 1px 0 0 #dc2626;}
     .f-error{margin-top:6px;font-size:11px;font-family:'Inter';letter-spacing:.4px;color:#b91c1c;}
-    /* Language switcher */
-    .lang-switch{position:absolute;top:18px;right:20px;display:flex;gap:6px;z-index:40;font-family:'Inter';}
-    .lang-switch a{display:inline-flex;align-items:center;justify-content:center;padding:6px 14px;font-size:11px;font-weight:600;letter-spacing:.55px;border:1px solid rgba(255,255,255,.55);color:#ffffff;border-radius:999px;backdrop-filter:blur(5px);background:rgba(255,255,255,.12);transition:.25s;text-decoration:none;}
-    .lang-switch a:hover{background:rgba(255,255,255,.22);} 
-    .lang-switch a.active{background:#ffffff;color:#009944;border-color:#ffffff;box-shadow:0 4px 14px -4px rgba(0,0,0,.28);} 
-    @media(max-width:640px){.lang-switch{top:14px;right:14px;}}
+    /* (lang-switch removed per request) */
+    /* Video hero adjustments */
+    .hero-video-wrapper{width:100%;max-width:640px;position:relative;}
+    @media(min-width:1280px){.hero-video-wrapper{max-width:700px;}}
+    .itinv-video{display:block;width:100%;height:auto;border-radius:18px;box-shadow:0 14px 36px -12px rgba(0,0,0,.4);background:#000;}
+    .video-play-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 50%,rgba(0,0,0,.45),rgba(0,0,0,.65));border:0;cursor:pointer;border-radius:18px;backdrop-filter:blur(2px);transition:.35s;}
+    .video-play-overlay:hover{background:radial-gradient(circle at 50% 50%,rgba(0,0,0,.35),rgba(0,0,0,.6));}
+    .video-play-overlay.hidden{display:none;}
 </style>
 @endsection
 
@@ -161,12 +164,7 @@
         <img src="{{ asset('assets/fl/home-bg-1-m.png')}}" alt="IT Inventory" class="w-full h-full object-cover" style="object-position: bottom center;" />
     </picture>
     <div class="container relative z-10">
-        <div class="lang-switch">
-            @php $lang = activelang(); @endphp
-            <a href="{{ url('ITInventory') }}" class="{{ $lang=='ID' ? 'active' : '' }}">ID</a>
-            <a href="{{ url('en/ITInventory') }}" class="{{ $lang=='EN' ? 'active' : '' }}">EN</a>
-            <a href="{{ url('kor/ITInventory') }}" class="{{ $lang=='KOR' ? 'active' : '' }}">KOR</a>
-        </div>
+    @php $lang = activelang(); @endphp
         <div class="flex flex-col lg:flex-row">
             <div class="lg:w-[60%] mx-auto">
                 <p class="font-opensans text-white lg:text-16px lg:mb-0 mb-0 lg:text-left text-center text-11px">
@@ -188,8 +186,38 @@
                 </div>
             </div>
             <div class="lg:w-[40%] pt-10">
-                <div class="lg:h-[372px] lg:w-[550px] w-[72%] aspect-mod1 overflow-hidden flex items-center justify-center mx-auto lg:-mt-10">
-                    <video src="{{ asset('assets/custom/video-section-3.mp4?v=1') }}" autoplay muted loop playsinline class=""></video>
+                <div class="hero-video-wrapper mx-auto lg:-mt-10">
+                    @php
+                        // Ambil path video dinamis dari settings jika ada
+                        $itVideo = null;
+                        try { $itVideo = setting('it_inventory_video'); } catch (Exception $e) { $itVideo = null; }
+                        if(empty($itVideo) || !is_string($itVideo)) {
+                            // Fallback file (keep original filename with space for readability)
+                            $itVideo = 'assets/custom/IT Inventory.mp4';
+                        }
+                        // Jika relatif, bungkus dengan asset()
+                        if($itVideo && is_string($itVideo) && !preg_match('/^https?:\/\//i',$itVideo)) {
+                            // Pastikan tidak double asset()
+                            $itVideo = asset(ltrim($itVideo,'/'));
+                        }
+                    @endphp
+                    <video 
+                        id="itInventoryVideo"
+                        class="itinv-video"
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                        preload="auto"
+                        poster="{{ asset('assets/custom/section-3.png') }}"
+                        controlsList="nodownload"
+                    >
+                        <source src="{{ $itVideo }}" type="video/mp4" />
+                        {{ __('Your browser does not support the video tag.') }}
+                    </video>
+                    <button type="button" id="videoPlayOverlay" class="video-play-overlay hidden" aria-label="Play video">
+                        <svg viewBox="0 0 24 24" width="58" height="58" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="11" stroke-opacity="0.85"/><path d="M10 8.5v7l6-3.5-6-3.5Z" fill="white" stroke="white"/></svg>
+                    </button>
                 </div>
             </div>
         </div>
@@ -328,7 +356,7 @@
                 <p class="body-text max-w-2xl">{{ tl('SystemEver IT Inventory (Category A) centralizes movements, documents & compliance reporting under one unified layer.','SystemEver IT Inventory (Kategori A) memusatkan pergerakan, dokumen & pelaporan kepatuhan dalam satu lapisan terpadu.','SystemEver IT Inventory (A등급)은 이동, 문서 및 컴플라이언스 보고를 하나의 통합 레이어로 중앙화합니다.') }}</p>
                 <div class="solution-list max-w-xl">
                     <div class="solution-item"><div class="solution-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9.4 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9.4a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H10a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09c0 .69.4 1.31 1 1.51a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V10c.69 0 1.31.4 1.51 1H21a2 2 0 1 1 0 4h-.09c-.69 0-1.31.4-1.51 1Z"/></svg></div><div><h3 class="font-poppins text-[17px] font-semibold mb-1 text-emerald-800">{{ tl('Full Integration','Integrasi Penuh','완전 통합') }}</h3><p class="font-opensans text-sm lg:text-[15px] leading-relaxed text-gray-700">{{ tl('Real-time linkage from goods movement to financial impact. Single structured data spine.','Keterhubungan real-time dari pergerakan barang ke dampak finansial. Satu kerangka data terstruktur.','물류 이동에서 재무 영향까지 실시간 연계. 단일 구조화 데이터.') }}</p></div></div>
-                    <div class="solution-item"><div class="solution-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></div><div><h3 class="font-poppins text-[17px] font-semibold mb-1 text-emerald-800">{{ tl('Category A Status','Status Kategori A','A등급 인증') }}</h3><p class="font-opensans text-sm lg:text-[15px] leading-relaxed text-gray-700">{{ tl('Official DJBC validation secures compliance & reduces audit friction.','Validasi resmi DJBC memastikan kepatuhan & mengurangi friksi audit.','관세청 공식 검증으로 컴플라이언스 확보 및 감사 부담 감소.') }}</p></div></div>
+                    <div class="solution-item"><div class="solution-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></div></div><div><h3 class="font-poppins text-[17px] font-semibold mb-1 text-emerald-800">{{ tl('Category A Status','Status Kategori A','A등급 인증') }}</h3><p class="font-opensans text-sm lg:text-[15px] leading-relaxed text-gray-700">{{ tl('Official DJBC validation secures compliance & reduces audit friction.','Validasi resmi DJBC memastikan kepatuhan & mengurangi friksi audit.','관세청 공식 검증으로 컴플라이언스 확보 및 감사 부담 감소.') }}</p></div></div>
                     <div class="solution-item"><div class="solution-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M10 9h4"/><path d="M8 13h8"/><path d="M8 17h5"/></svg></div><div><h3 class="font-poppins text-[17px] font-semibold mb-1 text-emerald-800">{{ tl('Automated Customs Docs','Dokumen Bea Cukai Otomatis','자동 관세 문서') }}</h3><p class="font-opensans text-sm lg:text-[15px] leading-relaxed text-gray-700">{{ tl('Generate BC 2.3, BC 2.6.1, BC 4.0 accurately from validated transactional data.','Hasilkan BC 2.3, 2.6.1, 4.0 akurat dari data transaksi tervalidasi.','검증된 거래 데이터를 기반으로 BC 2.3, 2.6.1, 4.0 문서 자동 생성.') }}</p></div></div>
                     <div class="solution-item"><div class="solution-icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 13l3-3 4 4 5-8"/></svg></div><div><h3 class="font-poppins text-[17px] font-semibold mb-1 text-emerald-800">{{ tl('Exception Monitoring','Monitoring Pengecualian','예외 모니터링') }}</h3><p class="font-opensans text-sm lg:text-[15px] leading-relaxed text-gray-700">{{ tl('Early anomaly flags reduce penalty risk & accelerate month-end close.','Tanda dini anomali mengurangi risiko sanksi & mempercepat closing akhir bulan.','조기 이상 탐지로 벌금 리스크 감소 및 월말 마감 가속화.') }}</p></div></div>
                 </div>
@@ -447,7 +475,7 @@
                 titleEl.textContent=step.title;textEl.textContent=step.text;whyEl.textContent=step.why;
                 tagsEl.innerHTML=step.tags.map(t=>`<span class="bp-tag">${t}</span>`).join('');
                 outEl.innerHTML=step.out.map(o=>`<div class='bp-out-card'><h4>${o.h}</h4><p>${o.p}</p><svg class='bp-out-icon' viewBox='0 0 24 24'>${o.icon}</svg></div>`).join('');
-                metricsEl.innerHTML=step.metrics.map(m=>`<div class='p-4 rounded-xl bg-[#f5fbf8] border border-[#d9ebe3]'><strong class='block font-poppins text-emerald-700 text-lg'>${m[0]}</strong><span class='text-11px font-opensans tracking-wide'>${m[1]}</span></div>`).join('');
+                metricsEl.innerHTML=step.metrics.map(m=>`<div class='p-4 rounded-xl bg-[#f5fbf8] border border-[#d9ebe3]'><strong class='block font-poppins text-emerald-700 text-lg'>${m.value}</strong><span class='text-11px font-opensans tracking-wide'>${m.label}</span></div>`).join('');
             }
             nodes.forEach(n=>n.addEventListener('mouseenter',()=>{nodes.forEach(x=>x.classList.remove('active'));n.classList.add('active');render(steps[+n.dataset.step]);}));
             nodes.forEach(n=>n.addEventListener('click',()=>{nodes.forEach(x=>x.classList.remove('active'));n.classList.add('active');render(steps[+n.dataset.step]);}));

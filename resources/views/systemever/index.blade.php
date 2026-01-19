@@ -3,6 +3,42 @@
 ])
 
 @section('custom_css')
+<style>
+    /* AGGRESSIVE OVERRIDE TO FIX WHITE GAP */
+    
+    /* 1. Force navbar transparent on homepage */
+    .section-menu {
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+
+    /* 2. Force body and page-content to have no top spacing */
+    body, .page-content {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+    }
+
+    /* 3. Force hero to sit under fixed header (no visible gap) and be full-bleed */
+    .hero-home {
+        /* Pull the section up by the exact header height so background goes behind header */
+        margin-top: calc((var(--topbar-h) + var(--navbar-h)) * -1) !important;
+        /* Compensate by adding the same amount into internal padding so content stays put */
+        padding-top: calc(160px + var(--topbar-h) + var(--navbar-h)) !important; /* Desktop padding */
+        padding-bottom: 140px !important;
+        margin-left: calc(50% - 50vw) !important;
+        margin-right: calc(50% - 50vw) !important;
+        width: 100vw !important;
+        box-sizing: border-box !important;
+        position: relative;
+    }
+
+    @media (max-width: 1024px) {
+        .hero-home {
+            padding-top: calc(140px + var(--topbar-h) + var(--navbar-h)) !important; /* Mobile padding */
+            padding-bottom: 120px !important;
+        }
+    }
+</style>
 
 
 <!--@include('systemever/includes/swiper')-->
@@ -34,10 +70,6 @@
     /* .section-demo {
         opacity: 0;
     } */
-
-    .page-content {
-        margin-top: 0;
-    }
 
     .font-montserrat {
         font-family: 'Montserrat', sans-serif;
@@ -110,7 +142,8 @@
 
     @media only screen and (max-width: 1024px) {
         .page-content {
-            margin-top: 55px;
+            margin-top: 0 !important;
+            padding-top: 0 !important;
         }
 
         .aspect-mod {
@@ -140,6 +173,19 @@
 
         }
     }
+
+    /* Remove duplicate hero-home block: keep ONLY negative-margin strategy */
+    .hero-home{z-index:0;}
+    .section-menu,.section-demo{z-index:10;}
+    /* Optional debug (uncomment to visually inspect flush): */
+    /* .hero-home{outline:2px dashed red;} */
+    /* Ensure first-of-type padding from header include never reintroduces gap */
+    .page-content > section.hero-home:first-of-type{padding-top: calc(160px + var(--topbar-h) + var(--navbar-h)) !important;}
+    @media (max-width:1024px){
+      .page-content > section.hero-home:first-of-type{padding-top: calc(140px + var(--topbar-h) + var(--navbar-h)) !important;}
+    }
+    /* Slight upward nudge for background image if a hairline gap persists */
+    .hero-home picture{top:-1px;}
 </style>
 @endsection
 @section('content')
@@ -155,7 +201,7 @@
 // };
 
 </script>
-<section class="lg:pt-200px lg:pb-140px pt-20px pb-60px relative">
+<section class="hero-home relative">
     <picture class="absolute top-0 left-0 w-full lg:h-700px h-380px">
         <source srcset="{{ asset('assets/fl/home-bg-1.png')}}" media="(min-width: 1024px)" class="w-full h-full object-cover" style="object-position: bottom center;" />
         <img src="{{ asset('assets/fl/home-bg-1-m.png')}}" alt="" class="w-full h-full object-cover" style="object-position: bottom center;" />

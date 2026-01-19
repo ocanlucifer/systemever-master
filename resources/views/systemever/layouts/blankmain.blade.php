@@ -5,7 +5,15 @@
         {!! !empty($spesifice_page_seo) ? base64_decode(setting($spesifice_page_seo)) : '' !!}
         @include('systemever/includes/head')
         <title>SystemEver</title>
-        @yield('custom_css')
+    @yield('custom_css')
+    <!-- Google tag (gtag.js) for AW-17379965129 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17379965129"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date());
+    gtag('config', 'AW-17379965129');
+    </script>
         <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet" />
     </head>
     <body>

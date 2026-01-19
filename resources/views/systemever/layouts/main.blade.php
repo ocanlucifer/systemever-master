@@ -7,7 +7,15 @@
         @include('systemever/includes/head')
         {{-- {{ dd($article_seo_meta) }} --}}
         <title>{{ !empty($article_seo_meta) ? '' . $article_seo_meta['title'] : 'SystemEver ' }}</title>
-        @yield('custom_css')
+    @yield('custom_css')
+    <!-- Google tag (gtag.js) for AW-17379965129 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17379965129"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date());
+    gtag('config', 'AW-17379965129');
+    </script>
         <style>
             .section-menu {
                 /* background-color: #D4F1E4; */

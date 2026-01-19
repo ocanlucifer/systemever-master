@@ -584,7 +584,7 @@
 @endsection
 @section('content')
 {{-- <section class="pt-8 pb-4 lg:pt-16 lg:pb-16" style="background: linear-gradient(135deg, #1a1f1d, #2c3e30, #2a403d   );"> --}}
-<section class="pt-4 pb-4 lg:pt-16 lg:pb-16" style="background: linear-gradient(190deg, #3B5E56, #000000   );">
+<!-- <section class="pt-4 pb-4 lg:pt-16 lg:pb-16" style="background: linear-gradient(190deg, #3B5E56, #000000   );">
 
     <div class="container relative">
         <br>
@@ -711,7 +711,7 @@
 
         </div>
     </div>
-</section>
+</section> -->
 
 {{-- @include('systemever/includes/modals/intro') --}}
 @endsection

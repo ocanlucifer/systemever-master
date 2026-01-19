@@ -1,6 +1,65 @@
-<header>
+  <style>
+    /* Layout constants */
+    :root { --topbar-h:60px; --navbar-h:60px; --header-total:0px; }
+    @media (max-width:768px){ :root { --topbar-h:50px; --navbar-h:60px; } }
+
+    html,body {margin:0;padding:0;overflow-x:hidden;width:100%;}
+    /* Remove body padding hack; we'll offset first section instead */
+    body {padding-top:0;}
+
+    .section-demo{position:fixed;top:0;left:0;width:100%;z-index:999;height:var(--topbar-h);background:#000;color:#fff;display:flex;align-items:center;}
+    .section-demo .container{display:flex;align-items:center;justify-content:flex-end;gap:12px;font-size:13px;}
+    .section-demo a{text-decoration:none;color:#fff;}
+
+  .section-menu{position:fixed;top:var(--topbar-h);left:0;width:100%;z-index:998;background:#fff;}
+
+    /* Offset the first content section exactly by combined fixed header heights */
+  /* Removed margin-top offset (caused white gap). Hero sections will include internal padding using header height vars. */
+
+    /* Ensure no legacy paddings/margins reintroduce left/right gap */
+    .wrapper, .page-content {
+      padding-top:0 !important;
+      padding-left:0 !important;
+      padding-right:0 !important;
+      margin-left:0 !important;
+      margin-right:0 !important;
+      box-sizing:border-box;
+    }
+
+    /* Apply dynamic offset to first section so content sits below fixed header without hardcoded heights */
+  .page-content > section:first-of-type,
+  .page-content > *:first-child { padding-top: var(--header-total); margin-top:0 !important; }
+
+    /* Hide left fixed sidebar to remove persistent white bar on the left */
+    .sidebar, .backdrop {display:none !important;}
+  </style>
+  @php $isHome = request()->routeIs('get.index'); @endphp
+  @if($isHome)
+    <style>
+      /* Homepage overrides: remove white navbar background & padding offset to eliminate visible white gap */
+      .section-menu{background:transparent !important;box-shadow:none !important;}
+      .page-content > section:first-of-type,
+      .page-content > *:first-child{padding-top:0 !important;}
+      /* Ensure hero/full-bleed sections start under header */
+      .hero-home{margin-top:0 !important;}
+    </style>
+  @endif
+  <script>
+    // Compute header total height automatically (top black bar + navbar)
+    (function(){
+      function setHeaderOffset(){
+        var topBar = document.querySelector('.section-demo');
+        var navBar = document.querySelector('.section-menu');
+        var h = (topBar ? topBar.offsetHeight : 0) + (navBar ? navBar.offsetHeight : 0);
+        document.documentElement.style.setProperty('--header-total', h + 'px');
+      }
+      window.addEventListener('load', setHeaderOffset);
+      window.addEventListener('resize', setHeaderOffset);
+      document.addEventListener('DOMContentLoaded', setHeaderOffset);
+    })();
+  </script>
   <div class="section-demo d-lg-block d-sm-none d-none" style="transition:all .5s ease">
-    <div class="container-content-1" style="height:50px">
+    <div class="container-content-1" style="height:60px">
       <div class="row d-flex align-items-center">
         <div class="col-lg-8">
           {{-- {{seeinindo()}} --}}
@@ -16,9 +75,8 @@
           <ul class="list-unstyled mb-0 d-flex align-items-center justify-content-end">
             {{-- <li class="mr-1"><button class="button btn-white-green-demo btn-rounded" data-toggle="modal" data-target="#modal-request-demo">FREE DEMO</button></li> --}}
             <li class="mr-1">
-              <a href="https://wa.me/6281119971017?text=Hello, I want to know more about system ever" class="wa">
-                <img src="{{ asset('assets/fl/wa.svg')}}">
-                +6281119971017
+              <a href="https://wa.me/628111997101?text=Hello, I want to know more about system ever" class="wa">
+                <img src="{{ asset('assets/fl/wa-number.png')}}" alt="WhatsApp" style="height:auto;max-height:40px;">
               </a>
             </li>
             <!-- <li class="mr-1">
@@ -74,7 +132,7 @@
     </div>
   </div>
 
-  <div class="section-menu d-lg-block d-sm-none d-none">
+  <div class="section-menu fixed-top d-lg-block d-sm-none d-none">
     <div class="container-content-1">
       <div class="d-flex align-items-center justify-content-between">
         <div class="d-flex align-items-center">
@@ -236,7 +294,7 @@
       </div>
     </div>
   </div>
-  <div class="section-menu d-lg-none d-md-block d-sm-block d-block">
+  <div class="section-menu fixed-top d-lg-none d-md-block d-sm-block d-block">
     <div class="container-content">
       <div class="row">
         <div class="col-lg-12 d-flex justify-content-between align-items-center">

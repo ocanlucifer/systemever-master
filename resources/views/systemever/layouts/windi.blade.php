@@ -62,14 +62,20 @@
 
     gtag('config', 'G-Y37PHLQ09S');
     </script>
+    <!-- Google Ads: also track with AW-17379965129 (reuse existing gtag loader) -->
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} // in case minified elsewhere
+    gtag('config', 'AW-17379965129');
+    </script>
 </head>
 
 <body>
 
     @include('systemever/includes/header')
     @include('systemever/includes/sidebar')
-    <div class="wrapper">
-        <div class="page-content">
+    <div class="wrapper" style="min-height:100vh;display:flex;flex-direction:column;">
+        <div class="page-content" style="flex:1 0 auto;">
             @yield('content')
             <!-- <div class="box-cart-wa">
                     <div class="item-box d-flex justify-content-end">
@@ -79,7 +85,7 @@
                     </div>
                 </div> -->
         </div>
-        @yield('footer')
+    @yield('footer')
         @include('systemever/includes/modals/partner_form')
         @include('systemever/includes/modals/request_demo')
         @include('systemever/includes/modals/contact_us')
