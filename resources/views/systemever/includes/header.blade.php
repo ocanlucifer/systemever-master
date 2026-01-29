@@ -1,7 +1,7 @@
   <style>
     html,body {margin:0;padding:0;overflow-x:hidden;}
     
-    .section-demo{position:fixed;top:0;left:0;width:100%;z-index:999;height:60px;background:#000;color:#fff;display:flex;align-items:center;}
+    .section-demo{position:fixed;top:0;left:0;width:100%;z-index:9999;height:60px;background:#000;color:#fff;display:flex;align-items:center;}
     .section-demo .container{display:flex;align-items:center;justify-content:flex-end;gap:12px;font-size:13px;}
     .section-demo a{text-decoration:none;color:#fff;}
 
@@ -10,6 +10,46 @@
     /* Hide collapsed accessibility element */
     a.collapsed {
         display: none !important;
+    }
+
+    /* Language dropdown styling - appear above menu */
+    .dropdown-language {
+      position: relative;
+    }
+    .dropdown-language .dropdown-menu-language {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      z-index: 10000;
+      min-width: 160px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      padding: 8px 0;
+      margin-top: 8px;
+      display: none;
+    }
+    .dropdown-language .dropdown-menu-language.show {
+      display: block;
+    }
+    .dropdown-language .dropdown-menu-language .dropdown-item {
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      color: #333;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .dropdown-language .dropdown-menu-language .dropdown-item:hover {
+      background: #f5f5f5;
+    }
+    .dropdown-language .lang {
+      display: none;
+    }
+    .dropdown-language .lang.active {
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     @media (max-width:768px){
@@ -139,39 +179,34 @@
               </div>
             </li>
             <li id="solutions" class="dropdown-header ">
-              <a href="{{ route('get.pages.solutions.accounting_management_systems') }}" class="{{ Request::segment(1) == 'solutions' ? 'active':'' }}">{{ stringlang('Solution', 'Solusi','솔루션') }} <img src="{{ asset('assets/fl/down.svg') }}" alt="" class="down"> <img src="{{ asset('assets/fl/up.svg') }}" alt="" class="up"></a>
+              <a href="{{ route('get.pages.solutions.cloud_erp') }}" class="{{ Request::segment(1) == 'solutions' ? 'active':'' }}">{{ stringlang('Solution', 'Solusi','솔루션') }} <img src="{{ asset('assets/fl/down.svg') }}" alt="" class="down"> <img src="{{ asset('assets/fl/up.svg') }}" alt="" class="up"></a>
               <div class="dropdown-menu-header dropbaru py-4 px-4" style="box-shadow: 0px 4px 8px 0px #00000011; border-radius:0px 0px 10px 10px">
                 <!-- <div class="segitiga">
                   <img src="{{ asset('assets/img/Rectangle.svg') }}" alt="">
                 </div> -->
                 <div class="isimenu isibaru">
-                  <div class="">
-                    <a href="{{ route('get.pages.solutions.accounting_management_systems') }}" class="itembaru {{ Request::segment(2) == 'accounting-management-systems' ? 'active':'' }}">
-                      {{ stringlang('SystemEver AccounTax', 'SystemEver AccounTax') }}
-                      <!-- <img src="{{ asset('assets/fl/down.svg') }}" alt=""> -->
-                    </a>
-                    <a href="{{ route('get.pages.solutions.elearning') }}" class="itembaru {{ Request::segment(2) == 'accoutax-elearning' ? 'active':'' }}" style="padd">
-                      <img src="{{ asset('assets/fl/down.svg')}}" alt="" style="transform: rotate(-90deg);"> &nbsp;
-                      AccounTax E-Learning
-                    </a>
-                  </div>
-                  <!-- <a href="{{ route('get.pages.solutions.bms') }}" class="itembaru {{ Request::segment(2) == 'bms' ? 'active':'' }}">
-                    {{ stringlang('Business Management System (BMS)', ' Business Management System (BMS)') }}
-                  </a> -->
-                  <a href="{{ route('get.pages.solutions.i5_trading') }}" class="itembaru {{ Request::segment(2) == 'i5-trading' ? 'active':'' }}">
-                    {{ stringlang('SystemEver Distribution ERP', ' SystemEver Distribution ERP', 'SystemEver 유통 ERP') }}
+                  <a href="{{ route('get.pages.solutions.cloud_erp') }}" class="itembaru {{ Request::segment(2) == 'cloud-erp' ? 'active':'' }}">
+                    {{ stringlang('Cloud ERP', 'Cloud ERP', 'Cloud ERP') }}
                   </a>
-                  <a href="{{ route('get.pages.solutions.i7_manufacture') }}" class="itembaru {{ Request::segment(2) == 'i7-manufacture' ? 'active':'' }}">
-                    {{ stringlang('SystemEver Manufacture ERP', ' SystemEver Manufacture ERP', 'SystemEver 제조 ERP') }}
+                  <div class="">
+                      <a href="{{ route('get.pages.solutions.accounting') }}" class="itembaru {{ Request::segment(2) == 'accounting' ? 'active':'' }}">
+                        {{ stringlang('Accounting', 'Accounting', '회계') }}
+                      </a>
+                  </div>
+                  <a href="{{ route('get.pages.solutions.payroll') }}" class="itembaru {{ Request::segment(2) == 'payroll' ? 'active':'' }}">
+                    {{ stringlang('Payroll', 'Payroll', '급여') }}
+                  </a>
+                  <a href="{{ route('get.pages.solutions.evertime') }}" class="itembaru {{ Request::segment(2) == 'attendance' ? 'active':'' }}">
+                    {{ stringlang('Attendance', 'Attendance', '출석') }}
                   </a>
                 </div>
                 <div class="sampingbaru">
-                  <a href="{{ route('get.pages.solutions.accounting_management_systems') }}" class=" ">
-                    <img src="{{ asset('assets/fl/home-grid-accounttax.png')}}" alt="" class=" ">
+                  <a href="{{ route('get.pages.solutions.accounting') }}" class=" ">
+                    <img src="{{ asset('assets/img/1.png')}}" alt="" class=" ">
                     <div class="fxc">
-                      <strong>{{ stringlang('SystemEver AccounTax', 'SystemEver AccounTax') }}</strong>
+                      <strong>{{ stringlang('Accounting', 'Accounting', '회계') }}</strong>
                       <p class="">
-                        {!! stringlang('Integrated Accounting and Tax Application for Easier Recording and Reporting','Aplikasi Akuntansi dan Pajak Terintegrasi untuk Pencatatan dan Pelaporan Lebih Mudah', '더욱 쉬운 기록 및 보고를 위한 통합 <br> 회계 및 세무 애플리케이션') !!}
+                        {!! stringlang('Integrated Accounting Application', 'Aplikasi Akuntansi Terintegrasi', '통합 회계 애플리케이션') !!}
                       </p>
                       <span>{{ stringlang('Read more', 'Selengkapnya', '더 읽어보기') }} <img src="{{ asset('assets/fl/more.png')}}" alt=""></span>
                     </div>

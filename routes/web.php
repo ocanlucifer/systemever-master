@@ -80,6 +80,10 @@ Route::prefix($langprefix)->group(function () {
     Route::get('solutions/accounting-management-systems', ['as' => 'get.pages.solutions.accounting_management_systems', 'uses' => '\App\Http\Controllers\Systemever\SolutionsController@accounting_management_systems']);
     Route::get('solutions/i5-trading', ['as' => 'get.pages.solutions.i5_trading', 'uses' => '\App\Http\Controllers\Systemever\SolutionsController@i5_trading']);
     Route::get('solutions/i7-manufacture', ['as' => 'get.pages.solutions.i7_manufacture', 'uses' => '\App\Http\Controllers\Systemever\SolutionsController@i7_manufacture']);
+    Route::get('solutions/accounting', ['as' => 'get.pages.solutions.accounting', 'uses' => '\App\Http\Controllers\Systemever\SolutionsController@accounting']);
+    Route::get('solutions/payroll', ['as' => 'get.pages.solutions.payroll', 'uses' => '\App\Http\Controllers\Systemever\SolutionsController@payroll']);
+    Route::get('solutions/attendance', ['as' => 'get.pages.solutions.evertime', 'uses' => '\App\Http\Controllers\Systemever\SolutionsController@evertime']);
+    Route::get('solutions/cloud-erp', ['as' => 'get.pages.solutions.cloud_erp', 'uses' => '\App\Http\Controllers\Systemever\SolutionsController@cloud_erp']);
 
     Route::get('business-insight/article', ['as' => 'get.pages.article.article', 'uses' => '\App\Http\Controllers\Systemever\ArticleController@article']);
     Route::get('business-insight/article/search', ['as' => 'get.pages.article.article.search', 'uses' => '\App\Http\Controllers\Systemever\ArticleController@article_list_category']);

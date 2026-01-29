@@ -213,43 +213,38 @@
     <div class="container relative">
         <h2 class="text-center text-19px lg:text-29px font-bold font-montserrat text-[#444444]">{{ ordefault($meta->second_title, 'Solusi Mudah Kelola Bisnis') }}</h2>
         <div class="grid lg:grid-cols-2 grid-cols-1 gap-4 lg:my-20 my-6">
-            @if (!empty($meta->solutions_overviews))
-                @foreach ($meta->solutions_overviews as $solution)
-                @if ($solution->solutions_overviews_list_route !== 'get.pages.solutions.bms')
-                <a href="{{ route($solution->solutions_overviews_list_route) }}" class="w-full aspect-mod rounded-md lg:rounded-2xl hsd transition flex flex-col gap-1 lg:gap-4 items-center p-4 group lg:bg-white bg-[#F7F7F7]">
-                    <img src="{{ uri($solution->solutions_overviews_list_icon) }}" alt="{{ $solution->solutions_overviews_list_title }}" class="lg:w-320px w-[50%] object-contain aspect-square ">
-                    <strong class="group-hover:text-[#009944] text-[#464646] text-14px lg:text-24px font-semibold font-poppins text-center">{{ $solution->solutions_overviews_list_title }}</strong>
-                    <p class="text-9px lg:text-17px text-[#5b5b5b] font-opensans text-center w-[90%] leading-3 lg:leading-6">
-                        {{ $solution->solutions_overviews_list_desc }}
-                    </p>
-                </a>
-                @endif
-                @endforeach
-            @endif
-            {{-- <a href="{{ route('get.pages.solutions.i5_trading') }}" class="w-full aspect-mod rounded-md lg:rounded-2xl hsd transition flex flex-col gap-1 lg:gap-4 items-center p-4 group lg:bg-white bg-[#F7F7F7]">
-                <img src="{{ asset('assets/fl/home-grid-bms.png')}}" alt="" class="lg:w-320px w-[50%] object-contain aspect-square ">
-                <strong class="group-hover:text-[#009944] text-[#464646] text-14px lg:text-24px font-semibold font-poppins text-center">Business
-                    Management System (BMS)</strong>
+            
+            <a href="{{ route('get.pages.solutions.cloud_erp') }}" class="w-full aspect-mod rounded-md lg:rounded-2xl hsd transition flex flex-col gap-1 lg:gap-4 items-center p-4 group lg:bg-white bg-[#F7F7F7]">
+                <img src="{{ asset('assets/img/cloud1.png')}}" alt="" class="lg:w-320px w-[50%] object-contain aspect-square ">
+                <strong class="group-hover:text-[#009944] text-[#464646] text-14px lg:text-24px font-semibold font-poppins text-center">{{ stringlang('Cloud ERP', 'Cloud ERP', 'Cloud ERP') }}</strong>
                 <p class="text-9px lg:text-17px text-[#5b5b5b] font-opensans text-center w-[90%] leading-3 lg:leading-6">
-                    Aplikasi berbasis
-                    cloud untuk automisasi penagihan</p>
+                    {{ stringlang('Integrated ERP Solutions for Sustainable Business Growth', 'Solusi ERP Terintegrasi untuk Pertumbuhan Bisnis yang Berkelanjutan', '지속 가능한 성장을 위한 통합 ERP 솔루션') }}
+                </p>
             </a>
-            <a href="{{ route('get.pages.solutions.bms') }}" class="w-full aspect-mod rounded-md lg:rounded-2xl hsd transition flex flex-col gap-1 lg:gap-4 items-center p-4 group lg:bg-white bg-[#F7F7F7]">
-                <img src="{{ asset('assets/fl/home-grid-trading.png')}}" alt="" class="lg:w-320px w-[50%] object-contain aspect-square ">
-                <strong class="group-hover:text-[#009944] text-[#464646] text-14px lg:text-24px font-semibold font-poppins text-center">ERP
-                    Trading & Distribution</strong>
+            
+            <a href="{{ route('get.pages.solutions.accounting') }}" class="w-full aspect-mod rounded-md lg:rounded-2xl hsd transition flex flex-col gap-1 lg:gap-4 items-center p-4 group lg:bg-white bg-[#F7F7F7]">
+                <img src="{{ asset('assets/img/1.png')}}" alt="" class="lg:w-320px w-[50%] object-contain aspect-square ">
+                <strong class="group-hover:text-[#009944] text-[#464646] text-14px lg:text-24px font-semibold font-poppins text-center">{{ stringlang('Accounting', 'Accounting', '회계') }}</strong>
                 <p class="text-9px lg:text-17px text-[#5b5b5b] font-opensans text-center w-[90%] leading-3 lg:leading-6">
-                    Aplikasi ERP untuk
-                    kelola bisnis Trading dan Distribusi secara realtime.</p>
+                    {{ stringlang('Simple Accounting Management', 'Manajemen Akuntansi yang Sederhana', '간편한 회계 관리') }}
+                </p>
             </a>
-            <a href="{{ route('get.pages.solutions.i7_manufacture') }}" class="w-full aspect-mod rounded-md lg:rounded-2xl hsd transition flex flex-col gap-1 lg:gap-4 items-center p-4 group lg:bg-white bg-[#F7F7F7]">
-                <img src="{{ asset('assets/fl/home-grid-manufacturing.png')}}" alt="" class="lg:w-320px w-[50%] object-contain aspect-square ">
-                <strong class="group-hover:text-[#009944] text-[#464646] text-14px lg:text-24px font-semibold font-poppins text-center">ERP
-                    Manufacturing</strong>
+            
+            <a href="{{ route('get.pages.solutions.payroll') }}" class="w-full aspect-mod rounded-md lg:rounded-2xl hsd transition flex flex-col gap-1 lg:gap-4 items-center p-4 group lg:bg-white bg-[#F7F7F7]">
+                <img src="{{ asset('assets/img/payroll1.png')}}" alt="" class="lg:w-320px w-[50%] object-contain aspect-square ">
+                <strong class="group-hover:text-[#009944] text-[#464646] text-14px lg:text-24px font-semibold font-poppins text-center">{{ stringlang('Payroll', 'Payroll', '급여') }}</strong>
                 <p class="text-9px lg:text-17px text-[#5b5b5b] font-opensans text-center w-[90%] leading-3 lg:leading-6">
-                    ERP berbasis cloud
-                    untuk efisiensi bisnis manufaktur.</p>
-            </a> --}}
+                    {{ stringlang('Accurate, Flexibility, and Automated Payroll System', 'Sistem Payroll Otomatis yang Akurat dan Fleksibel', '정확하고 유연한 자동 급여 시스템') }}
+                </p>
+            </a>
+            
+            <a href="{{ route('get.pages.solutions.evertime') }}" class="w-full aspect-mod rounded-md lg:rounded-2xl hsd transition flex flex-col gap-1 lg:gap-4 items-center p-4 group lg:bg-white bg-[#F7F7F7]">
+                <img src="{{ asset('assets/img/evertime1.png')}}" alt="" class="lg:w-320px w-[50%] object-contain aspect-square ">
+                <strong class="group-hover:text-[#009944] text-[#464646] text-14px lg:text-24px font-semibold font-poppins text-center">{{ stringlang('Attendance', 'Attendance', '근태') }}</strong>
+                <p class="text-9px lg:text-17px text-[#5b5b5b] font-opensans text-center w-[90%] leading-3 lg:leading-6">
+                    {{ stringlang('Smart Attendance & Workforce Management Platform', 'Platform Manajemen Kehadiran & Tenaga Kerja Cerdas', '스마트 근태 및 인력 관리 플랫폼') }}
+                </p>
+            </a>
         </div>
     </div>
 </section>

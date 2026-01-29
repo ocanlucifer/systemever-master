@@ -332,6 +332,26 @@ class SolutionsController extends Controller
         return $view;
     }
 
+    public function accounting()
+    {
+        return view('systemever/pages/solutions/accounting');
+    }
+
+    public function payroll()
+    {
+        return view('systemever/pages/solutions/payroll');
+    }
+
+    public function evertime()
+    {
+        return view('systemever/pages/solutions/evertime');
+    }
+
+    public function cloud_erp()
+    {
+        return view('systemever/pages/solutions/cloud_erp');
+    }
+
     public function elearning(){
 
         $lang = activelang();

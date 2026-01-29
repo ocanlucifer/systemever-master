@@ -44,6 +44,9 @@
                     <li> <a href="{{ route('get.pages.solutions.elearning') }}" ><i class="fa fa-angle-right"></i> {{ stringlang('AccounTax E-Learning', ' AccounTax E-Learning') }}</a></li>
                     <li> <a href="{{ route('get.pages.solutions.i5_trading') }}">{{ stringlang('SystemEver Distribution ERP', ' SystemEver Distribution ERP', 'SystemEver 유통 ERP') }}</a></li>
                     <li> <a href="{{ route('get.pages.solutions.i7_manufacture') }}">{{ stringlang('SystemEver Manufacture ERP', ' SystemEver Manufacture ERP', 'SystemEver 제조 ERP') }}</a></li>
+                    <li> <a href="{{ route('get.pages.solutions.accounting') }}">{{ stringlang('Accounting', 'Accounting', '회계') }}</a></li>
+                    <li> <a href="{{ route('get.pages.solutions.payroll') }}">{{ stringlang('Payroll', 'Payroll', '급여') }}</a></li>
+                    <li> <a href="{{ route('get.pages.solutions.evertime') }}">{{ stringlang('EverTime', 'EverTime', 'EverTime') }}</a></li>
                     {{-- <li> <a href="{{ route('get.pages.solutions.i7_manufacture') }}">{{ stringlang('Integrated Manufacturing', 'Manufaktur Terintegrasi') }}</a></li> --}}
                   </ul>
                 </div>
