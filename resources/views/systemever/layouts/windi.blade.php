@@ -3,6 +3,21 @@
 
 <head>
     {!! base64_decode(setting('General Header Script')) !!}
+    @php
+        $specificPageSeoHtml = !empty($spesifice_page_seo) ? base64_decode(setting($spesifice_page_seo)) : '';
+
+        if (!empty($social_preview_image)) {
+            $specificPageSeoHtml = preg_replace(
+                '/<meta\s+(?:property|name)=["\'](?:og:image(?::secure_url|:type|:width|:height)?|twitter:image(?::src)?|twitter:card)["\'][^>]*>\s*/i',
+                '',
+                $specificPageSeoHtml
+            );
+        }
+    @endphp
+    {!! $specificPageSeoHtml !!}
+    @if (!empty($article_seo_meta))
+        @include('systemever/includes/articleseo', ["article_seo_meta" => $article_seo_meta])
+    @endif
     @if (!empty($social_preview_image))
         @php
             $socialPreviewImage = secure_asset($social_preview_image);
@@ -14,9 +29,8 @@
         <meta property="og:image:height" content="{{ $social_preview_image_height ?? '630' }}">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:image" content="{{ $socialPreviewImage }}">
+        <meta name="twitter:image:src" content="{{ $socialPreviewImage }}">
     @endif
-    {!! !empty($spesifice_page_seo) ? base64_decode(setting($spesifice_page_seo)) : '' !!}
-    @include('systemever/includes/articleseo', ["article_seo_meta" => $article_seo_meta])
     @include('systemever/includes/headwindi')
 
     <title>{{ !empty($article_seo_meta) ? $article_seo_meta['title'] : 'SystemEver' }}</title>
