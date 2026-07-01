@@ -3,6 +3,18 @@
 
 <head>
     {!! base64_decode(setting('General Header Script')) !!}
+    @if (!empty($social_preview_image))
+        @php
+            $socialPreviewImage = secure_asset($social_preview_image);
+        @endphp
+        <meta property="og:image" content="{{ $socialPreviewImage }}">
+        <meta property="og:image:secure_url" content="{{ $socialPreviewImage }}">
+        <meta property="og:image:type" content="{{ $social_preview_image_type ?? 'image/png' }}">
+        <meta property="og:image:width" content="{{ $social_preview_image_width ?? '1200' }}">
+        <meta property="og:image:height" content="{{ $social_preview_image_height ?? '630' }}">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="{{ $socialPreviewImage }}">
+    @endif
     {!! !empty($spesifice_page_seo) ? base64_decode(setting($spesifice_page_seo)) : '' !!}
     @include('systemever/includes/articleseo', ["article_seo_meta" => $article_seo_meta])
     @include('systemever/includes/headwindi')

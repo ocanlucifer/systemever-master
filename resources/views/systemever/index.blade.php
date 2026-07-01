@@ -1,5 +1,9 @@
 @extends('systemever/layouts/windi', [
-'spesifice_page_seo' => 'Home ' . activelang()
+'spesifice_page_seo' => 'Home ' . activelang(),
+'social_preview_image' => 'assets/img/systemever-whatsapp-thumbnail.png',
+'social_preview_image_width' => '1200',
+'social_preview_image_height' => '630',
+'social_preview_image_type' => 'image/png'
 ])
 
 @section('custom_css')
