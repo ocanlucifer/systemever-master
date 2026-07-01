@@ -12,14 +12,19 @@
 */
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
+Route::redirect('/', '/en', 302);
+
 $langprefix = "/";
 if (activelang() == "EN") {
     $langprefix = "/en/";
 }
-
 if (activelang() == "KOR") {
     $langprefix = "/kor/";
+} else{
+    $langprefix = "/en/";
 }
+
 $query_url = [];
 $redirector = [];
 if (env("APP_ENV") == "production") {
@@ -110,6 +115,8 @@ Route::prefix($langprefix)->group(function () {
     Route::get('legal/{slug}', ['as' => 'get.legal', 'uses' => '\App\Http\Controllers\Systemever\LegalController@detail']);
 
     Route::get('/contact', ['as' => 'get.contact', 'uses' => '\App\Http\Controllers\Systemever\ContactController@form']);
+    Route::get('/demo-page', ['as' => 'get.demo_page', 'uses' => '\App\Http\Controllers\Systemever\DemoPageController@index']);
+    Route::post('/demo-page', ['as' => 'post.demo_page', 'uses' => '\App\Http\Controllers\Systemever\DemoPageController@submit']);
 
     Route::post('/form', ['as' => 'post.form.submit', 'uses' => '\App\Http\Controllers\Systemever\HomeController@form']);
     Route::get('/notice', ['as' => 'get.pages.notice', 'uses' => '\App\Http\Controllers\Systemever\NoticeController@index']);
@@ -239,7 +246,7 @@ Route::prefix('integrated')->group(function () {
 /* helper */
 // Route::get('/lang/{id}', 'Web\LanguageController@setlang')->name('get.lang');
 Route::get('/delete-filemanager', 'DeleteFilemanagerController@filemanagerDelete')->name('delete-filemanager');
-Route::get('/lang/ID', 'Api\HelperController@langid')->name('get.helper.langid');
+Route::get('/lang/ID', 'Api\HelperController@langen')->name('get.helper.langid');
 Route::get('/lang/EN', 'Api\HelperController@langen')->name('get.helper.langen');
 Route::get('/lang/KOR', 'Api\HelperController@langkor')->name('get.helper.langkor');
 Route::post('/form/newsletter', 'Api\HelperController@newsletter')->name('get.helper.newsletter');
@@ -254,3 +261,18 @@ Route::get('/clear-all-cache', function() {
 });
 
 Route::get('/sitemap.xml', '\App\Http\Controllers\Systemever\SitemapController@index')->name('get.sitemap');
+
+Route::fallback(function (Request $request) {
+    $path = trim($request->path(), '/');
+
+    if ($path === '' || preg_match('#^(en|kor)(/|$)#i', $path)) {
+        abort(404);
+    }
+
+    $target = '/en/' . $path;
+    if (!empty($request->getQueryString())) {
+        $target .= '?' . $request->getQueryString();
+    }
+
+    return redirect($target, 302);
+});

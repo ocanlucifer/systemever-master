@@ -8,9 +8,9 @@
                         {!! stringlang('Make Your Business #Easier<br>with System Ever Indonesia', 'Pastikan Bisnismu #JadiLebihMudah<br>bersama System Ever Indonesia','System Ever Indonesia와<br>함께 고객기업이 경영을 더 잘하게') !!}
                     </strong>
                 </div>
-                <div class="col-lg-6 col-12 h-lg-100 d-flex align-items-start align-items-lg-center  pl-lg-5">
+                <!-- <div class="col-lg-6 col-12 h-lg-100 d-flex align-items-start align-items-lg-center  pl-lg-5">
                     <a href="{!! stringlang('/en/contact', '/contact') !!}"> {!! stringlang('Request Demo', 'Jadwalkan Demo', '시연신청') !!}</a>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -61,8 +61,10 @@
                                 <div class="media-body">
                                     <b>{{ stringlang('Contact', 'Contact', '문의') }}</b>
                                     <br />
-                                    <a href="tel:+6281119971017">081 119 971 017</a>
-                                    <a href="tel:+6221522962129">021 - 5229 621 29</a>
+                                    <!-- <a href="tel:+6281119971017">081 119 971 017</a>
+                                    <a href="tel:+6221522962129">021 - 5229 621 29</a> -->
+                                    <a href="https://api.whatsapp.com/send/?phone=6281119971017&text=Hello%2C%20I%20am%20interested%20in%20using%20System%20Ever%20Indonesia.%20I%20would%20like%20to%20see%20the%20feature%20details%2C%20benefits%2C%20and%20the%20best%20pricing%20available.%20Could%20you%20assist%20me%3F&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">+62 811-1997-1017</a>
+                                    <a href="tel:+622152962129">+62 21-5296-2129</a>
                                 </div>
                             </li>
                             <li class="media media-footer mb-4">
@@ -79,22 +81,22 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-lg-4 col-md-4 pb-3 d-lg-flex d-none">
+                    <div class="col-lg-2 col-md-2 col-sm-8 pb-3 d-lg-flex d-none">
                         <ul class="list-unstyled menu-footer">
                             <li style="margin-bottom:8px"><strong>{{ stringlang('About', 'Tentang', '회사소개') }}</strong></li>
                             <li><a href="{{ route('get.pages.abouts.indonesia_branch') }}">{{ stringlang('About Us', 'Tentang Kami', '회사소개') }}</a></li>
-                            <li><a href="{{ route('get.pages.solutions.accounting_management_systems') }}">{{ stringlang('Solution', 'Solusi', '솔루션') }}</a></li>
+                            <li><a href="{{ route('get.pages.solutions.cloud_erp') }}">{{ stringlang('Solution', 'Solusi', '솔루션') }}</a></li>
                             <li><a href="{{ route('get.pages.services.feature') }}">{{ stringlang('Service', 'Layanan', '서비스') }}</a></li>
                         </ul>
-                        <ul class="list-unstyled menu-footer">
+                        <!-- <ul class="list-unstyled menu-footer">
                             <li style="margin-bottom:8px"><strong>{{ stringlang('Info', 'Info', '정보') }}</strong></li>
                             <li><a href="{{ route('get.pages.support.video') }}">{{ stringlang('Support', 'Dukungan', '고객지원') }}</a></li>
                             <li><a href="{{ route('get.contact') }}">{{ stringlang('Pricing', 'Harga', '요금안내') }}</a></li>
                             <li><a href="{{ route('get.pages.article.article') }}">{{ stringlang('Business Insights', 'Business Insight', '인사이트') }}</a></li>
-                        </ul>
+                        </ul> -->
                     </div>
 
-                    <div class="col-lg-4 col-md-6 pl-0 pb-4">
+                    <!-- <div class="col-lg-4 col-md-6 pl-0 pb-4">
                         <ul class="list-unstyled menu-footer" style="width:100%">
                             <li><strong>{{ stringlang('Get In Touch', 'Tetap Terhubung', '문의하세요') }}</strong></li>
                         </ul>
@@ -102,8 +104,10 @@
                             <input type="text" placeholder="{{ stringlang('Your Email', 'Email Anda', '이메일을 입력하세요') }}" id="newletter-email">
                             <button id="newsletter-button">{{ stringlang('Subscribe', 'Berlangganan', '구독') }}</button>
                         </div>
+                    </div> -->
+                    <div class="col-lg-4 col-md-6 col-sm-8 pl-0 pb-4">
+                        <img class="logo" src="{{ asset('assets/img/grey-logo.png') }}" alt="Logo SystemEver Grey">
                     </div>
-
                 </div>
             </div>
         </div>

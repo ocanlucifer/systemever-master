@@ -82,7 +82,7 @@
                     <ul class="list-unstyled menu-drop">
                       <li>{{ stringlang('About', 'Tentang Kami') }} </li>
                       <li class="{{ Request::segment(2) == 'indonesia-branch' ? 'active':'' }}" >
-                        <a onclick="imgControl('1')" href="{{ route('get.pages.abouts.indonesia_branch') }}">{{ stringlang('Indonesian Branch', 'Kantor Cabang Indonesia') }}</a>
+                        <a onclick="imgControl('1')" href="{{ route('get.pages.abouts.indonesia_branch') }}">{{ stringlang('Indonesian Branch', 'Kantor Cabang test') }}</a>
                         <div class="img-menu img-menu-1">
                           <img src="{{ asset('assets/img/Group656.png') }}" alt="">
                         </div>

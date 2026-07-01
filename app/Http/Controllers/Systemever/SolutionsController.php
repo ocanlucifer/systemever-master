@@ -43,7 +43,10 @@ class SolutionsController extends Controller
         $data['data'] = $json;
         // dd($data['data']);
 
-        return view('systemever/pages/solutions/index', $data);
+        // return view('systemever/pages/solutions/index', $data);
+        // return view('systemever/pages/solutions/cloud_erp');
+        // return redirect('solutions/cloud-erp');
+
     }
     public function bms()
     {

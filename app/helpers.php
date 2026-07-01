@@ -763,12 +763,18 @@ function activelang()
 {
     // dd(\Request::segment(1));
     // dd(\Session::get("lang"));
-    if (\Request::segment(1) == "en") {
-        return "EN";
-    } else if (\Request::segment(1) == "kor") {
+    // if (\Request::segment(1) == "en") {
+    //     return "EN";
+    // } else if (\Request::segment(1) == "kor") {
+    //     return "KOR";
+    // } else {
+    //     return "ID";
+    // }
+
+    if (\Request::segment(1) == "kor") {
         return "KOR";
     } else {
-        return "ID";
+        return "EN";
     }
 }
 
@@ -993,11 +999,7 @@ function remove_attr_tag($string)
 
 function seeinindo()
 {
-    $full = \Request::fullUrl();
-    $baseUrl = url("");
-    $full = str_replace($baseUrl . "/en", $baseUrl, $full);
-    $full = str_replace($baseUrl . "/kor", $baseUrl, $full);
-    return str_replace("/en", "" , $full);
+    return seeineng();
 
 }
 
@@ -1087,4 +1089,3 @@ function readFromFile($filePath) {
         return null;
     }
 }
-

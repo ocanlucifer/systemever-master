@@ -4,15 +4,16 @@
 
 @section('custom_css')
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap'); 
 
     :root {
-        --evertime-green: #009944;
+        --evertime-green: #00b34f;
         --evertime-soft: #eaf7ee;
         --evertime-dark-green: #007a37;
-        --evertime-gray: #6c6c6c;
-        --evertime-light-gray: #d4e8dd;
+        --evertime-gray: #8f8f8f;
+        --evertime-light-gray: #8f8f8f;
     }
 
     /* Animation Definitions */
@@ -28,56 +29,131 @@
     }
 
     .evertime-container {
-        max-width: 1140px;
+        max-width: 1350px;
+        width: 100%;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 0 30px; 
+        box-sizing: border-box;
+    }
+    
+    .evertime-img-right {
+        margin: 0 auto;
+        padding: 0 0px 0 200px;
     }
 
-    .evertime-hero {
+    
+    .evertime-hero-grid {
+        display: grid;
+        grid-template-columns: 1.10fr 0.90fr;
+        gap: 0;
+        align-items: center;
+    }
+    
+    .evertime-hero.lang-en {
         padding: 60px 0 48px;
         animation: fadeInUp 0.8s ease-out;
     }
 
-    .evertime-hero-grid {
-        display: grid;
-        grid-template-columns: 1.1fr 1fr;
-        gap: 48px;
-        align-items: center;
-    }
-
-    .evertime-hero h1 {
-        font-family: 'Poppins', sans-serif;
-        font-size: 42px;
+    .evertime-hero.lang-en h1 {
+        font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+        font-size: 35px;
         line-height: 1.25;
         font-weight: 700;
         color: #1f1f1f;
-        margin-bottom: 20px;
+        margin-bottom: 25px;
+        letter-spacing: -0.5px;
+        max-width: 650px;
+    }
+
+    .evertime-hero.lang-en p {
+        font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+        font-size: 30px;
+        line-height: 1.2;
+        font-weight: 300;
+        color: var(--evertime-gray);
+        margin-bottom: 25px;
+        letter-spacing: 1px;
+        max-width: 720px;
+    }
+
+    .evertime-hero.lang-en span {
+        font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+        font-size: 19px;
+        line-height: -1.5;
+        font-weight: 500;
+        color: var(--evertime-green);
+        max-width: 620px;
+        margin-bottom: 0;
+        margin-right: -65px;
+        display: block;
+    }
+
+    /* korea */
+
+    
+    .evertime-hero.lang-kor {
+        padding: 60px 0 48px;
+        animation: fadeInUp 0.8s ease-out;
+    }
+    
+    .evertime-hero.lang-kor h1 {
+        font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+        font-size: 50px;
+        line-height: 1.25;
+        font-weight: 750;
+        color: #1f1f1f;
+        margin-bottom: 25px;
         letter-spacing: -0.5px;
     }
 
-    .evertime-hero p {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 16px;
-        line-height: 1.7;
+    .evertime-hero.lang-kor h1.kor-heavy {
+        font-family: 'Noto Sans KR', sans-serif;
+        font-weight: 900 !important;
+        letter-spacing: -0.2px;
+        -webkit-text-stroke: 0.15px currentColor;
+    }
+
+    .evertime-hero.lang-kor p {
+        font-family: 'Open Sans', 'Noto Sans KR', sans-serif;
+        font-size: 28px;
+        line-height: 1.2;
         color: var(--evertime-gray);
-        margin-bottom: 12px;
+        margin-bottom: 25px;
+        letter-spacing: 1px;
+        max-width: 720px;
+        font-weight: 450;
+    }
+
+    .evertime-hero span {
+        font-family: 'Open Sans', 'Noto Sans KR', sans-serif;
+        font-size: 18.5px;
+        line-height: -1.5;
+        font-weight: 500;
+        color: var(--evertime-green);
+        max-width: 700px;
+        margin-bottom: 0;
+        margin-right: -65px;
+        display: block;
     }
 
     .evertime-hero-visual {
+        justify-self: end;     
+        width: 100%;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: transform 0.5s ease;
+        justify-content: flex-end;
     }
     
     .evertime-hero-visual:hover {
         transform: scale(1.02);
+        max-width: none; 
     }
 
     .evertime-hero-visual img {
-        width: 100%;
-        max-width: 480px;
-        object-fit: contain;
+        display: block;
+        width: 117%;
+        max-width: none;
+        margin-left: auto;     
+        margin-right: -60px
     }
 
     .evertime-section-title {
@@ -180,9 +256,14 @@
         justify-self: center;
     }
 
+    .evertime-full-img {
+        padding: 60px 0 60px;
+    }
+
     .evertime-features {
         padding: 72px 0 80px;
-        background: #fcfcfc;
+        /* background: #fcfcfc; */
+        animation: fadeInUp 0.8s ease-out;
     }
 
     .evertime-features h3 {
@@ -305,8 +386,18 @@
     }
 
     .evertime-integration {
-        padding: 40px 0 88px;
+        padding: 40px 0 40px;
         text-align: center;
+        animation: fadeInUp 0.8s ease-out;
+    }
+
+    .evertime-screenshot-img {
+        width: auto;
+        max-width: 95%;
+        height: auto;
+        object-fit: contain;
+        margin: 0 auto;
+        display: block;
     }
 
     .evertime-integration h3 {
@@ -321,7 +412,7 @@
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 20px;
-        max-width: 900px;
+        max-width: 700px;
         margin: 0 auto;
     }
 
@@ -349,15 +440,63 @@
         transform: translateY(-2px);
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
         .evertime-hero-grid,
         .evertime-highlight {
             grid-template-columns: 1fr;
-            text-align: center;
+        }
+
+        .evertime-container {
+            padding: 0 20px;
+        }
+
+        .evertime-img-right {
+            padding: 0 20px;
+        }
+
+        .evertime-hero {
+            padding: 28px 0 30px !important;
+        }
+
+        .evertime-hero h1,
+        .evertime-hero.lang-en h1,
+        .evertime-hero.lang-kor h1 {
+            font-size: 32px;
+            line-height: 1.14;
+            letter-spacing: -0.5px;
+            margin-bottom: 14px;
+            max-width: 100%;
+        }
+
+        .evertime-hero p,
+        .evertime-hero.lang-en p,
+        .evertime-hero.lang-kor p {
+            font-size: 16px;
+            line-height: 1.45;
+            letter-spacing: 0;
+            margin-bottom: 10px;
+            max-width: 100%;
+        }
+
+        .evertime-hero span,
+        .evertime-hero.lang-en span,
+        .evertime-hero.lang-kor span {
+            font-size: 14px;
+            line-height: 1.45;
+            margin-right: 0;
+            max-width: 100%;
         }
 
         .evertime-hero-visual {
-            order: -1;
+            justify-content: center;
+            margin-top: 18px;
+        }
+
+        .evertime-hero-visual img {
+            width: 100%;
+            max-width: 360px;
+            margin-left: 0;
+            margin-right: 0;
         }
 
         .evertime-pill-row {
@@ -369,6 +508,11 @@
         .evertime-integration-grid {
             grid-template-columns: 1fr;
         }
+
+        .evertime-screenshot-img {
+            width: 100%;
+            max-width: 100%;
+        }
         
         .evertime-feature-card {
             align-items: center;
@@ -377,105 +521,137 @@
         .evertime-highlight-list {
             text-align: left;
         }
+
+        .evertime-full-img {
+            padding: 36px 0;
+        }
+    }
+
+    @media (max-width: 430px) {
+        .evertime-container,
+        .evertime-img-right {
+            padding: 0 16px;
+        }
+
+        .evertime-hero h1,
+        .evertime-hero.lang-en h1,
+        .evertime-hero.lang-kor h1 {
+            font-size: 30px;
+            line-height: 1.12;
+        }
+
+        .evertime-hero p,
+        .evertime-hero.lang-en p,
+        .evertime-hero.lang-kor p {
+            font-size: 15px;
+        }
+
+        .evertime-hero span,
+        .evertime-hero.lang-en span,
+        .evertime-hero.lang-kor span {
+            font-size: 13px;
+            line-height: 1.4;
+        }
+    }
+
+    @media (max-width: 768px) {
+        img[style*="width:"] {
+            width: 100% !important;
+            max-width: 100% !important;
+            height: auto !important;
+        }
     }
 </style>
 @endsection
 
+@php
+    if (activelang() == 'KOR') {
+        $ext = '-kor';
+    } else if (activelang() == 'EN') {
+        $ext = '-eng';
+    } else{
+        $ext = '-ind';
+    }
+@endphp
+
 @section('content')
-<section class="evertime-hero">
+<section class="evertime-hero lang-{{ strtolower(activelang()) }}">
     <div class="evertime-container">
         <div class="evertime-hero-grid">
             <div>
-                <h1>{{ stringlang('Smart Time, Attendance, and Workforce Management Platform', 'Platform Cerdas untuk Manajemen Waktu, Kehadiran, dan Tenaga Kerja', '스마트 근태 및 인력 관리 플랫폼') }}</h1>
-                <p>{{ stringlang('Manage attendance, shifts, overtime, and leave in one unified platform—built for modern and flexible work environments.', 'Solusi terpadu untuk mengelola kehadiran, jadwal kerja, lembur, dan cuti dalam satu platform—dirancang untuk lingkungan kerja modern dan fleksibel.', '근태, 교대근무, 초과근무, 휴가를 하나의 통합 플랫폼에서 관리.') }}</p>
+                <h1>{{ stringlang('Mobile Attendance Management Solution'
+                                , 'Solusi Absensi Mobile yang Tumbuh Bersama Bisnis Anda'
+                                , '근태 관리 솔루션') }}
+                </h1>
+                <p>{{ stringlang('EverTime is a mobile-based attendance management solution desgined to simplify workforce time tracking and approval processes.'
+                               , 'EverTime menghadirkan transformasi dalam pengelolaan absensi dengan memberikan pencatatan kehadiran yang akurat dan mudah diakses oleh setiap karyawan melalui pengalaman mobile yang intuitif.'
+                               , 'EverTime은 모바일 기반의 근태 관리 솔루션입니다.') }}
+                </p>
+                <span>{{ stringlang('It centralizes attendance data to support more efficient workforce management.'
+                                  , 'Pencatatan waktu yang presisi, pengaturan jadwal yang fleksibel, serta integrasi payroll yang mulus — dirancang untuk menjawab kebutuhan tenaga kerja modern saat ini.'
+                                  , '근태 기록, 승인, 스케줄 관리 등을 통합하여 인력 운영의 효율성을 높일 수 있습니다.​') }}
+                </span>
             </div>
             <div class="evertime-hero-visual">
-                <img src="{{ asset('assets/img/evertime1.png') }}" alt="EverTime">
+                <img src="{{ asset('assets/img/evertime-logo.png') }}" alt="EverTime">
             </div>
         </div>
+    </div>
+</section>
 
-        <h2 class="evertime-section-title">{{ stringlang('One-Stop Solution for Complex Attendance Management', 'Solusi Lengkap untuk Manajemen Kehadiran yang Kompleks', '복잡한 근태 관리를 위한 원스톱 솔루션') }}</h2>
-        <div class="evertime-pill-row">
-            <div class="evertime-info-card">{{ stringlang('Field Worker Solution', 'Solusi Pekerja Lapangan', '현장 근무자 지원') }}</div>
-            <div class="evertime-info-card">{{ stringlang('Multi-shift Solution', 'Dukungan Multi-shift', '다중 교대근무 지원') }}</div>
-            <div class="evertime-info-card">{{ stringlang('Payroll Integration', 'Integrasi dengan Sistem Payroll', '급여 시스템 연동') }}</div>
-        </div>
-        <div class="evertime-note">{{ stringlang('Perfect for companies with field teams, 24/7 operations, or dynamic shift schedules.', 'Sangat cocok untuk perusahaan yang memiliki tim lapangan, operasional non-stop, atau jadwal kerja yang dinamis.', '현장 인력, 24시간 운영, 유동적 교대근무 환경에 최적화') }}</div>
-
+<section class="evertime-full-img">
+    <div class="evertime-container">
         <div style="text-align: center; margin: 40px 0;">
-            @if(activelang() == 'KOR')
-                <img src="{{ asset('assets/img/evertime1korea.png') }}" alt="EverTime Benefits" style="width: 85%; max-width: 1020px; margin: 0 auto; display: block;">
-            @elseif(activelang() == 'ID')
-                <img src="{{ asset('assets/img/evertime1indo.png') }}" alt="EverTime Benefits" style="width: 85%; max-width: 1020px; margin: 0 auto; display: block;">
-            @else
-                <img src="{{ asset('assets/img/evertime2.png') }}" alt="EverTime Benefits" style="width: 85%; max-width: 1020px; margin: 0 auto; display: block;">
-            @endif
+            <img src="{{ asset('assets/img/evertime-why-attendance' . $ext . '.png') }}" alt="Why EverTime Attendance" style="width: 100%; max-width: 1020px; height: auto; margin: 0 auto; display: block;">
         </div>
     </div>
 </section>
 
-<section class="evertime-features">
+<section class="evertime-full-img">
+    <div class="evertime-img-right">
+        <div style="margin: 40px 0;">
+            <img src="{{ asset('assets/img/evertime-first-platform' . $ext . '.png') }}" alt="Built for Modern Work" style="width: 100%; max-width: 100%; height: auto; margin-left: auto; display: block;">
+        </div>
+    </div>
+</section>
+
+<section class="evertime-full-img">
     <div class="evertime-container">
-        <div class="features-header">
-            <h3>{{ stringlang('EverTime Key Features', 'Fitur Utama EverTime', 'EverTime 주요 기능') }}</h3>
-        </div>
-        <div class="evertime-feature-grid">
-            <!-- Row 1 -->
-            <div class="evertime-feature-card">
-                <div class="evertime-feature-number">1</div>
-                <div class="evertime-feature-content">
-                    <h4>{{ stringlang('Precision Attendance', 'Kehadiran Tepat', '정밀 출석') }}</h4>
-                </div>
-            </div>
-            <div class="evertime-feature-card">
-                <div class="evertime-feature-number">4</div>
-                <div class="evertime-feature-content">
-                    <h4>{{ stringlang('⁠Absence & Leave', 'Ketidakhadiran & Cuti', '결근 및 휴가') }}</h4>
-                </div>
-            </div>
-
-            <!-- Row 2 -->
-            <div class="evertime-feature-card">
-                <div class="evertime-feature-number">2</div>
-                <div class="evertime-feature-content">
-                    <h4>{{ stringlang('Dynamic Shift Scheduling', 'Penjadwalan Shift Dinamis', '동적 교대 근무 일정') }}</h4>
-                </div>
-            </div>
-            <div class="evertime-feature-card">
-                <div class="evertime-feature-number">5</div>
-                <div class="evertime-feature-content">
-                    <h4>{{ stringlang('⁠Overtime & Adjustments', 'Lembur & Penyesuaian', '초과 근무 및 조정') }}</h4>
-                </div>
-            </div>
-
-            <!-- Row 3 -->
-            <div class="evertime-feature-card">
-                <div class="evertime-feature-number">3</div>
-                <div class="evertime-feature-content">
-                    <h4>{{ stringlang('⁠Instant Approvals', 'Persetujuan Instan', '즉시 승인') }}</h4>
-                </div>
-            </div>
+        <div style="text-align: center; margin: 40px 0;">
+            <img src="{{ asset('assets/img/evertime-table' . $ext . '.png') }}" alt="EverTime Comparison" style="width: 55%; max-width: 1020px; height: auto; display: block; margin: 0 auto;">
         </div>
     </div>
 </section>
 
-<section class="evertime-dashboard">
+<section class="evertime-full-img">
     <div class="evertime-container">
-        <h3>{{ stringlang('EverTime Dashboard & Visibility', 'EverTime Dashboard & Visibility', 'EverTime 대시보드 및 가시성') }}</h3>
-        <div class="evertime-dashboard-grid">
-            <div class="evertime-dashboard-pill">{{ stringlang('Real-time attendance dashboard', 'Dashboard kehadiran Real-time', '실시간 근태 대시보드') }}</div>
-            <div class="evertime-dashboard-pill">{{ stringlang('Employee status monitoring', 'Monitoring Status Karyawan', '임직원 현황 모니터링') }}</div>
+        <div style="text-align: center; margin: 40px 0;">
+            <img src="{{ asset('assets/img/evertime-features' . $ext . '.png') }}" alt="EverTime Features" style="width: 100%; max-width: 1020px; height: auto; margin: 0 auto; display: block;">
         </div>
     </div>
 </section>
+
+<section class="evertime-full-img">
+    <div class="evertime-container">
+        <div style="text-align: center; margin: 40px 0;">
+            <img src="{{ asset('assets/img/evertime-why-choose' . $ext . '.png') }}" alt="Why Choose EverTime" style="width: 100%; max-width: 1020px; height: auto; margin: 0 auto; display: block;">
+        </div>
+    </div>
+</section>
+
+<!-- <section class="evertime-full-img">
+    <div class="evertime-container">
+        <div style="text-align: center; margin: 40px 0;">
+            <img src="{{ asset('assets/img/evertime-built' . $ext . '.png') }}" alt="Built for Real Adoption" style="width: 60%; max-width: 1020px; margin: 0 auto; display: block;">
+    </div>
+</section> -->
 
 <section class="evertime-integration">
     <div class="evertime-container">
-        <h3>{{ stringlang('EverTime Integration Section', 'EverTime Integration', 'EverTime 연동 영역') }}</h3>
-        <div class="evertime-integration-grid">
-            <div class="evertime-integration-pill">{{ stringlang('Payroll integration', 'Integrasi dengan Sistem Payroll', '급여 시스템 연동') }}</div>
-            <div class="evertime-integration-pill">{{ stringlang('ERP integration via API', 'Integrasi ERP via API', 'API 기반 ERP 연동') }}</div>
-            <div class="evertime-integration-pill">{{ stringlang('Attendance devices integration', 'Integrasi perangkat absensi', '근태 단말기 연동') }}</div>
+        <div style="text-align: center;">
+            <img src="{{ activelang() == 'KOR'
+                ? asset('assets/img/evertime-screenshot-kor%20copy.png')
+                : asset('assets/img/evertime-screenshot' . $ext . '.png') }}" alt="Evertime Summary" class="evertime-screenshot-img">
         </div>
     </div>
 </section>

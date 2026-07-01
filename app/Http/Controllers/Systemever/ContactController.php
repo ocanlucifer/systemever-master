@@ -9,11 +9,6 @@ class ContactController extends Controller
 {
     public function form()
     {
-        $lang = "EN";
-        if (empty($post)) {
-            $post = $posts[0];
-        }
-
         $data['breadcrumbs'] = array(
             [ 
                 'label'=>'Home',

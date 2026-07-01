@@ -4,14 +4,16 @@
 
 @section('custom_css')
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
 
     :root {
-        --payroll-green: #009944;
+        --payroll-blue: #28a6c2;
+        --payroll-green: #00b34f;
         --payroll-soft: #eaf7ee;
         --payroll-dark-green: #007a37;
-        --payroll-gray: #6c6c6c;
+        --payroll-gray: #8f8f8f;
     }
 
     /* Animation Definitions */
@@ -27,56 +29,129 @@
     }
 
     .payroll-container {
-        max-width: 1140px;
+        max-width: 1350px;
+        width: 100%;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 0 30px; 
+        box-sizing: border-box;
     }
 
-    .payroll-hero {
-        padding: 60px 0 48px;
-        animation: fadeInUp 0.8s ease-out;
+    .payroll-img-left {
+        margin: 0 auto;
+        padding: 0 200px 0 0px;
     }
 
+    .payroll-img-right {
+        margin: 0 auto;
+        padding: 0 0px 0 200px;
+    }
+
+    
     .payroll-hero-grid {
         display: grid;
-        grid-template-columns: 1.1fr 1fr;
-        gap: 48px;
+        grid-template-columns: 1.10fr 0.90fr;
+        gap: 0;
         align-items: center;
     }
 
-    .payroll-hero h1 {
-        font-family: 'Poppins', sans-serif;
-        font-size: 42px;
+    .payroll-hero.lang-en {
+        padding: 60px 0 48px;
+        animation: fadeInUp 0.8s ease-out;
+    }
+    
+    .payroll-hero.lang-en h1 {
+        font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+        font-size: 48px;
         line-height: 1.25;
         font-weight: 700;
+        color: #1f1f1f;
+        margin-bottom: 30px;
+        letter-spacing: -0.5px;
+        max-width: 650px;
+    }
+
+    .payroll-hero.lang-en p {
+        font-family: 'Open Sans', 'Noto Sans KR', sans-serif;
+        font-size: 30px;
+        line-height: 1.2;
+        color: var(--payroll-gray);
+        margin-bottom: 30px;
+        letter-spacing: 1px;
+        max-width: 650px;
+        font-weight: 300;
+    }
+
+    .payroll-hero.lang-en span {
+        font-family: 'Open Sans', 'Noto Sans KR', sans-serif;
+        font-size: 19px;
+        line-height: -1.5;
+        font-weight: 500;
+        color: var(--payroll-blue);
+        max-width: 620px;
+        margin-bottom: 0;
+        margin-right: -65px;
+        display: block;
+    }
+
+    /* korea */
+
+    
+    .payroll-hero.lang-kor {
+        padding: 60px 0 48px;
+        animation: fadeInUp 0.8s ease-out;
+    }
+    
+    .payroll-hero.lang-kor h1 {
+        font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+        font-size: 55px;
+        line-height: 1.25;
+        font-weight: 800;
         color: #1f1f1f;
         margin-bottom: 20px;
         letter-spacing: -0.5px;
     }
 
-    .payroll-hero p {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 16px;
-        line-height: 1.7;
+    .payroll-hero.lang-kor p {
+        font-family: 'Open Sans', 'Noto Sans KR', sans-serif;
+        font-size: 27px;
+        line-height: 1.2;
         color: var(--payroll-gray);
-        margin-bottom: 12px;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+        max-width: 640px;
+        font-weight: 450;
+    }
+
+    .payroll-hero.lang-kor span {
+        font-family: 'Open Sans', 'Noto Sans KR', sans-serif;
+        font-size: 19px;
+        line-height: -1.5;
+        font-weight: 500;
+        color: var(--payroll-blue);
+        max-width: 620px;
+        margin-bottom: 0;
+        margin-right: -65px;
+        display: block;
     }
 
     .payroll-hero-visual {
+        justify-self: end;     
+        width: 100%;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: transform 0.5s ease;
+        justify-content: flex-end;
     }
     
     .payroll-hero-visual:hover {
         transform: scale(1.02);
+        max-width: none; 
     }
 
     .payroll-hero-visual img {
-        width: 100%;
-        max-width: 480px;
-        object-fit: contain;
+        display: block;
+        width: 117%;
+        max-width: none;
+        margin-left: auto;     
+        margin-right: -60px;   
     }
 
 
@@ -184,6 +259,10 @@
         width: 100%;
         max-width: 400px;
         justify-self: center;
+    }
+
+    .payroll-full-img {
+        padding: 60px 0 60px;
     }
 
     .payroll-features {
@@ -316,15 +395,52 @@
         margin: 0 auto;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
         .payroll-hero-grid,
         .payroll-highlight {
             grid-template-columns: 1fr;
-            text-align: center;
         }
 
-        .payroll-hero-visual {
-            order: -1;
+        .payroll-container {
+            padding: 0 20px;
+        }
+
+        .payroll-img-left,
+        .payroll-img-right {
+            padding: 0 20px;
+        }
+
+        .payroll-hero {
+            padding: 28px 0 30px !important;
+        }
+
+        .payroll-hero h1,
+        .payroll-hero.lang-en h1,
+        .payroll-hero.lang-kor h1 {
+            font-size: 32px;
+            line-height: 1.14;
+            letter-spacing: -0.5px;
+            margin-bottom: 14px;
+            max-width: 100%;
+        }
+
+        .payroll-hero p,
+        .payroll-hero.lang-en p,
+        .payroll-hero.lang-kor p {
+            font-size: 16px;
+            line-height: 1.45;
+            letter-spacing: 0;
+            margin-bottom: 10px;
+            max-width: 100%;
+        }
+
+        .payroll-hero span,
+        .payroll-hero.lang-en span,
+        .payroll-hero.lang-kor span {
+            font-size: 14px;
+            line-height: 1.45;
+            margin-right: 0;
+            max-width: 100%;
         }
 
         .payroll-pill-row {
@@ -348,113 +464,194 @@
         .payroll-highlight-list {
             text-align: left;
         }
+
+        .payroll-hero-visual {
+            justify-content: center;
+            margin-top: 18px;
+        }
+
+        .payroll-hero-visual img {
+            width: 100%;
+            max-width: 360px;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .payroll-full-img {
+            padding: 36px 0;
+        }
+    }
+
+    @media (max-width: 430px) {
+        .payroll-container,
+        .payroll-img-left,
+        .payroll-img-right {
+            padding: 0 16px;
+        }
+
+        .payroll-hero h1,
+        .payroll-hero.lang-en h1,
+        .payroll-hero.lang-kor h1 {
+            font-size: 30px;
+            line-height: 1.12;
+        }
+
+        .payroll-hero p,
+        .payroll-hero.lang-en p,
+        .payroll-hero.lang-kor p {
+            font-size: 15px;
+        }
+
+        .payroll-hero span,
+        .payroll-hero.lang-en span,
+        .payroll-hero.lang-kor span {
+            font-size: 13px;
+            line-height: 1.4;
+        }
+    }
+
+    @media (max-width: 768px) {
+        img[style*="width:"] {
+            width: 100% !important;
+            max-width: 100% !important;
+            height: auto !important;
+        }
+    }
+    
+    .menu-about {
+        gap: 10px;
+    }
+
+    .menu-box {
+        background-color: #28a745; /* green */
+        color: #fff;
+
+        padding: 4px 6px;
+        border-radius: 8px;
+
+        font-weight: 600;
+        font-size: 17px;
+        text-align: center;
+
+        /* make it feel like a label, not a button */
+        cursor: default;
+        user-select: none;
+
+        display: flex;
+        align-items: start;
+        justify-content: start;
     }
 </style>
 @endsection
 
+@php
+    if (activelang() == 'KOR') {
+        $ext = '-kor';
+    } else {
+        $ext = '-eng';
+    }
+@endphp
+
 @section('content')
-<section class="payroll-hero">
+<section class="payroll-hero lang-{{ strtolower(activelang()) }}">
     <div class="payroll-container">
         <!-- Breadcrumbs removed to match design -->
         <div class="payroll-hero-grid">
             <div>
-                <h1>{{ stringlang('Accurate, Flexibility, and Automated Payroll System for Indonesian Businesses', 'Sistem Payroll Otomatis yang Akurat dan Fleksibel untuk Perusahaan di Indonesia', '인도네시아 기업을 위한 정확하고 유연한 자동 급여 시스템') }}</h1>
-                <p>{{ stringlang('Automate payroll, tax calculation, and statutory reporting with a payroll system designed specifically for Indonesian regulations.', 'Sistem payroll yang dirancang sesuai regulasi Indonesia untuk 
-
-mengotomatiskan penggajian dan perhitungan pajak secara fleksibel, serta 
-
-menghasilkan laporan XML siap CoreTax secara instan.', '인도네시아 규정에 특화된 급여 시스템으로 급여 및 세금 계산을 유연하게 자동화하고, CoreTax 제출이 가능한 XML 리포트를 즉시 생성합니다.') }}</p>
+                <h1>{{ stringlang('Payroll Management Solution'
+                                , 'Optimalkan Pengelolaan Payroll dengan SystemEver Payroll'
+                                , '급여 관리 솔루션') }}</h1>
+                
+            <!-- @if (activelang() != "KOR")
+                <section style="padding-bottom: 10px;">
+                    <div class="col-lg-12 d-flex">
+                        <ul class="menu-about d-flex">
+                            <li class="menu-box">{{ stringlang('Accurate', 'Akurat','정확성') }}</li>
+                            <li class="menu-box">{{ stringlang('Compliant', 'Patuh Regulasi','법규 준수') }}</li>
+                            <li class="menu-box">{{ stringlang('Fast', 'Cepat','신속함') }}</li>
+                            <li class="menu-box">{{ stringlang('Scalable', 'Skalabel','확장성') }}</li>
+                        </ul>
+                    </div>
+                </section>
+            @endif -->
+                <p>{{ stringlang('SystemEver Payroll is a payroll management solution that automates salary calculations and statutory compliance processes.'
+                               , 'SystemEver Payroll adalah solusi manajemen penggajian yang mengotomatiskan seluruh siklus payroll — mulai dari integrasi data kehadiran hingga perhitungan potongan sesuai ketentuan yang berlaku. Dengan proses yang lebih efisien, tim Anda dapat mengurangi waktu perhitungan manual dan lebih fokus pada inisiatif strategis.'
+                               , 'SystemEver Payroll은 급여 계산과 법정 공제 처리를 자동화하는 ​급여 관리 솔루션입니다.​'
+                                ) }}
+                </p>
+                <span>  
+                        <!-- @if (activelang() != 'KOR')
+                        {{ stringlang('Payroll is more than paying salaries —'
+                                   , 'Payroll bukan sekadar membayar gaji —'
+                                   , '급여 관리는 단순한 급여 지급이 아닙니다 —') }}
+                        <br>
+                        @endif -->
+                        {{ stringlang('By integrating attendance data, it enables accurate and reliable payroll operations.'
+                                   , 'melainkan tentang akurasi operasional, kepatuhan terhadap regulasi, dan membangun kepercayaan.'
+                                   , '근태 데이터 연동을 기반으로 정확하고 안정적인 급여 운영을 지원합니다.') }}
+                </span>
             </div>
             <div class="payroll-hero-visual">
-                <img src="{{ asset('assets/img/payroll1.png') }}" alt="SystemEver Payroll">
+                <img src="{{ asset('assets/img/payroll-logo.png') }}" alt="SystemEver Payroll">
             </div>
         </div>
+    </div>
+</section>
 
-        <h2 class="payroll-section-title">{{ stringlang('SystemEver Payroll automates calculations and reporting with regulation-ready logic.', 'SystemEver Payroll mengelola perhitungan dan pelaporan dengan logika yang siap regulasi.', 'SystemEver Payroll은 규정 대응 로직을 기반으로 급여 계산과 리포트를 자동화합니다.') }}</h2>
-        <div class="payroll-pill-row">
-            <div class="payroll-info-card">{{ stringlang('Latest PPh 21 & PPh 26 rules', 'Mendukung aturan terbaru PPh 21 dan PPh 26', '최신 PPh 21 및 PPh 26 규정 반영') }}</div>
-            <div class="payroll-info-card">{{ stringlang('BPJS Kesehatan & Ketenagakerjaan regulations', 'Perhitungan iuran BPJS Kesehatan, JHT, dan JP yang terkelola otomatis', 'BPJS Kesehatan, JHT, JP 보험료 계산 관리') }}</div>
-            <div class="payroll-info-card">{{ stringlang('Structured reporting aligned with Coretax DJP', 'Pelaporan Sesuai Standar Coretax DJP', 'Coretax DJP 기준에 부합하는 구조화된 리포트 제공') }}</div>
-        </div>
-        <div class="payroll-note">{{ stringlang('Payroll results are ready for review, reconciliation, and submission by HR, finance, and tax professionals.', 'Hasil payroll langsung siap ditinjau, direkonsiliasi, dan dilaporkan oleh tim HR, keuangan, dan pajak.', '급여 결과는 인사, 재무, 세무 담당자가 검토, 대사, 제출까지 바로 진행할 수 있도록 준비된 형태로 제공됩니다.') }}</div>
-
+<section class="payroll-full-img">
+    <div class="payroll-img-left">
         <div style="margin-top: 40px; text-align: center;">
-            @if(activelang() == 'KOR')
-                <img src="{{ asset('assets/img/payroll1korea.png') }}" alt="Payroll Core Benefits" style="width: 100%; max-width: 100%; height: auto;">
-            @elseif(activelang() == 'ID')
-                <img src="{{ asset('assets/img/payroll1indo.png') }}" alt="Payroll Core Benefits" style="width: 100%; max-width: 100%; height: auto;">
-            @else
-                <img src="{{ asset('assets/img/payroll2.png') }}" alt="Payroll Core Benefits" style="width: 100%; max-width: 100%; height: auto;">
-            @endif
+            <img src="{{ asset('assets/img/payroll-challenges' . $ext . '.png') }}" alt="Payroll Challenges" style="width: 100%; max-width: 100%; height: auto;">
         </div>
     </div>
 </section>
 
-<section class="payroll-features">
-    <div class="payroll-container">
-        <div class="features-header">
-            <h3>{{ stringlang('SystemEver Payroll Special Features', 'Fitur Khusus SystemEver Payroll', 'SystemEver Payroll Special Features') }}</h3>
-        </div>
-        <div class="payroll-feature-grid">
-            <!-- Row 1 -->
-            <div class="payroll-feature-card">
-                <div class="payroll-feature-number">1</div>
-                <div class="payroll-feature-content">
-                    <h4>{{ stringlang('Flexible Payroll Structure', 'Struktur Sistem Payroll yang Fleksibel', '유연한 급여 구조') }}</h4>
-                </div>
-            </div>
-            <div class="payroll-feature-card">
-                <div class="payroll-feature-number">4</div>
-                <div class="payroll-feature-content">
-                    <h4>{{ stringlang('Daily/Monthly Payroll Calculation', 'Perhitungan Gaji Harian/Bulanan', '일급·월급 급여 계산 지원') }}</h4>
-                </div>
-            </div>
-
-            <!-- Row 2 -->
-            <div class="payroll-feature-card">
-                <div class="payroll-feature-number">2</div>
-                <div class="payroll-feature-content">
-                    <h4>{{ stringlang('Automated Tax Calculations', 'Perhitungan Pajak Otomatis', '세금 자동 계산') }}</h4>
-                </div>
-            </div>
-            <div class="payroll-feature-card">
-                <div class="payroll-feature-number">5</div>
-                <div class="payroll-feature-content">
-                    <h4>{{ stringlang('Shift Management', 'Manajemen Shift', '교대근무 관리') }}</h4>
-                </div>
-            </div>
-
-            <!-- Row 3 -->
-            <div class="payroll-feature-card">
-                <div class="payroll-feature-number">3</div>
-                <div class="payroll-feature-content">
-                    <h4>{{ stringlang('Leave & Attendance Integration', 'Integrasi Cuti & Kehadiran', '근태 및 휴가 데이터 연동') }}</h4>
-                </div>
-            </div>
-            <div class="payroll-feature-card">
-                <div class="payroll-feature-number">6</div>
-                <div class="payroll-feature-content">
-                    <h4>{{ stringlang('Automated XML Coretax Report Generation', 'Pembuatan Laporan XML Coretax Otomatis', 'Coretax XML 자동 생성') }}</h4>
-                </div>
-            </div>
+<section class="payroll-full-img">
+    <div class="payroll-img-right">
+        <div style="margin-top: 40px; text-align: center;">
+            <img src="{{ asset('assets/img/payroll-smarter-way' . $ext . '.png') }}" alt="Payroll Special Features" style="width: 100%; max-width: 100%; height: auto;">
         </div>
     </div>
 </section>
 
-<!-- <section class="payroll-main-features">
+<section class="payroll-full-img">
     <div class="payroll-container">
-        <h3>{{ stringlang('SystemEver Payroll Main Features', 'Fitur Utama SystemEver Payroll', 'SystemEver Payroll Main Features') }}</h3>
-        <div class="payroll-main-pill-grid">
-            <div class="payroll-main-pill">{{ stringlang('HR Data Management', 'Manajemen Data HR', '인사 데이터 관리') }}</div>
-            <div class="payroll-main-pill">{{ stringlang('Payroll Management', 'Manajemen Penggajian', '급여 관리') }}</div>
-            <div class="payroll-main-pill">{{ stringlang('ESS (Employee Self Service)', 'ESS (Employee Self Service)', 'ESS (임직원 셀프 서비스)') }}</div>
-            <div class="payroll-main-pill">{{ stringlang('Payroll & Tax Reports', 'Laporan Penggajian & Pajak', '급여 및 세무 리포트') }}</div>
-        </div>
-        <div class="payroll-main-pill-grid">
-            <div class="payroll-main-pill single">{{ stringlang('EverTime Attendance System Integration', 'Integrasi Sistem Kehadiran EverTime', 'EverTime 근태 시스템 연동') }}</div>
+        <div style="margin-top: 40px; text-align: center;">
+            <img src="{{ asset('assets/img/payroll-why-systemever' . $ext . '.png') }}" alt="Why SystemEver Payroll" style="width: 100%; max-width: 1020px; height: auto; display: block; margin: 0 auto;">
+    </div>
+</section>
+
+<section class="payroll-full-img">
+    <div class="payroll-container">
+        <div style="margin-top: 40px; text-align: center;">
+            <img src="{{ asset('assets/img/payroll-core-features' . $ext . '.png') }}" alt="Payroll Core Features" style="width: 100%; max-width: 1020px; height: auto; display: block; margin: 0 auto;">
         </div>
     </div>
-</section> -->
+</section>
+
+<section class="payroll-full-img">
+    <div class="payroll-container">
+        <div style="margin-top: 40px; text-align: center;">
+            <img src="{{ asset('assets/img/payroll-table' . $ext . '.png') }}" alt="Manual Payroll vs. SystemEver Payroll" style="width: 60%; max-width: 1020px; margin: 0 auto; display: block;">
+        </div>
+    </div>
+</section>
+
+<section class="payroll-full-img">
+    <div class="payroll-container">
+        <div style="margin-top: 40px; text-align: center;">
+            <img src="{{ asset('assets/img/payroll-drive-business' . $ext . '.png') }}" alt="Drive Business Result" style="width: 100%; max-width: 1020px; margin: 0 auto; display: block;">
+        </div>
+    </div>
+</section>
+
+<section class="payroll-full-img">
+    <div class="payroll-container">
+        <div style="margin-top: 40px; text-align: center;">
+            <img src="{{ asset('assets/img/payroll-built-as-part' . $ext . '.png') }}" alt="Part of an Integrated Business Platform" style="width: 100%; max-width: 1020px; height: auto; margin: 0 auto; display: block;">
+        </div>
+    </div>
+</section>
 
 @endsection
 

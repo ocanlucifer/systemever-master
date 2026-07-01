@@ -6,7 +6,7 @@
 <style>
     @media only screen and (max-width: 1365px) {
         .contactbg {
-            background-image: url('{{ asset_to_webp(uri('assets/img/contact-img.png')) }}');
+            background-image: url('{{ asset('assets/img/contact-img.png') }}');
             background-position:top center;
             background-size:200%;
             background-repeat:no-repeat;
@@ -26,7 +26,7 @@
     }
     @media only screen and (min-width: 1366px) {
         .contactbg {
-            background-image: url('{{ asset_to_webp(uri('assets/img/contact-img.png')) }}');
+            background-image: url('{{ asset('assets/img/contact-img.png') }}');
             background-position:top center;
             background-size:100%;
             background-repeat:no-repeat;
@@ -110,7 +110,7 @@
                         "SystemEver – 훨씬 더 쉬워졌어요") }}
                     </p>
                     <div class="text-center">
-                        <img src="{{ asset_to_webp(uri('assets/img/systemever-ball.png')) }}" class="my-5 w-50">
+                        <img src="{{ asset('assets/img/systemever-ball.png') }}" class="my-5 w-50">
                     </div>
                 </div>
             </div>

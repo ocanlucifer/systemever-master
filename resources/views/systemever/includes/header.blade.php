@@ -5,11 +5,12 @@
     .section-demo .container{display:flex;align-items:center;justify-content:flex-end;gap:12px;font-size:13px;}
     .section-demo a{text-decoration:none;color:#fff;}
 
-    .section-menu{position:fixed;top:60px;left:0;width:100%;z-index:998;background:#fff;box-shadow:0px 4px 8px rgba(0,0,0,0.3);}
+    /* .section-menu{position:fixed;top:60px;left:0;width:100%;z-index:998;background:#fff;box-shadow:0px 4px 8px rgba(0,0,0,0.3);} */
+    .section-menu{position:fixed;top:0px;left:0;width:100%;z-index:998;background:#fff;box-shadow:0px 4px 8px rgba(0,0,0,0.3);}
 
-    /* Hide collapsed accessibility element */
-    a.collapsed {
-        display: none !important;
+    /* Keep mobile sidebar collapse triggers visible */
+    .sidebar a.collapsed {
+        display: block !important;
     }
 
     /* Language dropdown styling - appear above menu */
@@ -28,6 +29,7 @@
       padding: 8px 0;
       margin-top: 8px;
       display: none;
+      color: aqua;
     }
     .dropdown-language .dropdown-menu-language.show {
       display: block;
@@ -54,10 +56,80 @@
 
     @media (max-width:768px){
       .section-demo{height:50px;}
-      .section-menu{top:50px;}
+      .section-menu{top:0;}
+
+      .section-menu.d-lg-none {
+        z-index: 1100;
+      }
+
+      .section-menu.d-lg-none .container-content {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .section-menu.d-lg-none .col-lg-12 {
+        min-height: 56px;
+        position: relative;
+        justify-content: center !important;
+      }
+
+      .section-menu.d-lg-none .col-lg-12 > .d-flex.justify-content-start {
+        width: 100%;
+        justify-content: center !important;
+      }
+
+      .section-menu.d-lg-none .logo img {
+        width: auto;
+        max-width: 140px;
+        height: 24px;
+      }
+
+      .section-menu.d-lg-none .hamburger {
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-right: 0;
+      }
+
+      .sidebar {
+        top: 56px;
+        bottom: 0;
+        width: 85vw;
+        max-width: 320px;
+        left: 0;
+        z-index: 1099;
+        padding-top: 0;
+        transform: translateX(-110%);
+        transition: transform 0.35s ease;
+      }
+
+      .sidebar.is-active {
+        left: 0;
+        transform: translateX(0);
+      }
+
+      .sidebar .box-menu-sidebar {
+        height: 100%;
+        overflow-y: auto;
+      }
+
+      .sidebar .box-menu-sidebar ul li .close-sidebar {
+        display: none;
+      }
+
+      .backdrop {
+        top: 56px;
+        bottom: 0;
+        z-index: 1098;
+      }
+
+      body.modal-open {
+        overflow: hidden;
+      }
     }
   </style>
-  <div class="section-demo d-lg-block d-sm-none d-none" style="transition:all .5s ease">
+  <!-- <div class="section-demo d-lg-block d-sm-none d-none" style="transition:all .5s ease">
     <div class="container-content-1" style="height:60px">
       <div class="row d-flex align-items-center">
         <div class="col-lg-8">
@@ -71,15 +143,15 @@
           @endif --}}
         </div>
         <div class="col-lg-4">
-          <ul class="list-unstyled mb-0 d-flex align-items-center justify-content-end">
+          <ul class="list-unstyled mb-0 d-flex align-items-center justify-content-end"> -->
             {{-- <li class="mr-1"><button class="button btn-white-green-demo btn-rounded" data-toggle="modal" data-target="#modal-request-demo">FREE DEMO</button></li> --}}
-            <li class="mr-1">
-              <a href="https://wa.me/628111997101?text=Hello, I want to know more about system ever" class="wa">
+            <!-- <li class="mr-1">
+              <a href="https://wa.me/6281119971017?text=Hello, I want to know more about system ever" class="wa">
                 <img src="{{ asset('assets/fl/wa-number.png')}}" alt="WhatsApp" style="height:auto;max-height:40px;">
               </a>
-            </li>
+            </li> -->
             <!-- <li class="mr-1">
-              <a href="{{ route('get.contact') }}" class="button btn-white-green-demo btn-rounded">
+              <a href="{{ route('get.demo_page') }}" class="button btn-white-green-demo btn-rounded">
               @if (activelang() == "EN")
               FREE&nbsp;DEMO
               @else
@@ -95,7 +167,7 @@
               @endif
               </a>
             </li> -->
-            <li>
+            <!-- <li>
               <div class="dropdown dropdown-language">
                 <button class="btn d-flex align-items-center" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <div id="EN" class="lang {{ activelang() == "EN" ? 'active' : '' }}">
@@ -124,12 +196,12 @@
                   </a>
                 </div>
               </div>
-            </li>
-          </ul>
+            </li> -->
+          <!-- </ul>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div class="section-menu fixed-top d-lg-block d-sm-none d-none">
     <div class="container-content-1">
@@ -186,7 +258,7 @@
                 </div> -->
                 <div class="isimenu isibaru">
                   <a href="{{ route('get.pages.solutions.cloud_erp') }}" class="itembaru {{ Request::segment(2) == 'cloud-erp' ? 'active':'' }}">
-                    {{ stringlang('Cloud ERP', 'Cloud ERP', 'Cloud ERP') }}
+                    {{ stringlang('ERP', 'ERP', 'ERP') }}
                   </a>
                   <div class="">
                       <a href="{{ route('get.pages.solutions.accounting') }}" class="itembaru {{ Request::segment(2) == 'accounting' ? 'active':'' }}">
@@ -197,16 +269,19 @@
                     {{ stringlang('Payroll', 'Payroll', '급여') }}
                   </a>
                   <a href="{{ route('get.pages.solutions.evertime') }}" class="itembaru {{ Request::segment(2) == 'attendance' ? 'active':'' }}">
-                    {{ stringlang('Attendance', 'Attendance', '출석') }}
+                    {{ stringlang('Attendance', 'Attendance', '근태') }}
                   </a>
                 </div>
                 <div class="sampingbaru">
-                  <a href="{{ route('get.pages.solutions.accounting') }}" class=" ">
-                    <img src="{{ asset('assets/img/1.png')}}" alt="" class=" ">
+                  <!-- <a href="{{ route('get.pages.solutions.accounting') }}" class=" "> -->
+                  <a href="{{ route('get.pages.solutions.cloud_erp') }}" class=" ">
+                    <img src="{{ asset('assets/img/cloud-logo.png')}}" alt="" class=" ">
                     <div class="fxc">
-                      <strong>{{ stringlang('Accounting', 'Accounting', '회계') }}</strong>
+                      <!-- <strong>{{ stringlang('Accounting', 'Accounting', '회계') }}</strong> -->
+                      <strong>{{ stringlang('Cloud ERP', 'Cloud ERP', 'Cloud ERP') }}</strong>
                       <p class="">
-                        {!! stringlang('Integrated Accounting Application', 'Aplikasi Akuntansi Terintegrasi', '통합 회계 애플리케이션') !!}
+                        <!-- {!! stringlang('Integrated Accounting Application', 'Aplikasi Akuntansi Terintegrasi', '통합 회계 애플리케이션') !!} -->
+                         {!! stringlang('Integrated ERP Solutions for Sustainable Business Growth', 'Solusi ERP Terintegrasi untuk Pertumbuhan Bisnis yang Berkelanjutan', '지속 가능한 성장을 위한 통합 ERP 솔루션') !!}
                       </p>
                       <span>{{ stringlang('Read more', 'Selengkapnya', '더 읽어보기') }} <img src="{{ asset('assets/fl/more.png')}}" alt=""></span>
                     </div>
@@ -278,12 +353,49 @@
                 </div>
               </div>
             </li>
+            <li>
+              <div class="dropdown dropdown-language">
+                <button class="btn d-flex align-items-center" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <div id="EN" class="lang {{ activelang() == "EN" ? 'active' : '' }}">
+                    <img src="{{ asset('assets/img/english-icon.png')}}" style="height:18px;"> <strong>{{ stringlang('EN','EN','영어') }}</strong>
+                  </div>
+                  <!-- <div id="ID" class="lang {{ activelang() == "ID" ? 'active' : '' }}">
+                    <img src="{{ asset('assets/img/indonesia-icon.png')}}" style="height:18px;"> <strong>{{ stringlang('ID','ID','인니') }}</strong>
+                  </div> -->
+                  <div id="KOR" class="lang {{ activelang() == "KOR" ? 'active' : '' }}">
+                    <img src="{{ asset('assets/img/korean-flag.png')}}" style="height:18px;"> <strong>{{ stringlang('KOR','KOR','한국어') }}</strong>
+                  </div>
+                  <i class="fa fa-angle-down ml-2"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-language" aria-labelledby="dropdownMenu2">
+                  <!-- <a class="dropdown-item text-black" style="color:#000" type="button" href="{{seeinindo()}}">
+                    <img src="{{ asset('assets/img/indonesia-icon.png')}}" style="height:20px; margin-right:10px;">
+                    {{ stringlang('INDONESIA','INDONESIA','인도네시아') }}
+                  </a> -->
+                  <a class="dropdown-item text-black" style="color:#000" type="button" href="{{seeineng()}}">
+                    <img src="{{ asset('assets/img/english-icon.png')}}" style="height:20px; margin-right:10px;">
+                    {{ stringlang('ENGLISH','ENGLISH','영어') }}
+                  </a>
+                  <a class="dropdown-item text-black" style="color:#000" type="button" href="{{seeinkor()}}">
+                    <img src="{{ asset('assets/img/korean-flag.png')}}" style="height:20px; margin-right:10px;">
+                    {{ stringlang('KOREA','KOREA','한국어') }}
+                  </a>
+                </div>
+              </div>
+            </li>
             <!-- <li class="ml-1"><a href="https://wa.me/628119717708?text=Hello, I want to know more about system ever" class=" d-flex align-items-center"><img class="wa-header mr-2 h-30" src="{{ asset('assets/img/whatsapp-icon.png') }}" alt="">081 197 17708</a></li> -->
           </ul>
         </div>
-        <div class="d-flex actionss">
+        <!-- <div class="d-flex actionss">
           {{-- <a href="{{ route('get.pages.join_partnership') }}" class="clear">@if (activelang() == "EN") Become Partner @elseif (activelang() == "KOR") 퍼트너 되기 @else Menjadi Mitra @endif</a> --}}
-          <a href="{{ route('get.contact') }}" class="fill">@if (activelang() == "EN") Free Demo @elseif (activelang() == "KOR") 무료 데모 @else Demo Gratis @endif</a>
+          <a href="{{ route('get.demo_page') }}" class="fill">@if (activelang() == "EN") Free Demo @elseif (activelang() == "KOR") 무료 데모 @else Demo Gratis @endif</a>
+        </div> -->
+        <div>
+          {{-- <a href="{{ route('get.pages.join_partnership') }}" class="clear">@if (activelang() == "EN") Become Partner @elseif (activelang() == "KOR") 퍼트너 되기 @else Menjadi Mitra @endif</a> --}}
+          <a href="{{ route('get.demo_page') }}" class="fill">
+                <img src="{{ asset('assets/img/free-demo.png')}}" style="height:50px;">
+              </a>
+              
         </div>
       </div>
     </div>
@@ -304,10 +416,10 @@
               </a>
             </div>
           </div>
-          <div class="d-flex actionss">
+          <!-- <div class="d-flex actionss">
             {{-- <a href="{{ route('get.pages.join_partnership') }}" class="clear">@if (activelang() == "EN") Become Partner @elseif (activelang() == "KOR") 퍼트너 되기 @else Menjadi Mitra @endif</a> --}}
-            <a href="{{ route('get.contact') }}" class="fill">@if (activelang() == "EN") Free Demo @elseif (activelang() == "KOR") 무료 데모 @else Demo Gratis @endif</a>
-          </div>
+            <a href="{{ route('get.demo_page') }}" class="fill">@if (activelang() == "EN") Free Demo @elseif (activelang() == "KOR") 무료 데모 @else Demo Gratis @endif</a>
+          </div> -->
         </div>
       </div>
     </div>

@@ -196,10 +196,10 @@
                 <p class="font-opensans text-white lg:text-19px lg:mb-16 mb-6 lg:text-left text-center text-11px ">
                     {!! str_replace("#JadiLebihMudah", '<strong>#JadiLebihMudah</strong>', ordefault($meta->banner_subtitle, 'Kelola bisnis <strong>#JadiLebihMudah</strong> dengan SystemEver.')) !!}
                 </p>
-                <div class="flex gap-4 justify-center lg:justify-start">
+                <!-- <div class="flex gap-4 justify-center lg:justify-start">
                     <a href="{{ ordefault($meta->demo_url, '#') }}" class="font-montserrat inline-flex items-center justify-center lg:h-48px lg:px-70px lg:text-16px text-12px h-28px px-20px rounded-full bg-white hover:text-[#009944] text-[#009944] font-bold">{{ ordefault($meta->demo_label, 'Demo') }}</a>
                     <a href="{{ ordefault($meta->see_more_url, '#') }}" class="font-montserrat inline-flex items-center justify-center lg:h-48px lg:px-70px lg:text-16px text-12px h-28px px-20px rounded-full bg-transparent hover:text-white text-white font-bold border-1 border-white">{{ ordefault($meta->see_more_button_label, 'Selengkapnya') }}</a>
-                </div>
+                </div> -->
             </div>
             <div class="lg:w-[40%] pt-2">
                 <div class="lg:h-[372px] lg:w-[550px] w-[72%] aspect-mod1 overflow-hidden flex items-center justify-center mx-auto lg:-mt-10">
@@ -217,33 +217,41 @@
             <a href="{{ route('get.pages.solutions.cloud_erp') }}" class="w-full aspect-mod rounded-md lg:rounded-2xl hsd transition flex flex-col gap-1 lg:gap-4 items-center p-4 group lg:bg-white bg-[#F7F7F7]">
                 <img src="{{ asset('assets/img/cloud1.png')}}" alt="" class="lg:w-320px w-[50%] object-contain aspect-square ">
                 <strong class="group-hover:text-[#009944] text-[#464646] text-14px lg:text-24px font-semibold font-poppins text-center">{{ stringlang('Cloud ERP', 'Cloud ERP', 'Cloud ERP') }}</strong>
+                @if (activelang() != "KOR")
                 <p class="text-9px lg:text-17px text-[#5b5b5b] font-opensans text-center w-[90%] leading-3 lg:leading-6">
                     {{ stringlang('Integrated ERP Solutions for Sustainable Business Growth', 'Solusi ERP Terintegrasi untuk Pertumbuhan Bisnis yang Berkelanjutan', '지속 가능한 성장을 위한 통합 ERP 솔루션') }}
                 </p>
+                @endif
             </a>
             
             <a href="{{ route('get.pages.solutions.accounting') }}" class="w-full aspect-mod rounded-md lg:rounded-2xl hsd transition flex flex-col gap-1 lg:gap-4 items-center p-4 group lg:bg-white bg-[#F7F7F7]">
                 <img src="{{ asset('assets/img/1.png')}}" alt="" class="lg:w-320px w-[50%] object-contain aspect-square ">
-                <strong class="group-hover:text-[#009944] text-[#464646] text-14px lg:text-24px font-semibold font-poppins text-center">{{ stringlang('Accounting', 'Accounting', '회계') }}</strong>
+                <strong class="group-hover:text-[#009944] text-[#464646] text-14px lg:text-24px font-semibold font-poppins text-center">{{ stringlang('Accounting', 'Accounting', '회계 관리') }}</strong>
+                @if (activelang() != "KOR")
                 <p class="text-9px lg:text-17px text-[#5b5b5b] font-opensans text-center w-[90%] leading-3 lg:leading-6">
                     {{ stringlang('Simple Accounting Management', 'Manajemen Akuntansi yang Sederhana', '간편한 회계 관리') }}
                 </p>
+                @endif
             </a>
             
             <a href="{{ route('get.pages.solutions.payroll') }}" class="w-full aspect-mod rounded-md lg:rounded-2xl hsd transition flex flex-col gap-1 lg:gap-4 items-center p-4 group lg:bg-white bg-[#F7F7F7]">
                 <img src="{{ asset('assets/img/payroll1.png')}}" alt="" class="lg:w-320px w-[50%] object-contain aspect-square ">
-                <strong class="group-hover:text-[#009944] text-[#464646] text-14px lg:text-24px font-semibold font-poppins text-center">{{ stringlang('Payroll', 'Payroll', '급여') }}</strong>
+                <strong class="group-hover:text-[#009944] text-[#464646] text-14px lg:text-24px font-semibold font-poppins text-center">{{ stringlang('Payroll', 'Payroll', '급여 관리') }}</strong>
+                @if (activelang() != "KOR")
                 <p class="text-9px lg:text-17px text-[#5b5b5b] font-opensans text-center w-[90%] leading-3 lg:leading-6">
                     {{ stringlang('Accurate, Flexibility, and Automated Payroll System', 'Sistem Payroll Otomatis yang Akurat dan Fleksibel', '정확하고 유연한 자동 급여 시스템') }}
+                @endif
                 </p>
             </a>
             
             <a href="{{ route('get.pages.solutions.evertime') }}" class="w-full aspect-mod rounded-md lg:rounded-2xl hsd transition flex flex-col gap-1 lg:gap-4 items-center p-4 group lg:bg-white bg-[#F7F7F7]">
                 <img src="{{ asset('assets/img/evertime1.png')}}" alt="" class="lg:w-320px w-[50%] object-contain aspect-square ">
-                <strong class="group-hover:text-[#009944] text-[#464646] text-14px lg:text-24px font-semibold font-poppins text-center">{{ stringlang('Attendance', 'Attendance', '근태') }}</strong>
+                <strong class="group-hover:text-[#009944] text-[#464646] text-14px lg:text-24px font-semibold font-poppins text-center">{{ stringlang('Attendance', 'Attendance', '근태 관리') }}</strong>
+                @if (activelang() != "KOR")
                 <p class="text-9px lg:text-17px text-[#5b5b5b] font-opensans text-center w-[90%] leading-3 lg:leading-6">
                     {{ stringlang('Smart Attendance & Workforce Management Platform', 'Platform Manajemen Kehadiran & Tenaga Kerja Cerdas', '스마트 근태 및 인력 관리 플랫폼') }}
                 </p>
+                @endif
             </a>
         </div>
     </div>

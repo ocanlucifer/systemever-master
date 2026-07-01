@@ -5,14 +5,16 @@
 @section('custom_css')
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
 
     :root {
-        --cloud-green: #009944;
+        --cloud-green: #00b34f;
+        --cloud-yellow: #919e00;
         --cloud-green-soft: #eaf7ee;
         --cloud-dark: #2d2d2d;
-        --cloud-gray: #6c6c6c;
+        --cloud-gray: #8f8f8f;
         --cloud-dark-green: #007a37;
     }
 
@@ -29,59 +31,134 @@
     }
 
     .cloud-container {
-        max-width: 1140px;
+        max-width: 1350px;
+        width: 100%;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 0 30px; 
+        box-sizing: border-box;
     }
+
+    .cloud-hero-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 0;
+        align-items: center;
+    }
+
+    .cloud-hero.lang-en {
+        padding: 60px 0 48px;
+        animation: fadeInUp 0.8s ease-out;
+    }
+
+    .cloud-hero.lang-en h1 {
+        font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+        font-size: 48px;
+        line-height: 1.25;
+        font-weight: 600;
+        color: #1f1f1f;
+        margin-bottom: 15px;
+        letter-spacing: -0.5px;
+    }
+
+    .cloud-hero.lang-en h1.kor-heavy {
+        font-family: 'Noto Sans KR', sans-serif;
+        font-weight: 900 !important;
+        letter-spacing: -0.2px;
+        -webkit-text-stroke: 0.15px currentColor;
+    }
+
+    .cloud-hero.lang-en p {
+        font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+        font-size: 30px;
+        font-weight: 300;
+        line-height: 1.2;
+        color: var(--cloud-gray);
+        margin-bottom: 12px;
+        letter-spacing: 1px;
+        max-width: 760px;
+    }
+
+    .cloud-hero.lang-en span {
+        font-family: 'Poppins', sans-serif;
+        font-size: 19px;
+        line-height: -1.5;
+        font-weight: 500;
+        color: var(--cloud-yellow);
+        max-width: 600px;
+        margin-bottom: 0;
+        margin-right: -65px;
+        display: block;
+    }
+
+    /* korea */
 
     .cloud-hero {
         padding: 60px 0 48px;
         animation: fadeInUp 0.8s ease-out;
     }
 
-    .cloud-hero-grid {
-        display: grid;
-        grid-template-columns: 1.1fr 1fr;
-        gap: 48px;
-        align-items: center;
+    .cloud-hero-title {
+        margin-top: 0;
     }
 
     .cloud-hero h1 {
-        font-family: 'Poppins', sans-serif;
-        font-size: 36px;
+        font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+        font-size: 56px;
         line-height: 1.25;
-        font-weight: 700;
+        font-weight: 600;
         color: #1f1f1f;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         letter-spacing: -0.5px;
     }
 
+    .cloud-hero h1.kor-heavy {
+        font-family: 'Noto Sans KR', sans-serif;
+        font-weight: 900 !important;
+        letter-spacing: -0.2px;
+        -webkit-text-stroke: 0.15px currentColor;
+    }
+
     .cloud-hero p {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 16px;
-        line-height: 1.7;
+        font-family: 'Open Sans', 'Noto Sans KR', sans-serif;
+        font-size: 28px;
+        line-height: 1.2;
         color: var(--cloud-gray);
-        margin-bottom: 12px;
+        margin-bottom: 18px;
+        letter-spacing: 1px;
+        max-width: 630px;
+        font-weight: 450;
+    }
+
+    .cloud-hero span {
+        font-family: 'Open Sans', 'Noto Sans KR', sans-serif;
+        font-size: 19px;
+        line-height: -1.5;
+        font-weight: 500;
+        color: var(--cloud-yellow);
+        max-width: 600px;
+        margin-bottom: 0;
+        margin-right: -65px;
+        display: block;
     }
 
     .cloud-hero-visual {
+        justify-self: end;     
+        width: 100%;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0;
-        box-shadow: none;
-        background: transparent;
-        transition: transform 0.5s ease;
+        justify-content: flex-end;
     }
 
     .cloud-hero-visual:hover {
         transform: scale(1.02);
+        max-width: none; 
     }
 
     .cloud-hero-visual img {
-        width: 100%;
-        max-width: 480px;
-        object-fit: contain;
+        display: block;
+        width: 115%;
+        max-width: none;
+        margin-left: auto;     
+        margin-right: -60px;      
     }
 
     .cloud-section-title {
@@ -102,7 +179,6 @@
         color: var(--cloud-gray);
         margin-bottom: 24px;
     }
-
 
     .cloud-section {
         padding: 64px 0 72px;
@@ -142,7 +218,7 @@
         width: auto;
         margin-bottom: 5px;
         transition: all 0.3s;
-        filter: grayscale(100%);
+        filter: grayscale(0%);
         opacity: 0.6;
     }
 
@@ -299,8 +375,8 @@
     }
 
     .cloud-diagram-center img {
-        width: 100%;
-        max-width: 840px;
+        width: 110%;
+        max-width: 1200px;
     }
 
     .cloud-pill {
@@ -438,13 +514,142 @@
         .cloud-benefit-list {
             grid-template-columns: 1fr;
         }
+
+        .cloud-hero-visual img {
+            margin-right: 0;
+        }
     }
+
+    @media (max-width: 768px) {
+        .cloud-container {
+            padding: 0 20px;
+        }
+
+        .cloud-hero {
+            padding: 28px 0 30px;
+        }
+
+        .cloud-hero-title,
+        .cloud-hero.lang-en .cloud-hero-title {
+            margin-top: 0;
+            font-size: 52px;
+            line-height: 1.08;
+            letter-spacing: -0.6px;
+            margin-bottom: 14px;
+        }
+
+        .cloud-hero p,
+        .cloud-hero.lang-en p {
+            font-size: 18px;
+            line-height: 1.45;
+            letter-spacing: 0;
+            margin-bottom: 10px;
+        }
+
+        .cloud-hero span,
+        .cloud-hero.lang-en span {
+            font-size: 15px;
+            line-height: 1.45;
+            margin-right: 0;
+            max-width: 100%;
+        }
+
+        .cloud-hero-visual {
+            justify-content: center;
+            margin-top: 18px;
+        }
+
+        .cloud-hero-visual img {
+            width: 100%;
+            max-width: 360px;
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        img[style*="width:"] {
+            width: 100% !important;
+            max-width: 100% !important;
+            height: auto !important;
+        }
+    }
+
+    @media (max-width: 430px) {
+        .cloud-container {
+            padding: 0 16px;
+        }
+
+        .cloud-hero-title,
+        .cloud-hero.lang-en .cloud-hero-title {
+            font-size: 26px;
+            line-height: 1.14;
+            margin-bottom: 12px;
+        }
+
+        .cloud-hero.lang-kor .cloud-hero-title {
+            font-size: 28px;
+            line-height: 1.2;
+        }
+
+        .cloud-hero p,
+        .cloud-hero.lang-en p {
+            font-size: 16px;
+            line-height: 1.4;
+        }
+
+        .cloud-hero span,
+        .cloud-hero.lang-en span {
+            font-size: 13px;
+            line-height: 1.4;
+        }
+    }
+
+    .accounting-diagram {
+        padding: 70px 30px 60px;
+    }
+
+    .accounting-diagram-lg {
+        padding: 70px 0 60px;
+    }
+
+    .menu-about {
+        gap: 10px;
+    }
+
+    .menu-box {
+        background-color: #28a745; /* green */
+        color: #fff;
+
+        padding: 4px 6px;
+        border-radius: 8px;
+
+        font-weight: 600;
+        font-size: 17px;
+        text-align: center;
+
+        /* make it feel like a label, not a button */
+        cursor: default;
+        user-select: none;
+
+        display: flex;
+        align-items: start;
+        justify-content: start;
+    }
+
 </style>
 @endsection
 
+@php
+    if (activelang() == 'KOR') {
+        $ext = '-kor';
+    } else {
+        $ext = '';
+    }
+@endphp
+
 @section('content')
-<section class="cloud-hero">
+<section class="cloud-hero lang-{{ strtolower(activelang()) }}">
     <div class="cloud-container">
+        <!-- @if (activelang() != "KOR")
         <div class="bc">
             <a href="/">{{ stringlang('Home', 'Beranda','홈페이지') }}</a>
             <img src="{{ asset('assets/fl/bc.png') }}" alt="">
@@ -452,103 +657,43 @@
             <img src="{{ asset('assets/fl/bc.png') }}" alt="">
             <a href="" class="active">{{ stringlang('Accounting', 'Akuntansi', '회계') }}</a>
         </div>
+        @endif -->
         <div class="cloud-hero-grid">
             <div>
-                <h1>{{ stringlang('Integrated accounting helps analyze financial report in simple and efficient way', 'Akuntansi Terintegrasi untuk Analisis Keuangan yang Lebih Mudah dan Efisien ', '통합 회계 기반의 쉽고 효율적인 재무 보고서 분석') }}</h1>
-                <div class="cloud-highlight-list" style="margin-top: 24px;">
-                    <div class="cloud-highlight-item">
-                        <div class="flex-shrink-0 w-5 aspect-square lg:w-auto"><img src="{{ asset('assets/fl/check-flower.png')}}" alt=""></div>
-                        <div>
-                            <p style="margin: 0; font-size: 16px; color: #1f1f1f; font-weight: 600;">{{ stringlang('Recap data without running out of time and effort', 'Rekap data secara efisien tanpa membuang waktu dan tenaga', '시간과 노력을 줄여 재무 데이터를 효율적으로 집 ') }}</p>
-                        </div>
+                <h1 class="cloud-hero-title {{ activelang() == 'KOR' ? 'kor-heavy' : '' }}">{{ stringlang('Accounting Management Solution', 'Transformasi Alur Kerja Akuntansi Anda', '회계 관리 솔루션') }}</h1>
+                <!-- @if (activelang() != "KOR")
+                <section style="padding-bottom: 10px;">
+                    <div class="col-lg-12 d-flex">
+                        <ul class="menu-about d-flex">
+                            <li class="menu-box">{{ stringlang('Simplify bookkeeping', 'Sederhanakan pembukuan','장부 관리를 단순화') }}
+                            </li>
+                            <li class="menu-box">
+                                {{ stringlang('Eliminate errors', 'Kurangi kesalahan','오류를 최소화') }}
+                            </li>
+                            <li class="menu-box">
+                                {{ stringlang('Grow with confidence', 'Tumbuh dengan lebih percaya diri','더 큰 자신감으로 성장') }}
+                            </li>
+                        </ul>
                     </div>
-                    <div class="cloud-highlight-item">
-                        <div class="flex-shrink-0 w-5 aspect-square lg:w-auto"><img src="{{ asset('assets/fl/check-flower.png')}}" alt=""></div>
-                        <div>
-                            <p style="margin: 0; font-size: 16px; color: #1f1f1f; font-weight: 600;">{{ stringlang('Manage all journal transactions in one system', 'Kelola seluruh transaksi jurnal dalam satu sistem', '모든 전표 거래를 하나의 시스템에서 통합 관리 ') }}</p>
-                        </div>
-                    </div>
-                    <div class="cloud-highlight-item">
-                        <div class="flex-shrink-0 w-5 aspect-square lg:w-auto"><img src="{{ asset('assets/fl/check-flower.png')}}" alt=""></div>
-                        <div>
-                            <p style="margin: 0; font-size: 16px; color: #1f1f1f; font-weight: 600;">{{ stringlang('Financial report automations', 'Otomatisasi laporan keuangan', '재무 리포트 자동화 ') }}</p>
-                        </div>
-                    </div>
-                </div>
+                </section>
+                @endif -->
+                <p>{{ stringlang('SystemEver Accounting is a financial management solution built to streamline accounting operations and improve data accuracy.'
+                            , 'SystemEver Accounting memberdayakan bisnis dari berbagai skala untuk mengelola data keuangan dengan lebih cepat, lebih sederhana, akurat, dan efisien.'
+                            , 'SystemEver Accounting은 재무 및 회계 업무를 체계적으로 관리하기 위한 ​회계 솔루션입니다.​') }}
+                </p>
+                <span> {{ stringlang('It supports efficient financial processes — from journal entries to reporting — within a structured system.'
+                                , 'Mulai dari pencatatan jurnal harian hingga pelaporan keuangan, kami membantu memastikan pembukuan Anda tetap rapi dan terkontrol, sehingga Anda dapat fokus pada pengambilan keputusan strategis dan pertumbuhan bisnis.'
+                                , '전표 처리부터 재무 보고까지 회계 프로세스를 효율적으로 운영할 수 있도록 ​지원합니다.​') }}
+                </span>
             </div>
             <div class="cloud-hero-visual">
-                <img src="{{ asset('assets/img/1.png') }}" alt="SystemEver Accounting">
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="cloud-section">
-    <div class="cloud-container">
-        <h2 class="cloud-section-title">{{ stringlang('Make Bookkeeping in Simple Way', 'Pembukuan Menjadi Lebih Sederhana', '간단한 방법으로 장부 작성') }}</h2>
-        <p class="cloud-section-subtitle">{{ stringlang('SystemEver Accounting provides comprehensive features that make business accounting processes easier', 'SystemEver Accounting menyediakan fitur komprehensif yang memudahkan proses akuntansi bisnis', 'SystemEver Accounting은 비즈니스 회계 프로세스를 더 쉽게 만드는 포괄적인 기능을 제공합니다') }}</p>
-        <div class="cloud-feature-tabs" id="cloud-feature-tabs">
-            <div class="cloud-feature-row">
-                <button class="cloud-feature-tab is-active" type="button" data-tab="journals" aria-pressed="true">
-                    <div class="cloud-feature-icon">
-                        <img src="{{ asset('assets/img/2.png') }}" alt="{{ stringlang('Input multiple journals', 'Input beberapa jurnal', '전표일괄 업로드') }}">
-                    </div>
-                    <h4>{{ stringlang('Input multiple journals at once', 'Input beberapa jurnal sekaligus', '전표일괄 업로드') }}</h4>
-                </button>
-                <button class="cloud-feature-tab" type="button" data-tab="proof" aria-pressed="false">
-                    <div class="cloud-feature-icon">
-                        <img src="{{ asset('assets/img/3.png') }}" alt="{{ stringlang('Upload proof of transactions', 'Upload bukti transaksi', '거래 증빙 업로드') }}">
-                    </div>
-                    <h4>{{ stringlang('Upload proof of transactions', 'Upload bukti transaksi', '거래 증빙 업로드') }}</h4>
-                </button>
-                <button class="cloud-feature-tab" type="button" data-tab="visual" aria-pressed="false">
-                    <div class="cloud-feature-icon">
-                        <img src="{{ asset('assets/img/4.png') }}" alt="{{ stringlang('Menu visualisation', 'Visualisasi menu', '메뉴 시각화') }}">
-                    </div>
-                    <h4>{{ stringlang('Menu visualisation', 'Visualisasi menu', '메뉴 시각화') }}</h4>
-                </button>
+                <img src="{{ asset('assets/img/accounting-logo.png') }}" alt="SystemEver Accounting">
             </div>
         </div>
     </div>
 </section>
 
 <div class="cloud-feature-tabs" id="cloud-feature-panels">
-    <section class="cloud-highlight cloud-tab-panel is-active" data-tab-panel="journals">
-        <div class="cloud-container">
-            <div class="cloud-highlight-grid">
-                <div>
-                    <h3>{{ stringlang('Input multiple journals at once', 'Input beberapa jurnal sekaligus', '간편한 회계 관리') }}</h3>
-                    <div class="cloud-highlight-list">
-                        <div class="cloud-highlight-item">
-                            <div class="flex-shrink-0 w-5 aspect-square lg:w-auto"><img src="{{ asset('assets/fl/check-flower.png')}}" alt=""></div>
-                            <div>
-                                <h5>{{ stringlang('Speed Up the Bookkeeping Process', 'Percepat Proses Pembukuan', '자금관리') }}</h5>
-                                <p>{{ stringlang('Eliminate manual journals entries, upload every journals with one click.', 'Hilangkan entri jurnal manual, upload semua jurnal dengan satu klik.', '수동 분개 입력을 제거하고 한 번의 클릭으로 모든 분개를 업로드하세요.') }}</p>
-                            </div>
-                        </div>
-                        <div class="cloud-highlight-item">
-                            <div class="flex-shrink-0 w-5 aspect-square lg:w-auto"><img src="{{ asset('assets/fl/check-flower.png')}}" alt=""></div>
-                            <div>
-                                <h5>{{ stringlang('Calculate Automation', 'Otomatisasi Perhitungan', '총계정원장') }}</h5>
-                                <p>{{ stringlang('Get instant calculations without enter single unit formulas.', 'Dapatkan perhitungan instan tanpa memasukkan rumus satuan.', '단위 공식을 입력하지 않고 즉시 계산 결과를 얻으세요.') }}</p>
-                            </div>
-                        </div>
-                        <div class="cloud-highlight-item">
-                            <div class="flex-shrink-0 w-5 aspect-square lg:w-auto"><img src="{{ asset('assets/fl/check-flower.png')}}" alt=""></div>
-                            <div>
-                                <h5>{{ stringlang('Automatic Grouping', 'Pengelompokan Otomatis', '회계 리포트') }}</h5>
-                                <p>{{ stringlang('Organizing Data will be easier with automatic grouping.', 'Pengorganisasian Data akan lebih mudah dengan pengelompokan otomatis.', '자동 그룹화로 데이터 정리가 더 쉬워집니다.') }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="cloud-highlight-visual">
-                    <img src="{{ asset('assets/img/5.png') }}" alt="Journal Preview">
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="cloud-highlight cloud-tab-panel" data-tab-panel="proof">
         <div class="cloud-container">
             <div class="cloud-highlight-grid">
@@ -622,23 +767,45 @@
     </section>
 </div>
 
-<section class="cloud-diagram">
+<section class="accounting-diagram">
     <div class="cloud-container">
-        <div class="cloud-diagram-card">
-            <div class="cloud-diagram-center">
-                @if(activelang() == 'KOR')
-                    <img src="{{ asset('assets/img/accounting1korea.png') }}" alt="">
-                @elseif(activelang() == 'ID')
-                    <img src="{{ asset('assets/img/accounting1indo.png') }}" alt="">
-                @else
-                    <img src="{{ asset('assets/img/6.png') }}" alt="">
-                @endif
+        <div class="cloud-diagram-center">
+            <img src="{{ asset('assets/img/accounting-why-systemever' . $ext . '.png') }}" alt="">
+        </div>
+    </div>
+</section>
+
+<section class="accounting-diagram-lg">
+    <div class="cloud-container">
+        <div>
+            <div>
+                <img src="{{ asset('assets/img/accounting-keybenefit' . $ext . '.png') }}" alt="">
             </div>
         </div>
     </div>
 </section>
 
-<section class="cloud-benefits">
+<section class="accounting-diagram-lg">
+    <div class="cloud-container">
+        <div>
+            <div>
+                <img src="{{ asset('assets/img/accounting-powerfull-features' . $ext . '.png') }}" alt="" style="width: 85%; max-width: 1020px; border-radius: 10px; margin: 0 auto; display: block;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="accounting-diagram-lg">
+    <div class="cloud-container">
+        <div>
+            <div>
+                <img src="{{ asset('assets/img/accounting-built-on-proven' . $ext . '.png') }}" alt="" style="width: 75%; max-width: 1020px; border-radius: 10px; display: block;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <section class="accounting-diagram">
     <div class="cloud-container">
         <div class="cloud-benefits-grid">
             <div class="cloud-benefits-left">
@@ -662,7 +829,7 @@
             <div class="cloud-benefits-right">
                 <div class="cloud-benefit-card is-divider">
                     <div class="cloud-feature-icon">
-                        <img src="{{ asset('assets/img/7.png') }}" alt="{{ stringlang('Accelerate Business', 'Percepat Bisnis', '계정 기준 다차원 분석') }}">
+                        <img src="{{ asset('assets/img/accelerate-business.png') }}" alt="{{ stringlang('Accelerate Business', 'Percepat Bisnis', '계정 기준 다차원 분석') }}">
                     </div>
                     <div>
                         <h5>{{ stringlang('Accelerate Business', 'Percepat Bisnis', '계정 기준 다차원 분석') }}</h5>
@@ -676,7 +843,7 @@
                 </div>
                 <div class="cloud-benefit-card is-divider">
                     <div class="cloud-feature-icon">
-                        <img src="{{ asset('assets/img/8.png') }}" alt="{{ stringlang('Easy Configuration', 'Konfigurasi Mudah', 'Visual Process Map') }}">
+                        <img src="{{ asset('assets/img/easy-configuration.png') }}" alt="{{ stringlang('Easy Configuration', 'Konfigurasi Mudah', 'Visual Process Map') }}">
                     </div>
                     <div>
                         <h5>{{ stringlang('Easy Configuration', 'Konfigurasi Mudah', 'Visual Process Map') }}</h5>
@@ -703,7 +870,7 @@
                 </div>
                 <div class="cloud-benefit-card">
                     <div class="cloud-feature-icon">
-                        <img src="{{ asset('assets/img/11.png') }}" alt="{{ stringlang('Journal Management', 'Manajemen Jurnal', '마감처리') }}">
+                        <img src="{{ asset('assets/img/journal-management.png') }}" alt="{{ stringlang('Journal Management', 'Manajemen Jurnal', '마감처리') }}">
                     </div>
                     <div>
                         <h5>{{ stringlang('Journal Management', 'Manajemen Jurnal', '마감처리') }}</h5>
@@ -716,7 +883,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 @endsection
 
 @section('footer')
